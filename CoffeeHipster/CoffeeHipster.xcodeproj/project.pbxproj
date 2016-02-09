@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		37343BBE1C696FF30058CDDA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37343BBD1C696FF30058CDDA /* SWRevealViewController.m */; };
-		37343BC51C6973040058CDDA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37343BC41C6973040058CDDA /* HomeViewController.swift */; };
 		37343BCA1C69788E0058CDDA /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37343BC91C69788E0058CDDA /* MenuTableViewController.swift */; };
+		37343BCC1C697EA80058CDDA /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37343BCB1C697EA80058CDDA /* HomeTableViewController.swift */; };
 		37EDFFD11C696EA7003D6BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EDFFD01C696EA7003D6BAA /* AppDelegate.swift */; };
-		37EDFFD31C696EA7003D6BAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EDFFD21C696EA7003D6BAA /* ViewController.swift */; };
 		37EDFFD61C696EA7003D6BAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EDFFD41C696EA7003D6BAA /* Main.storyboard */; };
 		37EDFFD91C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37EDFFD71C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld */; };
 		37EDFFDB1C696EA7003D6BAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37EDFFDA1C696EA7003D6BAA /* Assets.xcassets */; };
@@ -33,11 +32,10 @@
 		37343BBB1C696FF20058CDDA /* CoffeeHipster-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoffeeHipster-Bridging-Header.h"; sourceTree = "<group>"; };
 		37343BBC1C696FF30058CDDA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		37343BBD1C696FF30058CDDA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		37343BC41C6973040058CDDA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		37343BC91C69788E0058CDDA /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		37343BCB1C697EA80058CDDA /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		37EDFFCD1C696EA7003D6BAA /* CoffeeHipster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeHipster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EDFFD01C696EA7003D6BAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		37EDFFD21C696EA7003D6BAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37EDFFD51C696EA7003D6BAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37EDFFD81C696EA7003D6BAA /* CoffeeHipster.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoffeeHipster.xcdatamodel; sourceTree = "<group>"; };
 		37EDFFDA1C696EA7003D6BAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,7 +88,7 @@
 		37343BC31C6972DF0058CDDA /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				37343BC41C6973040058CDDA /* HomeViewController.swift */,
+				37343BCB1C697EA80058CDDA /* HomeTableViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -130,7 +128,6 @@
 				37343BC21C6970D90058CDDA /* Add */,
 				37343BC11C6970CA0058CDDA /* Learn */,
 				37343BC01C69704F0058CDDA /* Timer */,
-				37EDFFD21C696EA7003D6BAA /* ViewController.swift */,
 				37EDFFD41C696EA7003D6BAA /* Main.storyboard */,
 				37EDFFDA1C696EA7003D6BAA /* Assets.xcassets */,
 				37EDFFDC1C696EA7003D6BAA /* LaunchScreen.storyboard */,
@@ -253,8 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37343BC51C6973040058CDDA /* HomeViewController.swift in Sources */,
-				37EDFFD31C696EA7003D6BAA /* ViewController.swift in Sources */,
+				37343BCC1C697EA80058CDDA /* HomeTableViewController.swift in Sources */,
 				37343BCA1C69788E0058CDDA /* MenuTableViewController.swift in Sources */,
 				37EDFFD11C696EA7003D6BAA /* AppDelegate.swift in Sources */,
 				37EDFFD91C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld in Sources */,
