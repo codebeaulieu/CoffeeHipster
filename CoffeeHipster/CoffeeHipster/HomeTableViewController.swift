@@ -7,50 +7,55 @@
 //
 
 import UIKit
+import Alamofire
 
 class HomeTableViewController: UITableViewController {
 
-    @IBOutlet weak var menuButton: UIBarButtonItem!
+   
+    
+    var dataSource = [Section<Post>]() {
+        didSet {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.reloadData()
+            })
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if self.revealViewController() != nil {
-            
-            menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            self.revealViewController().rearViewRevealWidth = 170
-            
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        Connect.getPosts() { self.dataSource.append(Section(header: "Recent Posts", items: $0)) }
+        
+        
     }
 
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return dataSource.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return dataSource[section].items.count
     }
 
-    /*
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return dataSource[section].header
+    }
+   
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as? PostTableViewCell
+        let postObject = dataSource[indexPath.section].items[indexPath.row]
+        cell?.titleLabel.text = postObject.title
+        cell?.askedOnLabel.text = "asked on \(postObject.creationDate)"
+        cell?.votesLabel.text = "\(postObject.score)"
+        guard let output = cell else { return UITableViewCell() }
+        return output
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
