@@ -1,30 +1,20 @@
 //
-//  HomeViewController.swift
+//  TimerViewController.swift
 //  CoffeeHipster
 //
-//  Created by Dan Beaulieu on 3/15/16.
+//  Created by Dan Beaulieu on 4/23/16.
 //  Copyright © 2016 Dan Beaulieu. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class TimerViewController: UIViewController {
 
-    @IBOutlet weak var menuButton: UIBarButtonItem!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("timer says fuck you")
         // Do any additional setup after loading the view.
-        if self.revealViewController() != nil {
-            
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            self.revealViewController().rearViewRevealWidth = 170
-            
-        }
-        
     }
 
     override func didReceiveMemoryWarning() {

@@ -13,6 +13,7 @@ class HomeTableViewController: UITableViewController {
 
    
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     var dataSource = [Section<Post>]() {
         didSet {
             dispatch_async(dispatch_get_main_queue(), {
@@ -26,7 +27,12 @@ class HomeTableViewController: UITableViewController {
 
         Connect.getPosts() { self.dataSource.append(Section(header: "Recent Posts", items: $0)) }
         
-        
+        if self.revealViewController() != nil { 
+            menuButton.target = self.revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.revealViewController().rearViewRevealWidth = 170
+        }
     }
 
     // MARK: - Table view data source
@@ -102,4 +108,7 @@ class HomeTableViewController: UITableViewController {
     }
     */
 
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
 }

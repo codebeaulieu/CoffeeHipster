@@ -9,12 +9,13 @@
 import Foundation
 
 struct User {
-    var userId : Int
-    var displayName : String
-    var profile : String
-    var image : String
-    var rep : Int
-    var userType : String
+    let userId : Int
+    let displayName : String
+    let profile : String
+    let image : String
+    let rep : Int
+    let userType : String
+    var hipsterRep : Int = 0
 
     init?(_ json : AnyObject) {
     
@@ -32,7 +33,6 @@ struct User {
         self.image = img
         self.rep = repu
         self.userType = type
-    
-    
+
     }
 }

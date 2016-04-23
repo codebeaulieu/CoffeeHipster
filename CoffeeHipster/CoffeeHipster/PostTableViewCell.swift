@@ -19,7 +19,7 @@ class PostTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        Style.color(titleLabel, votesLabel, askedOnLabel, color: .White(1))
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

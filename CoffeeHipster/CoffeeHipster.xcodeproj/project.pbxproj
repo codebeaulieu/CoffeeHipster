@@ -13,17 +13,11 @@
 		370960FF1C98680A00416B57 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370960FE1C98680A00416B57 /* Tag.swift */; };
 		370961011C98749700416B57 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961001C98749700416B57 /* Section.swift */; };
 		370961031C987E4900416B57 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961021C987E4900416B57 /* PostTableViewCell.swift */; };
-		3709610A1C987F1D00416B57 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961041C987F1D00416B57 /* ButtonStyle.swift */; };
-		3709610B1C987F1D00416B57 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961051C987F1D00416B57 /* Color.swift */; };
-		3709610C1C987F1D00416B57 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961061C987F1D00416B57 /* LabelStyle.swift */; };
-		3709610D1C987F1D00416B57 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961071C987F1D00416B57 /* Style.swift */; };
-		3709610E1C987F1D00416B57 /* SwitchStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961081C987F1D00416B57 /* SwitchStyle.swift */; };
-		3709610F1C987F1D00416B57 /* ViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961091C987F1D00416B57 /* ViewStyle.swift */; };
 		370961121C987F9400416B57 /* GCDUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961111C987F9400416B57 /* GCDUtility.swift */; };
-		370961151C9888F800416B57 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961141C9888F800416B57 /* HomeViewController.swift */; };
 		37343BBE1C696FF30058CDDA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37343BBD1C696FF30058CDDA /* SWRevealViewController.m */; };
 		37343BCA1C69788E0058CDDA /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37343BC91C69788E0058CDDA /* MenuTableViewController.swift */; };
 		37343BCC1C697EA80058CDDA /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37343BCB1C697EA80058CDDA /* HomeTableViewController.swift */; };
+		37ACAF931CCBB59E0059CBB5 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAF921CCBB59E0059CBB5 /* TimerViewController.swift */; };
 		37EDFFD11C696EA7003D6BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EDFFD01C696EA7003D6BAA /* AppDelegate.swift */; };
 		37EDFFD61C696EA7003D6BAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EDFFD41C696EA7003D6BAA /* Main.storyboard */; };
 		37EDFFD91C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37EDFFD71C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld */; };
@@ -52,19 +46,13 @@
 		370960FE1C98680A00416B57 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		370961001C98749700416B57 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		370961021C987E4900416B57 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		370961041C987F1D00416B57 /* ButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
-		370961051C987F1D00416B57 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		370961061C987F1D00416B57 /* LabelStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
-		370961071C987F1D00416B57 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		370961081C987F1D00416B57 /* SwitchStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchStyle.swift; sourceTree = "<group>"; };
-		370961091C987F1D00416B57 /* ViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStyle.swift; sourceTree = "<group>"; };
 		370961111C987F9400416B57 /* GCDUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDUtility.swift; sourceTree = "<group>"; };
-		370961141C9888F800416B57 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		37343BBB1C696FF20058CDDA /* CoffeeHipster-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoffeeHipster-Bridging-Header.h"; sourceTree = "<group>"; };
 		37343BBC1C696FF30058CDDA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		37343BBD1C696FF30058CDDA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		37343BC91C69788E0058CDDA /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		37343BCB1C697EA80058CDDA /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		37ACAF921CCBB59E0059CBB5 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		37EDFFCD1C696EA7003D6BAA /* CoffeeHipster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeHipster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EDFFD01C696EA7003D6BAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37EDFFD51C696EA7003D6BAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,19 +96,6 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		370961101C987F2100416B57 /* Style */ = {
-			isa = PBXGroup;
-			children = (
-				370961041C987F1D00416B57 /* ButtonStyle.swift */,
-				370961051C987F1D00416B57 /* Color.swift */,
-				370961061C987F1D00416B57 /* LabelStyle.swift */,
-				370961071C987F1D00416B57 /* Style.swift */,
-				370961081C987F1D00416B57 /* SwitchStyle.swift */,
-				370961091C987F1D00416B57 /* ViewStyle.swift */,
-			);
-			name = Style;
-			sourceTree = "<group>";
-		};
 		370961131C987FA100416B57 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,28 +107,21 @@
 		37343BC01C69704F0058CDDA /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				37ACAF921CCBB59E0059CBB5 /* TimerViewController.swift */,
 			);
 			name = Timer;
 			sourceTree = "<group>";
 		};
-		37343BC11C6970CA0058CDDA /* Learn */ = {
+		37343BC11C6970CA0058CDDA /* Search */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Learn;
-			sourceTree = "<group>";
-		};
-		37343BC21C6970D90058CDDA /* Add */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Add;
+			name = Search;
 			sourceTree = "<group>";
 		};
 		37343BC31C6972DF0058CDDA /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				370961141C9888F800416B57 /* HomeViewController.swift */,
 				37343BCB1C697EA80058CDDA /* HomeTableViewController.swift */,
 				370961021C987E4900416B57 /* PostTableViewCell.swift */,
 			);
@@ -198,10 +166,8 @@
 				370960F71C9863C800416B57 /* Connect.swift */,
 				37343BC81C6978700058CDDA /* Menu */,
 				37343BC31C6972DF0058CDDA /* Home */,
-				37343BC21C6970D90058CDDA /* Add */,
-				37343BC11C6970CA0058CDDA /* Learn */,
+				37343BC11C6970CA0058CDDA /* Search */,
 				37343BC01C69704F0058CDDA /* Timer */,
-				370961101C987F2100416B57 /* Style */,
 				37EDFFDA1C696EA7003D6BAA /* Assets.xcassets */,
 				37EDFFDC1C696EA7003D6BAA /* LaunchScreen.storyboard */,
 				37EDFFDF1C696EA7003D6BAA /* Info.plist */,
@@ -393,23 +359,17 @@
 			files = (
 				370961031C987E4900416B57 /* PostTableViewCell.swift in Sources */,
 				370961121C987F9400416B57 /* GCDUtility.swift in Sources */,
-				370961151C9888F800416B57 /* HomeViewController.swift in Sources */,
 				37343BCC1C697EA80058CDDA /* HomeTableViewController.swift in Sources */,
-				3709610C1C987F1D00416B57 /* LabelStyle.swift in Sources */,
 				37343BCA1C69788E0058CDDA /* MenuTableViewController.swift in Sources */,
-				3709610D1C987F1D00416B57 /* Style.swift in Sources */,
 				370960F81C9863C800416B57 /* Connect.swift in Sources */,
-				3709610B1C987F1D00416B57 /* Color.swift in Sources */,
 				37EDFFD11C696EA7003D6BAA /* AppDelegate.swift in Sources */,
 				370960FD1C9867CC00416B57 /* User.swift in Sources */,
 				37EDFFD91C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld in Sources */,
 				370960FF1C98680A00416B57 /* Tag.swift in Sources */,
 				370961011C98749700416B57 /* Section.swift in Sources */,
-				3709610A1C987F1D00416B57 /* ButtonStyle.swift in Sources */,
+				37ACAF931CCBB59E0059CBB5 /* TimerViewController.swift in Sources */,
 				370960FB1C98671600416B57 /* Post.swift in Sources */,
-				3709610F1C987F1D00416B57 /* ViewStyle.swift in Sources */,
 				37343BBE1C696FF30058CDDA /* SWRevealViewController.m in Sources */,
-				3709610E1C987F1D00416B57 /* SwitchStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
