@@ -9,7 +9,6 @@
 import Foundation
 
 struct Post {
-    
     var acceptedAnswerId : Int
     var answerCount : Int
     var creationDate : Int

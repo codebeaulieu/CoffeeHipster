@@ -7,29 +7,45 @@
 //
 
 import Foundation
-import Alamofire
 
-class Connect {
+final class Connect {
+    private let userRepo = UserRepository()
+    private let postRepo = PostRepository()
     
-    class func getPosts(completion:([Post]) -> Void) {
-        
-        
-        Alamofire.request(.GET, "https://api.stackexchange.com/2.2/questions?order=desc&min=10&sort=activity&site=coffee")
-            .responseJSON { response in
-//                print(response.request)  // original URL request
-//                print(response.response) // URL response
-//                print(response.data)     // server data
-//                print(response.result)   // result of response serialization
-                var posts = [Post]()
-                if let JSON = response.result.value {
-                    if let jsonArray = JSON["items"] as? [[String: AnyObject]]  {
-                        for item in jsonArray {
-                            guard let post = Post(item) else { continue }
-                            posts.append(post)
-                        }
-                        completion(posts)
-                    }
-                }
+    class func handle(obj : AnyObject? = nil, operation: Operation, completion: (result: Either) -> Void) {
+
+        func callUserRepo(user: User? = nil) {
+            UserRepository.manager(user!, operation: operation) { either in
+               
+            }
         }
+        
+        func callPostsRepo(post: Post? = nil) {
+            PostRepository.manager(post, operation: operation) { either in
+                completion(result: either)
+            }
+        }
+        
+        if obj == nil {
+            switch operation {
+            case .GetUsers(_):
+                callUserRepo()
+            case .GetPosts(_):
+                callPostsRepo()
+            default:
+                assertionFailure()
+            }
+        } else {
+            if let user = obj as? User {
+                callUserRepo(user)
+            }
+            
+            if let post = obj as? Post {
+                callPostsRepo(post) 
+            }
+        }
+        
+        
     }
 }
+

@@ -10,9 +10,7 @@ import UIKit
 import Alamofire
 
 class HomeTableViewController: UITableViewController {
-
-   
-    
+ 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var dataSource = [Section<Post>]() {
         didSet {
@@ -24,14 +22,12 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        Connect.getPosts() { self.dataSource.append(Section(header: "Recent Posts", items: $0)) }
-        
-        if self.revealViewController() != nil { 
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            self.revealViewController().rearViewRevealWidth = 170
+        setupRevealMenu()
+        Connect.handle(operation: Operation.GetPosts(0)) { result in
+            if case Either.Object(let posts) = result {
+                print("posts: \n \(posts)")
+                self.dataSource.append(Section<Post>(header:"Stuff" ,items: posts))
+            }    
         }
     }
 
@@ -55,10 +51,12 @@ class HomeTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as? PostTableViewCell
         let postObject = dataSource[indexPath.section].items[indexPath.row]
+        
         cell?.titleLabel.text = postObject.title
         cell?.askedOnLabel.text = "asked on \(postObject.creationDate)"
         cell?.votesLabel.text = "\(postObject.score)"
         guard let output = cell else { return UITableViewCell() }
+        
         return output
     }
  
@@ -110,5 +108,14 @@ class HomeTableViewController: UITableViewController {
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+    
+    func setupRevealMenu() {
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.revealViewController().rearViewRevealWidth = 170
+        }
     }
 }

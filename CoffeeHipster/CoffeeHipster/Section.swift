@@ -9,7 +9,6 @@
 import Foundation
 
 struct Section<T> {
-    var header : String
-    var items : [T]
-
+    let header : String
+    let items : [T]
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 struct Tag {
-    var tag :  String
+    let tag :  String
     
     init?(_ json: AnyObject) {
         guard let json = json as? String else { return nil }
