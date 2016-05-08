@@ -1,23 +1,17 @@
 //
-//  HomeTableViewController.swift
+//  TimerSettingsTableViewController.swift
 //  CoffeeHipster
 //
-//  Created by Dan Beaulieu on 2/8/16.
+//  Created by Dan Beaulieu on 5/8/16.
 //  Copyright © 2016 Dan Beaulieu. All rights reserved.
 //
 
 import UIKit
-import Alamofire
 
-class HomeTableViewController: UITableViewController {
- 
-    @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBAction func handleTimerButtonTapped(sender: UIBarButtonItem) {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("TimerVC") as! TimerViewController
-        vc.modalPresentationStyle = .OverCurrentContext
-        self.presentViewController(vc, animated: false, completion: nil)
-    }
-    var dataSource = [Section<Post>]() {
+class TimerSettingsTableViewController: UITableViewController {
+
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    var dataSource = [Section<String>]() {
         didSet {
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
@@ -27,12 +21,12 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupRevealMenu()
-        getPosts()
+        displayAeroPressOptions()
+        
+
     }
 
     // MARK: - Table view data source
-    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return dataSource.count
@@ -42,39 +36,59 @@ class HomeTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return dataSource[section].items.count
     }
-
+    
+    
+     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+     let cell = tableView.dequeueReusableCellWithIdentifier("settingsCell", forIndexPath: indexPath)
+     cell.textLabel?.text = dataSource[indexPath.section].items[indexPath.row]
+     // Configure the cell...
+     
+     return cell
+     }
+ 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return dataSource[section].header
     }
-   
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //guard let index = tableView.indexPathForSelectedRow else { return }
+        guard let cell = tableView.cellForRowAtIndexPath(indexPath) else { return }
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as? PostTableViewCell
-        let postObject = dataSource[indexPath.section].items[indexPath.row]
+        print("cell : \(cell.textLabel?.text)")
         
-        cell?.titleLabel.text = postObject.title
-        cell?.askedOnLabel.text = "asked on \(postObject.creationDate)"
-        cell?.votesLabel.text = "\(postObject.score)"
-        guard let output = cell else { return UITableViewCell() }
+        // give each cell a tag or identifier and switch on the identifier,
+        // tapping row one toggles between AeroPress, French Press & Pour Over
         
-        return output
-    }
- 
-    func getPosts() { 
-        Connect.handle(repo: .Post, .Get) { [weak self] result in
         
-            switch result {
-            case .Status(let code):
-                self!.checkStatusCode(code)
-            case .Object(let posts):
-                self!.dataSource.append(Section("Main", objects: posts))
-            }
-        }
     }
     
-    func checkStatusCode(code : StatusCode) {
-        print("status code : \(code)")
+    
+    func displayAeroPressOptions() {
+        // user selects mode
+        let modes = ["Aeropress", "French Press", "Pour Over"]
+        let modesSection = Section("Mode", objects: modes)
+        
+        dataSource.append(modesSection)
+        // aeropress settings
+        
+        // frenchpress settigns
+        
+        // pourover settings
+        
+        // global settings
+        let settings = ["Cool Down Timer", "Cool Down Time"]
+        let globalSection = Section("General", objects: settings)
+        
+        dataSource.append(globalSection)
     }
+
+    func displayFrenchPressOptions() {
+    }
+    
+    func displayPourOverOptions() {
+        
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -120,16 +134,4 @@ class HomeTableViewController: UITableViewController {
     }
     */
 
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
-    
-    func setupRevealMenu() {
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            self.revealViewController().rearViewRevealWidth = 170
-        }
-    }
 }

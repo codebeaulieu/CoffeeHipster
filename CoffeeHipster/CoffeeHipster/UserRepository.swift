@@ -8,11 +8,11 @@
 
 import Foundation
 
-class UserRepository {
+final class UserRepository {
     
-    class func manager(user : User, operation: Operation, completion: (status: Either) -> ()) {
+    class func manager(user : User? = nil, operation: Operation, completion: (status: Either) -> ()) {
         
-        func get() {
+        func get(id : Int = 0) {
             print("Getting user: \(user) \n")
             
         }
@@ -33,17 +33,16 @@ class UserRepository {
         }
         
         switch operation {
-        case .GetUsers(let id):
+        case .Get:
             get()
+        case .GetById(let id):
+            get(id)
         case .Post:
             post()
         case .Put:
             put()
         case .Delete:
             delete()
-        default:
-            assertionFailure()
-        }
     }
-    
+    }
 }

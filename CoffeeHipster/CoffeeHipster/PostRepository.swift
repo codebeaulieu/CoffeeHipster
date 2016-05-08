@@ -9,18 +9,17 @@
 import Foundation
 import Alamofire
 
-enum Either {
-    case Status(StatusCode)
-    case Object([Post])
-}
 
-class PostRepository {
+
+final class PostRepository {
     class func manager(post : Post? = nil, operation: Operation, completion: (status: Either) -> Void) {
       
         func get(id : Int = 0) {
             
                 Alamofire.request(.GET, "https://api.stackexchange.com/2.2/questions?order=desc&min=10&sort=activity&site=coffee")
                     .responseJSON { response in
+                        
+                        if response.result.isFailure { completion(status: Either.Status(StatusCode.Offline)); return }
                         
                         var posts = [Post]()
                         if let JSON = response.result.value {
@@ -32,6 +31,7 @@ class PostRepository {
                                 completion(status: Either.Object(posts))
                             }
                         }
+                        completion(status: Either.Status(StatusCode.RequestTimeOut))
                 }
          
         }
@@ -52,8 +52,9 @@ class PostRepository {
         }
         
         switch operation {
-        case .GetPosts(let id):
-            print("id : \(id)")
+        case .Get:
+            get()
+        case .GetById(let id):
             get(id)
         case .Post:
             post()
@@ -61,8 +62,6 @@ class PostRepository {
             put()
         case .Delete:
             delete()
-        default:
-            assertionFailure()
         }
     }
 }

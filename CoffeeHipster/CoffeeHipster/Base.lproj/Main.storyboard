@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F28b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u7E-qo-cGr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F28b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CU1-jg-W3X">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,7 +7,6 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="AvenirNext.ttc">
-            <string>AvenirNext-Medium</string>
             <string>AvenirNext-Medium</string>
             <string>AvenirNext-Medium</string>
             <string>AvenirNext-Medium</string>
@@ -90,36 +89,8 @@
                                             <segue destination="wnC-gj-u1T" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="F9d-Ui-IRF"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="K6S-2Q-1CK">
-                                        <rect key="frame" x="0.0" y="110" width="375" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K6S-2Q-1CK" id="zLc-ui-uVf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Zi-9r-9Tm">
-                                                    <rect key="frame" x="19" y="10" width="104" height="32"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="104" id="7FG-TB-xTQ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="1Zi-9r-9Tm" firstAttribute="top" secondItem="zLc-ui-uVf" secondAttribute="topMargin" constant="2" id="PSF-oC-YsE"/>
-                                                <constraint firstItem="1Zi-9r-9Tm" firstAttribute="leading" secondItem="zLc-ui-uVf" secondAttribute="leadingMargin" constant="11" id="e6E-0s-LOo"/>
-                                                <constraint firstItem="1Zi-9r-9Tm" firstAttribute="centerY" secondItem="zLc-ui-uVf" secondAttribute="centerY" constant="1" id="wHf-6M-xST"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="LuK-VM-hWu" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="df9-HO-nFc"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="RYv-Ye-ywB">
-                                        <rect key="frame" x="0.0" y="160" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="110" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RYv-Ye-ywB" id="Hja-Tt-FQ1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -144,7 +115,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="dqK-En-L2F">
-                                        <rect key="frame" x="0.0" y="210" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="160" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dqK-En-L2F" id="dLP-4X-6HG">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -264,6 +235,12 @@
                         <barButtonItem key="leftBarButtonItem" title="menu" id="vti-pE-qHi">
                             <color key="tintColor" red="0.87058823529999996" green="0.67843137249999996" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="timer" id="0sR-va-Czv">
+                            <color key="tintColor" red="0.87058823529999996" green="0.67843137249999996" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="handleTimerButtonTapped:" destination="RVZ-EI-9H0" id="G3h-nY-RVk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -278,7 +255,7 @@
         <!--Timer View Controller-->
         <scene sceneID="duH-mK-ENE">
             <objects>
-                <viewController id="kPC-Sb-eeJ" customClass="TimerViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimerVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kPC-Sb-eeJ" customClass="TimerViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UEa-ez-Uqb"/>
                         <viewControllerLayoutGuide type="bottom" id="6LD-Pd-1lp"/>
@@ -287,26 +264,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrM-IK-ZMd">
-                                <rect key="frame" x="133" y="156" width="109" height="61"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="29"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4c-9r-XcX">
+                                <rect key="frame" x="20" y="112" width="335" height="359"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrM-IK-ZMd">
+                                        <rect key="frame" x="113" y="76" width="109" height="61"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="29"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.25882352939999997" green="0.14901960780000001" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ6-iQ-rIZ">
-                                <rect key="frame" x="111" y="532" width="34" height="30"/>
+                                <rect key="frame" x="113" y="377" width="34" height="30"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="handleStartButtonTapped:" destination="kPC-Sb-eeJ" eventType="touchUpInside" id="d3c-N5-wtL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQL-05-DJY">
-                                <rect key="frame" x="252" y="532" width="31" height="30"/>
+                                <rect key="frame" x="230" y="377" width="31" height="30"/>
                                 <state key="normal" title="stop">
                                     <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="handleStopButtonTapped:" destination="kPC-Sb-eeJ" eventType="touchUpInside" id="YHd-lI-a75"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.2386215092" green="0.1373370639" blue="0.0034436885639999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="CYe-ox-d6o">
                         <barButtonItem key="leftBarButtonItem" title="menu" id="F4b-Gd-1rS">
@@ -318,34 +307,92 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="menuButton" destination="F4b-Gd-1rS" id="Xb4-SX-VFc"/>
+                        <outlet property="modalTimerArea" destination="c4c-9r-XcX" id="YY3-03-vwj"/>
+                        <outlet property="startButton" destination="MZ6-iQ-rIZ" id="LLs-TP-eWV"/>
+                        <outlet property="stopButton" destination="yQL-05-DJY" id="YsD-tz-AFj"/>
+                        <outlet property="timerDisplayLabel" destination="YrM-IK-ZMd" id="jtf-8l-lhZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Agp-ym-eDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="637.5" y="1102.5"/>
+            <point key="canvasLocation" x="1140.5" y="343.5"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gnD-rq-ET2">
+        <!--Timer View Controller-->
+        <scene sceneID="l6i-Bx-gYa">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LuK-VM-hWu" sceneMemberID="viewController">
-                    <toolbarItems/>
+                <viewController id="CU1-jg-W3X" customClass="TimerViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ISp-ZR-Zue"/>
+                        <viewControllerLayoutGuide type="bottom" id="t1k-44-UgD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tkZ-2w-IYH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3WJ-if-hIn">
+                                <rect key="frame" x="20" y="112" width="335" height="359"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C8O-sh-RTE">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="359"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="4JJ-Si-UXR" kind="embed" id="eUS-lV-LKa"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.25882352939999997" green="0.14901960780000001" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FxQ-4u-MLD">
+                        <barButtonItem key="leftBarButtonItem" title="menu" id="sJ5-42-qE3">
+                            <color key="tintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="setup" id="7vx-3g-yXO">
+                            <color key="tintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Jn-6B-i7W">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="kPC-Sb-eeJ" kind="relationship" relationship="rootViewController" id="Wlq-2X-sIs"/>
+                        <outlet property="modalTimerArea" destination="3WJ-if-hIn" id="jXR-kf-P0L"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1mu-hT-3oN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KDM-bw-0Jl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="98.5" y="1102.5"/>
+            <point key="canvasLocation" x="1584.5" y="343.5"/>
+        </scene>
+        <!--Timer Settings Table View Controller-->
+        <scene sceneID="xWw-pe-UjR">
+            <objects>
+                <tableViewController id="4JJ-Si-UXR" customClass="TimerSettingsTableViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3zo-rV-VrE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" id="Gxm-lb-K2D">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gxm-lb-K2D" id="uDB-9w-aai">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4JJ-Si-UXR" id="D8D-cL-UcJ"/>
+                            <outlet property="delegate" destination="4JJ-Si-UXR" id="Z9C-BU-2b0"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dUV-f3-6cR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2079.5" y="351.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="F9d-Ui-IRF"/>
+        <segue reference="yHY-vE-6Ys"/>
     </inferredMetricsTieBreakers>
 </document>

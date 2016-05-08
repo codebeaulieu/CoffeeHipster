@@ -12,40 +12,19 @@ final class Connect {
     private let userRepo = UserRepository()
     private let postRepo = PostRepository()
     
-    class func handle(obj : AnyObject? = nil, operation: Operation, completion: (result: Either) -> Void) {
-
-        func callUserRepo(user: User? = nil) {
-            UserRepository.manager(user!, operation: operation) { either in
-               
-            }
-        }
+    class func handle(obj : AnyObject? = nil, repo repository: Repo, _ operation: Operation, completion: (result: Either) -> Void) {
         
-        func callPostsRepo(post: Post? = nil) {
-            PostRepository.manager(post, operation: operation) { either in
+        switch repository {
+        case .Post:
+            PostRepository.manager(obj as? Post, operation: operation) { either in
                 completion(result: either)
             }
-        }
-        
-        if obj == nil {
-            switch operation {
-            case .GetUsers(_):
-                callUserRepo()
-            case .GetPosts(_):
-                callPostsRepo()
-            default:
-                assertionFailure()
-            }
-        } else {
-            if let user = obj as? User {
-                callUserRepo(user)
+        case .User:
+            UserRepository.manager(obj as? User, operation: operation) { either in
+                completion(result: either)
             }
             
-            if let post = obj as? Post {
-                callPostsRepo(post) 
-            }
-        }
-        
-        
+        } 
     }
 }
 

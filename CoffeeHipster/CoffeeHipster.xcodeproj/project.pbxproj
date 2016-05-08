@@ -17,12 +17,12 @@
 		37343BBE1C696FF30058CDDA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37343BBD1C696FF30058CDDA /* SWRevealViewController.m */; };
 		37343BCA1C69788E0058CDDA /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37343BC91C69788E0058CDDA /* MenuTableViewController.swift */; };
 		37343BCC1C697EA80058CDDA /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37343BCB1C697EA80058CDDA /* HomeTableViewController.swift */; };
+		379F678C1CDF985F002DBF19 /* TimerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F678B1CDF985F002DBF19 /* TimerSettingsTableViewController.swift */; };
 		37ACAF931CCBB59E0059CBB5 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAF921CCBB59E0059CBB5 /* TimerViewController.swift */; };
-		37ACAF981CCBBC830059CBB5 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAF971CCBBC830059CBB5 /* StatusCode.swift */; };
 		37ACAF9A1CCBBD940059CBB5 /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAF991CCBBD940059CBB5 /* AskViewController.swift */; };
 		37ACAF9D1CCBBF800059CBB5 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAF9C1CCBBF800059CBB5 /* QuestionViewController.swift */; };
 		37ACAF9F1CCBBFC10059CBB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAF9E1CCBBFC10059CBB5 /* LoginViewController.swift */; };
-		37ACAFA11CCBCF490059CBB5 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAFA01CCBCF490059CBB5 /* Operation.swift */; };
+		37ACAFA11CCBCF490059CBB5 /* HTTPUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAFA01CCBCF490059CBB5 /* HTTPUtility.swift */; };
 		37CD2BCC1CCD650D00EE8382 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD2BCB1CCD650D00EE8382 /* PostRepository.swift */; };
 		37CD2BCE1CCD653B00EE8382 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD2BCD1CCD653B00EE8382 /* UserRepository.swift */; };
 		37EDFFD11C696EA7003D6BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EDFFD01C696EA7003D6BAA /* AppDelegate.swift */; };
@@ -59,12 +59,12 @@
 		37343BBD1C696FF30058CDDA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		37343BC91C69788E0058CDDA /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		37343BCB1C697EA80058CDDA /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		379F678B1CDF985F002DBF19 /* TimerSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSettingsTableViewController.swift; sourceTree = "<group>"; };
 		37ACAF921CCBB59E0059CBB5 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
-		37ACAF971CCBBC830059CBB5 /* StatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
 		37ACAF991CCBBD940059CBB5 /* AskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskViewController.swift; sourceTree = "<group>"; };
 		37ACAF9C1CCBBF800059CBB5 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		37ACAF9E1CCBBFC10059CBB5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		37ACAFA01CCBCF490059CBB5 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		37ACAFA01CCBCF490059CBB5 /* HTTPUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPUtility.swift; sourceTree = "<group>"; };
 		37CD2BCB1CCD650D00EE8382 /* PostRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
 		37CD2BCD1CCD653B00EE8382 /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		37EDFFCD1C696EA7003D6BAA /* CoffeeHipster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeHipster.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				37ACAF921CCBB59E0059CBB5 /* TimerViewController.swift */,
+				379F678B1CDF985F002DBF19 /* TimerSettingsTableViewController.swift */,
 			);
 			name = Timer;
 			sourceTree = "<group>";
@@ -154,8 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				370960F71C9863C800416B57 /* Connect.swift */,
-				37ACAF971CCBBC830059CBB5 /* StatusCode.swift */,
-				37ACAFA01CCBCF490059CBB5 /* Operation.swift */,
+				37ACAFA01CCBCF490059CBB5 /* HTTPUtility.swift */,
 				37CD2BCB1CCD650D00EE8382 /* PostRepository.swift */,
 				37CD2BCD1CCD653B00EE8382 /* UserRepository.swift */,
 			);
@@ -394,20 +394,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37ACAF981CCBBC830059CBB5 /* StatusCode.swift in Sources */,
 				370961031C987E4900416B57 /* PostTableViewCell.swift in Sources */,
 				370961121C987F9400416B57 /* GCD.swift in Sources */,
 				37ACAF9A1CCBBD940059CBB5 /* AskViewController.swift in Sources */,
 				37343BCC1C697EA80058CDDA /* HomeTableViewController.swift in Sources */,
 				37343BCA1C69788E0058CDDA /* MenuTableViewController.swift in Sources */,
 				370960F81C9863C800416B57 /* Connect.swift in Sources */,
+				379F678C1CDF985F002DBF19 /* TimerSettingsTableViewController.swift in Sources */,
 				37EDFFD11C696EA7003D6BAA /* AppDelegate.swift in Sources */,
 				370960FD1C9867CC00416B57 /* User.swift in Sources */,
 				37EDFFD91C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld in Sources */,
 				370960FF1C98680A00416B57 /* Tag.swift in Sources */,
 				370961011C98749700416B57 /* Section.swift in Sources */,
 				37ACAF931CCBB59E0059CBB5 /* TimerViewController.swift in Sources */,
-				37ACAFA11CCBCF490059CBB5 /* Operation.swift in Sources */,
+				37ACAFA11CCBCF490059CBB5 /* HTTPUtility.swift in Sources */,
 				37ACAF9F1CCBBFC10059CBB5 /* LoginViewController.swift in Sources */,
 				370960FB1C98671600416B57 /* Post.swift in Sources */,
 				37ACAF9D1CCBBF800059CBB5 /* QuestionViewController.swift in Sources */,

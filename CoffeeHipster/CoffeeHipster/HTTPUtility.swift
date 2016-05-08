@@ -1,5 +1,5 @@
 //
-//  StatusCode.swift
+//  REST.swift
 //  CoffeeHipster
 //
 //  Created by Dan Beaulieu on 4/23/16.
@@ -8,7 +8,26 @@
 
 import Foundation
 
+enum Operation {
+    case Post
+    case Put
+    case Delete
+    case Get
+    case GetById(Int)
+}
+
+enum Either {
+    case Status(StatusCode)
+    case Object([Post])
+}
+
+enum Repo {
+    case User
+    case Post
+}
+
 enum StatusCode : Int {
+    case Offline                      = 000
     case Continue                     = 100
     case SwitchingProtocols           = 101
     case Ok                           = 200
@@ -49,6 +68,6 @@ enum StatusCode : Int {
     case ServiceUnavailable           = 503
     case GatewayTimeOut               = 504
     case HTTPVersionNotSupported      = 505
-
-
+    
+    
 }
