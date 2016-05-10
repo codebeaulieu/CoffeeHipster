@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F31a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u7E-qo-cGr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F31a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u7E-qo-cGr">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -264,38 +264,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4c-9r-XcX">
-                                <rect key="frame" x="20" y="112" width="335" height="359"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4c-9r-XcX">
+                                <rect key="frame" x="20" y="120" width="335" height="359"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrM-IK-ZMd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrM-IK-ZMd">
                                         <rect key="frame" x="113" y="76" width="109" height="61"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="109" id="8ue-eK-sJf"/>
+                                            <constraint firstAttribute="height" constant="61" id="Lv1-gN-Tb0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="49"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ6-iQ-rIZ">
+                                        <rect key="frame" x="69" y="259" width="34" height="30"/>
+                                        <state key="normal" title="Start">
+                                            <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleStartButtonTapped:" destination="kPC-Sb-eeJ" eventType="touchUpInside" id="d3c-N5-wtL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQL-05-DJY">
+                                        <rect key="frame" x="232" y="259" width="31" height="30"/>
+                                        <state key="normal" title="stop">
+                                            <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleStopButtonTapped:" destination="kPC-Sb-eeJ" eventType="touchUpInside" id="YHd-lI-a75"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.25882352939999997" green="0.14901960780000001" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="yQL-05-DJY" secondAttribute="trailing" constant="72" id="7QE-QO-kup"/>
+                                    <constraint firstItem="YrM-IK-ZMd" firstAttribute="centerX" secondItem="c4c-9r-XcX" secondAttribute="centerX" id="9et-kD-zVO"/>
+                                    <constraint firstItem="MZ6-iQ-rIZ" firstAttribute="leading" secondItem="c4c-9r-XcX" secondAttribute="leading" constant="69" id="DC0-hA-McS"/>
+                                    <constraint firstItem="YrM-IK-ZMd" firstAttribute="top" secondItem="c4c-9r-XcX" secondAttribute="top" constant="76" id="uh1-6s-H9m"/>
+                                    <constraint firstItem="MZ6-iQ-rIZ" firstAttribute="baseline" secondItem="yQL-05-DJY" secondAttribute="baseline" id="wtO-ev-jkY"/>
+                                    <constraint firstAttribute="bottom" secondItem="MZ6-iQ-rIZ" secondAttribute="bottom" constant="70" id="xET-17-VHA"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ6-iQ-rIZ">
-                                <rect key="frame" x="113" y="377" width="34" height="30"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="handleStartButtonTapped:" destination="kPC-Sb-eeJ" eventType="touchUpInside" id="d3c-N5-wtL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQL-05-DJY">
-                                <rect key="frame" x="230" y="377" width="31" height="30"/>
-                                <state key="normal" title="stop">
-                                    <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="handleStopButtonTapped:" destination="kPC-Sb-eeJ" eventType="touchUpInside" id="YHd-lI-a75"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="c4c-9r-XcX" firstAttribute="top" secondItem="UEa-ez-Uqb" secondAttribute="bottom" constant="99" id="5KU-Od-ymO"/>
+                            <constraint firstItem="c4c-9r-XcX" firstAttribute="centerX" secondItem="19U-Bt-tDo" secondAttribute="centerX" id="6gS-Z8-CGo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CYe-ox-d6o">
                         <barButtonItem key="leftBarButtonItem" title="menu" id="F4b-Gd-1rS">
@@ -315,7 +331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Agp-ym-eDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1140.5" y="343.5"/>
+            <point key="canvasLocation" x="98.5" y="-466.5"/>
         </scene>
         <!--Timer View Controller-->
         <scene sceneID="l6i-Bx-gYa">
@@ -360,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDM-bw-0Jl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584.5" y="343.5"/>
+            <point key="canvasLocation" x="618.5" y="-466.5"/>
         </scene>
         <!--Timer Settings Table View Controller-->
         <scene sceneID="xWw-pe-UjR">
@@ -375,7 +391,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gxm-lb-K2D" id="uDB-9w-aai">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -389,7 +405,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUV-f3-6cR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2079.5" y="351.5"/>
+            <point key="canvasLocation" x="1089.5" y="-466.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
