@@ -252,160 +252,147 @@
             </objects>
             <point key="canvasLocation" x="637.5" y="343.5"/>
         </scene>
-        <!--Timer View Controller-->
-        <scene sceneID="duH-mK-ENE">
+        <!--Timer Page View Controller-->
+        <scene sceneID="W2Q-Ra-lSk">
             <objects>
-                <viewController storyboardIdentifier="TimerVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kPC-Sb-eeJ" customClass="TimerViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="ParentVC" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="FVP-qz-htO" customClass="TimerPageViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hZw-bp-U7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="539.5" y="-422.5"/>
+        </scene>
+        <!--Timer View Controller-->
+        <scene sceneID="rOx-0L-Uf8">
+            <objects>
+                <viewController storyboardIdentifier="TimerVC" id="UDh-0c-EKA" customClass="TimerViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UEa-ez-Uqb"/>
-                        <viewControllerLayoutGuide type="bottom" id="6LD-Pd-1lp"/>
+                        <viewControllerLayoutGuide type="top" id="Ovv-wf-TCZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="h8u-Ei-9nm"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="19U-Bt-tDo">
+                    <view key="view" contentMode="scaleToFill" id="EX6-sr-egC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4c-9r-XcX">
-                                <rect key="frame" x="20" y="120" width="335" height="359"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5NW-x0-hnX">
+                                <rect key="frame" x="20" y="120" width="335" height="400"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrM-IK-ZMd">
-                                        <rect key="frame" x="113" y="76" width="109" height="61"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="109" id="8ue-eK-sJf"/>
-                                            <constraint firstAttribute="height" constant="61" id="Lv1-gN-Tb0"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="49"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyv-kM-Yg3">
+                                        <rect key="frame" x="116" y="66" width="102" height="48"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="27"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ6-iQ-rIZ">
-                                        <rect key="frame" x="69" y="259" width="34" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjd-hM-kuf">
+                                        <rect key="frame" x="72" y="308" width="46" height="30"/>
                                         <state key="normal" title="Start">
-                                            <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.91764705879999997" green="0.81176470590000005" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="handleStartButtonTapped:" destination="kPC-Sb-eeJ" eventType="touchUpInside" id="d3c-N5-wtL"/>
-                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQL-05-DJY">
-                                        <rect key="frame" x="232" y="259" width="31" height="30"/>
-                                        <state key="normal" title="stop">
-                                            <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65c-67-UQY">
+                                        <rect key="frame" x="216" y="308" width="46" height="30"/>
+                                        <state key="normal" title="Stop">
+                                            <color key="titleColor" red="0.84621232120000001" green="0.75532436859999996" blue="0.33181503890000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="handleStopButtonTapped:" destination="kPC-Sb-eeJ" eventType="touchUpInside" id="YHd-lI-a75"/>
-                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.25882352939999997" green="0.14901960780000001" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.25920784920000001" green="0.17437900849999999" blue="0.027869794329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="yQL-05-DJY" secondAttribute="trailing" constant="72" id="7QE-QO-kup"/>
-                                    <constraint firstItem="YrM-IK-ZMd" firstAttribute="centerX" secondItem="c4c-9r-XcX" secondAttribute="centerX" id="9et-kD-zVO"/>
-                                    <constraint firstItem="MZ6-iQ-rIZ" firstAttribute="leading" secondItem="c4c-9r-XcX" secondAttribute="leading" constant="69" id="DC0-hA-McS"/>
-                                    <constraint firstItem="YrM-IK-ZMd" firstAttribute="top" secondItem="c4c-9r-XcX" secondAttribute="top" constant="76" id="uh1-6s-H9m"/>
-                                    <constraint firstItem="MZ6-iQ-rIZ" firstAttribute="baseline" secondItem="yQL-05-DJY" secondAttribute="baseline" id="wtO-ev-jkY"/>
-                                    <constraint firstAttribute="bottom" secondItem="MZ6-iQ-rIZ" secondAttribute="bottom" constant="70" id="xET-17-VHA"/>
+                                    <constraint firstAttribute="height" constant="400" id="Siz-au-T1A"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="335" id="aTf-GP-xsD"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="c4c-9r-XcX" firstAttribute="top" secondItem="UEa-ez-Uqb" secondAttribute="bottom" constant="99" id="5KU-Od-ymO"/>
-                            <constraint firstItem="c4c-9r-XcX" firstAttribute="centerX" secondItem="19U-Bt-tDo" secondAttribute="centerX" id="6gS-Z8-CGo"/>
+                            <constraint firstItem="5NW-x0-hnX" firstAttribute="top" secondItem="Ovv-wf-TCZ" secondAttribute="bottom" constant="100" id="mNW-io-Hyr"/>
+                            <constraint firstItem="5NW-x0-hnX" firstAttribute="centerX" secondItem="EX6-sr-egC" secondAttribute="centerX" id="n5J-HH-b78"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CYe-ox-d6o">
-                        <barButtonItem key="leftBarButtonItem" title="menu" id="F4b-Gd-1rS">
-                            <color key="tintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="setup" id="29s-qT-UvQ">
-                            <color key="tintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="modalTimerArea" destination="c4c-9r-XcX" id="YY3-03-vwj"/>
-                        <outlet property="startButton" destination="MZ6-iQ-rIZ" id="LLs-TP-eWV"/>
-                        <outlet property="stopButton" destination="yQL-05-DJY" id="YsD-tz-AFj"/>
-                        <outlet property="timerDisplayLabel" destination="YrM-IK-ZMd" id="jtf-8l-lhZ"/>
+                        <outlet property="modalTimerArea" destination="5NW-x0-hnX" id="R16-Ke-sqn"/>
+                        <outlet property="startButton" destination="Mjd-hM-kuf" id="NaA-wj-HRt"/>
+                        <outlet property="stopButton" destination="65c-67-UQY" id="M2u-9R-aos"/>
+                        <outlet property="timerDisplayLabel" destination="wyv-kM-Yg3" id="RnX-35-4mW"/>
+                        <outlet property="topLayoutConstraint" destination="mNW-io-Hyr" id="E8H-TP-Sed"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Agp-ym-eDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IIe-MG-l8U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="98.5" y="-466.5"/>
+            <point key="canvasLocation" x="1002.5" y="-422.5"/>
         </scene>
-        <!--Timer View Controller-->
-        <scene sceneID="l6i-Bx-gYa">
+        <!--Timer Settings View Controller-->
+        <scene sceneID="qfz-f0-weo">
             <objects>
-                <viewController id="CU1-jg-W3X" customClass="TimerViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsVC" id="MqJ-h2-MN9" customClass="TimerSettingsViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ISp-ZR-Zue"/>
-                        <viewControllerLayoutGuide type="bottom" id="t1k-44-UgD"/>
+                        <viewControllerLayoutGuide type="top" id="IMg-SE-Yyf"/>
+                        <viewControllerLayoutGuide type="bottom" id="nvU-jt-o4u"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tkZ-2w-IYH">
+                    <view key="view" contentMode="scaleToFill" id="JG1-sk-sYP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3WJ-if-hIn">
-                                <rect key="frame" x="20" y="112" width="335" height="359"/>
-                                <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C8O-sh-RTE">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="359"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="4JJ-Si-UXR" kind="embed" id="eUS-lV-LKa"/>
-                                        </connections>
-                                    </containerView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.25882352939999997" green="0.14901960780000001" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NFe-P4-jHG">
+                                <rect key="frame" x="20" y="120" width="335" height="400"/>
+                                <color key="backgroundColor" red="0.25920784920000001" green="0.17437900849999999" blue="0.027869794329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="335" id="8bJ-we-QI5"/>
+                                    <constraint firstAttribute="height" constant="400" id="yKZ-Uc-GXf"/>
+                                </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NFe-P4-jHG" firstAttribute="centerX" secondItem="JG1-sk-sYP" secondAttribute="centerX" id="JoM-ky-hc8"/>
+                            <constraint firstItem="NFe-P4-jHG" firstAttribute="top" secondItem="IMg-SE-Yyf" secondAttribute="bottom" constant="100" id="Y6t-9L-OXe"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FxQ-4u-MLD">
-                        <barButtonItem key="leftBarButtonItem" title="menu" id="sJ5-42-qE3">
-                            <color key="tintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="setup" id="7vx-3g-yXO">
-                            <color key="tintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="modalTimerArea" destination="3WJ-if-hIn" id="jXR-kf-P0L"/>
+                        <outlet property="modalSettingsArea" destination="NFe-P4-jHG" id="dIh-IK-tMC"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KDM-bw-0Jl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vv9-Z2-lDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="618.5" y="-466.5"/>
+            <point key="canvasLocation" x="1422.5" y="-422.5"/>
         </scene>
-        <!--Timer Settings Table View Controller-->
-        <scene sceneID="xWw-pe-UjR">
+        <!--Timer Preset View Controller-->
+        <scene sceneID="xP8-ck-RHb">
             <objects>
-                <tableViewController id="4JJ-Si-UXR" customClass="TimerSettingsTableViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3zo-rV-VrE">
+                <viewController storyboardIdentifier="PresetVC" id="tIG-l7-zbl" customClass="TimerPresetViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lPf-hk-bM5"/>
+                        <viewControllerLayoutGuide type="bottom" id="ysa-OC-mFp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jo9-jl-Egd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" id="Gxm-lb-K2D">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gxm-lb-K2D" id="uDB-9w-aai">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="4JJ-Si-UXR" id="D8D-cL-UcJ"/>
-                            <outlet property="delegate" destination="4JJ-Si-UXR" id="Z9C-BU-2b0"/>
-                        </connections>
-                    </tableView>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eri-Ai-mBe">
+                                <rect key="frame" x="20" y="120" width="335" height="400"/>
+                                <color key="backgroundColor" red="0.25920784920000001" green="0.17437900849999999" blue="0.027869794329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="lMo-y0-Er1"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="335" id="xXd-iw-AEd"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Eri-Ai-mBe" firstAttribute="top" secondItem="lPf-hk-bM5" secondAttribute="bottom" constant="100" id="5BW-Ns-LVF"/>
+                            <constraint firstItem="Eri-Ai-mBe" firstAttribute="centerX" secondItem="jo9-jl-Egd" secondAttribute="centerX" id="5JN-hR-tWV"/>
+                        </constraints>
+                    </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dUV-f3-6cR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="modalPresetArea" destination="Eri-Ai-mBe" id="PFt-ca-dlZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eay-Po-74X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1089.5" y="-466.5"/>
+            <point key="canvasLocation" x="1849.5" y="-422.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

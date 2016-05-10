@@ -13,7 +13,7 @@ class HomeTableViewController: UITableViewController {
  
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBAction func handleTimerButtonTapped(sender: UIBarButtonItem) {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("TimerVC") as! TimerViewController
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ParentVC") as! TimerPageViewController
         vc.modalPresentationStyle = .OverCurrentContext
         self.presentViewController(vc, animated: false, completion: nil)
     }
