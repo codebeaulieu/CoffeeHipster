@@ -20,7 +20,7 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         vc.modalPresentationStyle = .OverCurrentContext
         self.presentViewController(vc, animated: false, completion: nil)
     }
-    var dataSource = [Section<Post>]() {
+    var dataSource = [Section<Post1>]() {
         didSet {
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
