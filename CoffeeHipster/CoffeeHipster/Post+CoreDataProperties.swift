@@ -14,16 +14,17 @@ import CoreData
 
 extension Post {
 
-    @NSManaged public private(set) var acceptedAnswerId: NSNumber
-    @NSManaged public private(set) var answerCount: NSNumber
-    @NSManaged public private(set) var creationDate: NSDate
-    @NSManaged public private(set) var isAnswered: NSNumber
-    @NSManaged public private(set) var lastActivityDate: NSDate
-    @NSManaged public private(set) var link: NSURL
-    @NSManaged public private(set) var score: NSNumber
-    @NSManaged public private(set) var title: String
-    @NSManaged public private(set) var viewCount: NSNumber
-    @NSManaged public private(set) var tags: NSOrderedSet
-    @NSManaged public private(set) var owner: User
+    @NSManaged var acceptedAnswerId: NSNumber
+    @NSManaged var answerCount: NSNumber
+    @NSManaged var creationDate: NSDate
+    @NSManaged var isAnswered: NSNumber
+    @NSManaged var lastActivityDate: NSDate
+    @NSManaged var link: NSURL
+    @NSManaged var score: NSNumber
+    @NSManaged var title: String
+    @NSManaged var viewCount: NSNumber
+    @NSManaged var tags: Set<NSManagedObject>
+    @NSManaged var owner: User
+    @NSManaged var questionId: NSNumber?
 
 }

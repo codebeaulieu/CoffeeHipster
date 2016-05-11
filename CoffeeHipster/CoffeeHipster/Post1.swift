@@ -16,7 +16,7 @@ struct Post1 {
     var lastActivityDate : Int
     var link : String
     var owner : User1
-    var tags : Tags1
+    var tags : Set<String>
     var questionId : Int
     var score : Int
     var title : String
@@ -40,7 +40,11 @@ struct Post1 {
         
         guard let owner = User1(user!) else { return nil }
         
-        guard let tags = Tags1(tagsGlob) else { return nil }
+        var tagSet = Set<String>()
+        
+        for tag in tagsGlob {
+            tagSet.insert(tag)
+        }
         
         
         self.acceptedAnswerId = accepted
@@ -50,7 +54,7 @@ struct Post1 {
         self.lastActivityDate = lastActive
         self.link = link
         self.owner = owner
-        self.tags = tags
+        self.tags = tagSet
         self.questionId = questId
         self.score = score
         self.title = title

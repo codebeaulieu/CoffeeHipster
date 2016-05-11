@@ -14,13 +14,13 @@ import CoreData
 
 extension User {
 
-    @NSManaged public private(set) var userId: NSNumber
-    @NSManaged public private(set) var displayName: String
-    @NSManaged public private(set) var profile: NSObject
-    @NSManaged public private(set) var image: String
-    @NSManaged public private(set) var rep: NSNumber
-    @NSManaged public private(set) var userType: String
-    @NSManaged public private(set) var hipsterRep: NSNumber
-    @NSManaged public private(set) var posts: NSOrderedSet
+    @NSManaged var userId: NSNumber
+    @NSManaged var displayName: String
+    @NSManaged var profile: NSObject
+    @NSManaged var image: String
+    @NSManaged var rep: NSNumber
+    @NSManaged var userType: String
+    @NSManaged var hipsterRep: NSNumber
+    @NSManaged var posts: NSOrderedSet
 
 }
