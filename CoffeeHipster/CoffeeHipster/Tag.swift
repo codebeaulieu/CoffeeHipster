@@ -8,11 +8,10 @@
 
 import Foundation
 
-struct Tag {
-    let tag :  String
+struct Tags {
+    let tags :  [String]
     
-    init?(_ json: AnyObject) {
-        guard let json = json as? String else { return nil }
-        tag = json
+    init?(_ glob: [String]) {
+        tags = glob
     }
 }

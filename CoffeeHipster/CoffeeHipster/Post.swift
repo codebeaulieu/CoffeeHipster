@@ -16,7 +16,7 @@ struct Post {
     var lastActivityDate : Int
     var link : String
     var owner : User
-    var tags : [Tag]
+    var tags : Tags
     var questionId : Int
     var score : Int
     var title : String
@@ -40,8 +40,7 @@ struct Post {
         
         guard let owner = User(user!) else { return nil }
         
-        var ts = [Tag]()
-        tagsGlob.forEach { ts.append(Tag($0)!) }
+        guard let tags = Tags(tagsGlob) else { return nil }
         
         
         self.acceptedAnswerId = accepted
@@ -51,7 +50,7 @@ struct Post {
         self.lastActivityDate = lastActive
         self.link = link
         self.owner = owner
-        self.tags = ts
+        self.tags = tags
         self.questionId = questId
         self.score = score
         self.title = title
