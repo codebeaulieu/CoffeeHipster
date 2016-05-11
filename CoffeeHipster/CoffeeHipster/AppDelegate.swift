@@ -16,9 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-
         UINavigationBar.appearance().barStyle = .Black
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        guard let vc = window?.rootViewController as? ManagedObjectContextSettable
+            else { fatalError("Wrong View Controller Type") }
+        vc.managedObjectContext = managedObjectContext
         
         return true
     }

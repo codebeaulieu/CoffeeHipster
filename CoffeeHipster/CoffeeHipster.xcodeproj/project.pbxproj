@@ -34,6 +34,13 @@
 		729A06B11CE16E08006FBB6E /* TimerPresetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06AF1CE16E08006FBB6E /* TimerPresetViewController.swift */; };
 		729A06B41CE172C9006FBB6E /* TimerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06B31CE172C9006FBB6E /* TimerSettingsTableViewController.swift */; };
 		729A06B61CE17A64006FBB6E /* TimerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06B51CE17A64006FBB6E /* TimerPageViewController.swift */; };
+		72AE8D371CE2A07300C35659 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D361CE2A07300C35659 /* SegueHandlerType.swift */; };
+		72AE8D391CE2A1CB00C35659 /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D381CE2A1CB00C35659 /* ManagedObject.swift */; };
+		72AE8D3C1CE2A20500C35659 /* ManagedObjectContextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D3B1CE2A20500C35659 /* ManagedObjectContextSettable.swift */; };
+		72AE8D3F1CE2A39000C35659 /* RevealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D3E1CE2A39000C35659 /* RevealViewController.swift */; };
+		72AE8D411CE2A47200C35659 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D401CE2A47200C35659 /* RootViewController.swift */; };
+		72AE8D431CE2A96A00C35659 /* extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D421CE2A96A00C35659 /* extension+UIViewController.swift */; };
+		72AE8D451CE2AAB300C35659 /* Revealable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D441CE2AAB300C35659 /* Revealable.swift */; };
 		D6ADD715993818B624C8E8C6 /* Pods_CoffeeHipster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD5A9A705F7E48D6AEB3EF2 /* Pods_CoffeeHipster.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +90,13 @@
 		729A06AF1CE16E08006FBB6E /* TimerPresetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPresetViewController.swift; sourceTree = "<group>"; };
 		729A06B31CE172C9006FBB6E /* TimerSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSettingsTableViewController.swift; sourceTree = "<group>"; };
 		729A06B51CE17A64006FBB6E /* TimerPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPageViewController.swift; sourceTree = "<group>"; };
+		72AE8D361CE2A07300C35659 /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
+		72AE8D381CE2A1CB00C35659 /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
+		72AE8D3B1CE2A20500C35659 /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
+		72AE8D3E1CE2A39000C35659 /* RevealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealViewController.swift; sourceTree = "<group>"; };
+		72AE8D401CE2A47200C35659 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		72AE8D421CE2A96A00C35659 /* extension+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "extension+UIViewController.swift"; sourceTree = "<group>"; };
+		72AE8D441CE2AAB300C35659 /* Revealable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Revealable.swift; sourceTree = "<group>"; };
 		8D5EB6BEB010366BB1AF8BAE /* Pods-CoffeeHipster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeHipster.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeHipster/Pods-CoffeeHipster.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,12 +130,17 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		370961131C987FA100416B57 /* Utility */ = {
+		370961131C987FA100416B57 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				370961111C987F9400416B57 /* GCD.swift */,
+				72AE8D361CE2A07300C35659 /* SegueHandlerType.swift */,
+				72AE8D401CE2A47200C35659 /* RootViewController.swift */,
+				37343BC91C69788E0058CDDA /* MenuTableViewController.swift */,
+				72AE8D421CE2A96A00C35659 /* extension+UIViewController.swift */,
+				72AE8D3A1CE2A1E200C35659 /* Persistance */,
 			);
-			name = Utility;
+			name = Common;
 			sourceTree = "<group>";
 		};
 		37343BC01C69704F0058CDDA /* Timer */ = {
@@ -150,14 +169,6 @@
 				370961021C987E4900416B57 /* PostTableViewCell.swift */,
 			);
 			name = Home;
-			sourceTree = "<group>";
-		};
-		37343BC81C6978700058CDDA /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				37343BC91C69788E0058CDDA /* MenuTableViewController.swift */,
-			);
-			name = Menu;
 			sourceTree = "<group>";
 		};
 		37ACAF961CCBBC5A0059CBB5 /* HTTP */ = {
@@ -206,20 +217,18 @@
 			children = (
 				37EDFFD01C696EA7003D6BAA /* AppDelegate.swift */,
 				37EDFFD41C696EA7003D6BAA /* Main.storyboard */,
-				370961131C987FA100416B57 /* Utility */,
+				370961131C987FA100416B57 /* Common */,
 				37ACAF9B1CCBBD9E0059CBB5 /* Exchange */,
 				370960F91C9866E900416B57 /* Models */,
 				37ACAF961CCBBC5A0059CBB5 /* HTTP */,
-				37343BC81C6978700058CDDA /* Menu */,
 				37343BC31C6972DF0058CDDA /* Home */,
 				37343BC11C6970CA0058CDDA /* Search */,
 				37343BC01C69704F0058CDDA /* Timer */,
+				72AE8D3D1CE2A36A00C35659 /* SWReveal */,
 				37EDFFDA1C696EA7003D6BAA /* Assets.xcassets */,
 				37EDFFDC1C696EA7003D6BAA /* LaunchScreen.storyboard */,
 				37EDFFDF1C696EA7003D6BAA /* Info.plist */,
 				37EDFFD71C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld */,
-				37343BBC1C696FF30058CDDA /* SWRevealViewController.h */,
-				37343BBD1C696FF30058CDDA /* SWRevealViewController.m */,
 				37343BBB1C696FF20058CDDA /* CoffeeHipster-Bridging-Header.h */,
 			);
 			path = CoffeeHipster;
@@ -232,6 +241,26 @@
 				37EDFFEA1C696EA7003D6BAA /* Info.plist */,
 			);
 			path = CoffeeHipsterTests;
+			sourceTree = "<group>";
+		};
+		72AE8D3A1CE2A1E200C35659 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				72AE8D381CE2A1CB00C35659 /* ManagedObject.swift */,
+				72AE8D3B1CE2A20500C35659 /* ManagedObjectContextSettable.swift */,
+			);
+			name = Persistance;
+			sourceTree = "<group>";
+		};
+		72AE8D3D1CE2A36A00C35659 /* SWReveal */ = {
+			isa = PBXGroup;
+			children = (
+				37343BBC1C696FF30058CDDA /* SWRevealViewController.h */,
+				37343BBD1C696FF30058CDDA /* SWRevealViewController.m */,
+				72AE8D3E1CE2A39000C35659 /* RevealViewController.swift */,
+				72AE8D441CE2AAB300C35659 /* Revealable.swift */,
+			);
+			name = SWReveal;
 			sourceTree = "<group>";
 		};
 		7C58F4D9614A8067D9A90514 /* Pods */ = {
@@ -407,12 +436,16 @@
 				729A06AD1CE16BD3006FBB6E /* TimerSettingsViewController.swift in Sources */,
 				370961121C987F9400416B57 /* GCD.swift in Sources */,
 				37ACAF9A1CCBBD940059CBB5 /* AskViewController.swift in Sources */,
+				72AE8D3C1CE2A20500C35659 /* ManagedObjectContextSettable.swift in Sources */,
 				37343BCC1C697EA80058CDDA /* HomeTableViewController.swift in Sources */,
 				37343BCA1C69788E0058CDDA /* MenuTableViewController.swift in Sources */,
 				370960F81C9863C800416B57 /* Connect.swift in Sources */,
 				37EDFFD11C696EA7003D6BAA /* AppDelegate.swift in Sources */,
 				370960FD1C9867CC00416B57 /* User.swift in Sources */,
+				72AE8D411CE2A47200C35659 /* RootViewController.swift in Sources */,
 				37EDFFD91C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld in Sources */,
+				72AE8D371CE2A07300C35659 /* SegueHandlerType.swift in Sources */,
+				72AE8D431CE2A96A00C35659 /* extension+UIViewController.swift in Sources */,
 				370960FF1C98680A00416B57 /* Tag.swift in Sources */,
 				370961011C98749700416B57 /* Section.swift in Sources */,
 				37ACAFA11CCBCF490059CBB5 /* HTTPUtility.swift in Sources */,
@@ -423,7 +456,10 @@
 				729A06B41CE172C9006FBB6E /* TimerSettingsTableViewController.swift in Sources */,
 				37CD2BCC1CCD650D00EE8382 /* PostRepository.swift in Sources */,
 				37CD2BCE1CCD653B00EE8382 /* UserRepository.swift in Sources */,
+				72AE8D3F1CE2A39000C35659 /* RevealViewController.swift in Sources */,
 				729A06B11CE16E08006FBB6E /* TimerPresetViewController.swift in Sources */,
+				72AE8D451CE2AAB300C35659 /* Revealable.swift in Sources */,
+				72AE8D391CE2A1CB00C35659 /* ManagedObject.swift in Sources */,
 				729A06A91CE16B9D006FBB6E /* TimerViewController.swift in Sources */,
 				37343BBE1C696FF30058CDDA /* SWRevealViewController.m in Sources */,
 			);

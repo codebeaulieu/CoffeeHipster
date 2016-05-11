@@ -8,9 +8,12 @@
 
 import UIKit
 import Alamofire
+import CoreData
 
-class HomeTableViewController: UITableViewController {
- 
+class HomeTableViewController: UITableViewController, ManagedObjectContextSettable, Revealable {
+    
+    var managedObjectContext: NSManagedObjectContext!
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBAction func handleTimerButtonTapped(sender: UIBarButtonItem) {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ParentVC") as! TimerPageViewController
@@ -27,7 +30,8 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupRevealMenu()
+        checkManagedObjectContext("Home")
+        setupRevealMenu(self)
         getPosts()
     }
 
@@ -62,7 +66,6 @@ class HomeTableViewController: UITableViewController {
  
     func getPosts() { 
         Connect.handle(repo: .Post, .Get) { [weak self] result in
-        
             switch result {
             case .Status(let code):
                 self!.checkStatusCode(code)
@@ -124,12 +127,5 @@ class HomeTableViewController: UITableViewController {
         return UIStatusBarStyle.LightContent
     }
     
-    func setupRevealMenu() {
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            self.revealViewController().rearViewRevealWidth = 170
-        }
-    }
+
 }

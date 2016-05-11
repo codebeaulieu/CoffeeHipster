@@ -21,7 +21,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="DQh-Om-rGB">
             <objects>
-                <viewController id="u7E-qo-cGr" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController id="u7E-qo-cGr" customClass="RevealViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="64I-me-Hiz"/>
                         <viewControllerLayoutGuide type="bottom" id="Odh-tE-xab"/>
@@ -61,7 +61,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="XNP-Sk-slT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="XNP-Sk-slT">
                                         <rect key="frame" x="0.0" y="60" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XNP-Sk-slT" id="dqH-ET-6lO">
@@ -86,10 +86,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="wnC-gj-u1T" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="F9d-Ui-IRF"/>
+                                            <segue destination="wnC-gj-u1T" kind="custom" identifier="homeSegue" customClass="SWRevealViewControllerSeguePushController" id="F9d-Ui-IRF"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="RYv-Ye-ywB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="RYv-Ye-ywB">
                                         <rect key="frame" x="0.0" y="110" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RYv-Ye-ywB" id="Hja-Tt-FQ1">
@@ -114,7 +114,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="dqK-En-L2F">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="dqK-En-L2F">
                                         <rect key="frame" x="0.0" y="160" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dqK-En-L2F" id="dLP-4X-6HG">
@@ -154,10 +154,10 @@
             </objects>
             <point key="canvasLocation" x="-611.5" y="1868.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Root View Controller-->
         <scene sceneID="2sH-gl-QIt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wnC-gj-u1T" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wnC-gj-u1T" customClass="RootViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -396,6 +396,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yHY-vE-6Ys"/>
+        <segue reference="F9d-Ui-IRF"/>
     </inferredMetricsTieBreakers>
 </document>
