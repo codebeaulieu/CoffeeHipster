@@ -12,16 +12,3 @@ public protocol SegueHandlerType {
     associatedtype SegueIdentifier: RawRepresentable
 }
 
-extension SegueHandlerType where Self: UIViewController, SegueIdentifier.RawValue == String {
-    public func segueIdenfifierForSegue(segue: UIStoryboardSegue) -> SegueIdentifier {
-        guard let identifier = segue.identifier,
-            let segueIdentifier = SegueIdentifier(rawValue: identifier)
-            else { fatalError("Unknown Segue: \(segue)") }
-        return segueIdentifier
-    }
-    
-    public func performSegue(identifier: SegueIdentifier) {
-        performSegueWithIdentifier(identifier.rawValue, sender: nil)
-    }
-
-}

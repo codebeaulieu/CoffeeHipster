@@ -24,6 +24,8 @@ enum Either {
 enum Repo {
     case User
     case Post
+    case Wiki
+    case Stat
 }
 
 enum StatusCode : Int {

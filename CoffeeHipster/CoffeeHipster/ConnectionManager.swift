@@ -11,6 +11,8 @@ import Foundation
 final class Connect {
     private let userRepo = UserRepository()
     private let postRepo = PostRepository()
+    private let wikiRepo = WikiRepository()
+    private let statRepo = StatRepository()
     
     class func handle(obj : AnyObject? = nil, repo repository: Repo, _ operation: Operation, completion: (result: Either) -> Void) {
         
@@ -23,7 +25,14 @@ final class Connect {
             UserRepository.manager(obj as? User, operation: operation) { either in
                 completion(result: either)
             }
-            
+        case .Wiki:
+            WikiRepository.manager(obj as? User, operation: operation) { either in
+                completion(result: either)
+            }
+        case .Stat:
+            StatRepository.manager(obj as? User, operation: operation) { either in
+                completion(result: either)
+            }
         } 
     }
 }

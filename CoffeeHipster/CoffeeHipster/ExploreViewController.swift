@@ -1,27 +1,34 @@
 //
-//  QuestionViewController.swift
+//  ExploreViewController.swift
 //  CoffeeHipster
 //
-//  Created by Dan Beaulieu on 4/23/16.
+//  Created by Dan Beaulieu on 5/11/16.
 //  Copyright © 2016 Dan Beaulieu. All rights reserved.
 //
 
 import UIKit
 import CoreData
-// this will serve as a question view; users may answer question from here
 
-final class QuestionViewController: UIViewController, ManagedObjectContextSettable, SegueHandlerType {
-    
+class ExploreViewController: UIViewController, ManagedObjectContextSettable, SegueHandlerType, Revealable {
+
     enum SegueIdentifier : String {
         case none = ""
+    }
+    
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    @IBAction func handleTimerButtonTapped(sender: UIBarButtonItem) {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ParentVC") as! TimerPageViewController
+        vc.modalPresentationStyle = .OverCurrentContext
+        self.presentViewController(vc, animated: false, completion: nil)
     }
     
     var managedObjectContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkManagedObjectContext("Question")
-        
+        checkManagedObjectContext("Explore")
+        setupRevealMenu(self)
         // Do any additional setup after loading the view.
     }
 

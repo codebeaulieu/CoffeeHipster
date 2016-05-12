@@ -13,6 +13,7 @@ class MenuTableViewController: UITableViewController, ManagedObjectContextSettab
 
     enum SegueIdentifier : String {
         case Home = "homeSegue"
+        case Explore = "exploreSegue"
     }
     
     var managedObjectContext: NSManagedObjectContext!
@@ -27,12 +28,16 @@ class MenuTableViewController: UITableViewController, ManagedObjectContextSettab
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let nc = segue.destinationViewController as? RootViewController,
+            vc = nc.viewControllers.first as? ManagedObjectContextSettable
+            else { fatalError("wrong vc type") }
+        vc.managedObjectContext = managedObjectContext
+        
         switch segueIdenfifierForSegue(segue) {
         case .Home:
-            guard let nc = segue.destinationViewController as? RootViewController,
-                vc = nc.viewControllers.first as? ManagedObjectContextSettable
-                else { fatalError("wrong vc type") }
-            vc.managedObjectContext = managedObjectContext
+            print("Home")
+        case .Explore:
+            print("Explore")
         }
     }
     

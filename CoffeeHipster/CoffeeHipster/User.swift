@@ -22,7 +22,7 @@ public final class User: ManagedObject {
     @NSManaged var posts: NSOrderedSet?
     
     
-    public static func insertIntoContext(moc: NSManagedObjectContext, json: AnyObject) -> User? {
+    public static func insertIntoContext(moc: NSManagedObjectContext, json: AnyObject) -> User {
         let user: User = moc.insertObject()
         
         guard let userId = json["user_id"] as? Int,
@@ -31,7 +31,7 @@ public final class User: ManagedObject {
             let image = json["profile_image"] as? String,
             let rep = json["reputation"] as? Int,
             let type = json["user_type"] as? String
-        else { return nil }
+        else { return User() }
         
         user.userId = userId
         user.displayName = name

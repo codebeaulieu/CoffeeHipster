@@ -10,7 +10,11 @@ import UIKit
 import Alamofire
 import CoreData
 
-class HomeTableViewController: UITableViewController, ManagedObjectContextSettable, Revealable {
+class HomeTableViewController: UITableViewController, ManagedObjectContextSettable, Revealable, SegueHandlerType {
+    
+    enum SegueIdentifier :  String {
+        case Detail = "questionDetailSegue"
+    }
     
     var managedObjectContext: NSManagedObjectContext!
     
@@ -20,7 +24,8 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         vc.modalPresentationStyle = .OverCurrentContext
         self.presentViewController(vc, animated: false, completion: nil)
     }
-    var dataSource = [Section<Post1>]() {
+    
+    var dataSource = [Section<Post>]() {
         didSet {
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
@@ -63,7 +68,7 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         
         return output
     }
- 
+  
     func getPosts() { 
         Connect.handle(repo: .Post, .Get) { [weak self] result in
             switch result {
@@ -78,6 +83,8 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
     func checkStatusCode(code : StatusCode) {
         print("status code : \(code)")
     }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -127,5 +134,13 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         return UIStatusBarStyle.LightContent
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch segueIdenfifierForSegue(segue) {
+        case .Detail:
+            guard let vc = segue.destinationViewController as? ManagedObjectContextSettable
+                else { fatalError("Wrong View Controller Type") }
+            vc.managedObjectContext = managedObjectContext
+        }
+    }
 
 }

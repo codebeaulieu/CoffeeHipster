@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		370960F81C9863C800416B57 /* Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370960F71C9863C800416B57 /* Connect.swift */; };
+		370960F81C9863C800416B57 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370960F71C9863C800416B57 /* ConnectionManager.swift */; };
 		370961011C98749700416B57 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961001C98749700416B57 /* Section.swift */; };
 		370961031C987E4900416B57 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961021C987E4900416B57 /* PostTableViewCell.swift */; };
 		370961121C987F9400416B57 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961111C987F9400416B57 /* GCD.swift */; };
@@ -26,6 +26,12 @@
 		37EDFFDB1C696EA7003D6BAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37EDFFDA1C696EA7003D6BAA /* Assets.xcassets */; };
 		37EDFFDE1C696EA7003D6BAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EDFFDC1C696EA7003D6BAA /* LaunchScreen.storyboard */; };
 		37EDFFE91C696EA7003D6BAA /* CoffeeHipsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EDFFE81C696EA7003D6BAA /* CoffeeHipsterTests.swift */; };
+		7267905C1CE431D600E5A10F /* Extension+SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7267905B1CE431D600E5A10F /* Extension+SegueHandlerType.swift */; };
+		7267905E1CE43B8900E5A10F /* Extension+UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7267905D1CE43B8900E5A10F /* Extension+UITableViewCell.swift */; };
+		726790601CE43FAE00E5A10F /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7267905F1CE43FAE00E5A10F /* ExploreViewController.swift */; };
+		726790641CE4420A00E5A10F /* TrendingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726790631CE4420A00E5A10F /* TrendingTableViewController.swift */; };
+		726790661CE4436500E5A10F /* WikiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726790651CE4436500E5A10F /* WikiRepository.swift */; };
+		726790681CE4444F00E5A10F /* StatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726790671CE4444F00E5A10F /* StatRepository.swift */; };
 		729A06A91CE16B9D006FBB6E /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06A71CE16B9D006FBB6E /* TimerViewController.swift */; };
 		729A06AD1CE16BD3006FBB6E /* TimerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06AB1CE16BD3006FBB6E /* TimerSettingsViewController.swift */; };
 		729A06B11CE16E08006FBB6E /* TimerPresetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06AF1CE16E08006FBB6E /* TimerPresetViewController.swift */; };
@@ -61,7 +67,7 @@
 /* Begin PBXFileReference section */
 		275ADCAED731E9FE1DF592A1 /* Pods-CoffeeHipster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeHipster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeHipster/Pods-CoffeeHipster.debug.xcconfig"; sourceTree = "<group>"; };
 		2FD5A9A705F7E48D6AEB3EF2 /* Pods_CoffeeHipster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeHipster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		370960F71C9863C800416B57 /* Connect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connect.swift; sourceTree = "<group>"; };
+		370960F71C9863C800416B57 /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		370961001C98749700416B57 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		370961021C987E4900416B57 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		370961111C987F9400416B57 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
@@ -86,6 +92,12 @@
 		37EDFFE41C696EA7003D6BAA /* CoffeeHipsterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeeHipsterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EDFFE81C696EA7003D6BAA /* CoffeeHipsterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeHipsterTests.swift; sourceTree = "<group>"; };
 		37EDFFEA1C696EA7003D6BAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7267905B1CE431D600E5A10F /* Extension+SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+SegueHandlerType.swift"; sourceTree = "<group>"; };
+		7267905D1CE43B8900E5A10F /* Extension+UITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UITableViewCell.swift"; sourceTree = "<group>"; };
+		7267905F1CE43FAE00E5A10F /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		726790631CE4420A00E5A10F /* TrendingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingTableViewController.swift; sourceTree = "<group>"; };
+		726790651CE4436500E5A10F /* WikiRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiRepository.swift; sourceTree = "<group>"; };
+		726790671CE4444F00E5A10F /* StatRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatRepository.swift; sourceTree = "<group>"; };
 		729A06A71CE16B9D006FBB6E /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		729A06AB1CE16BD3006FBB6E /* TimerSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSettingsViewController.swift; sourceTree = "<group>"; };
 		729A06AF1CE16E08006FBB6E /* TimerPresetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPresetViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +145,6 @@
 				72AE8D621CE2E86F00C35659 /* Post.swift */,
 				72AE8D641CE2E86F00C35659 /* User.swift */,
 				72AE8D461CE2BB6C00C35659 /* ViewModels */,
-				370961001C98749700416B57 /* Section.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -142,12 +153,13 @@
 			isa = PBXGroup;
 			children = (
 				72BF88201CE3FEF1000FF5DB /* Extensions */,
+				7267905A1CE431B900E5A10F /* Protocols */,
+				37ACAF961CCBBC5A0059CBB5 /* Connect */,
+				72AE8D3A1CE2A1E200C35659 /* Persistance */,
 				370961111C987F9400416B57 /* GCD.swift */,
-				72AE8D361CE2A07300C35659 /* SegueHandlerType.swift */,
+				370961001C98749700416B57 /* Section.swift */,
 				72AE8D401CE2A47200C35659 /* RootViewController.swift */,
 				37343BC91C69788E0058CDDA /* MenuTableViewController.swift */,
-				37ACAF961CCBBC5A0059CBB5 /* HTTP */,
-				72AE8D3A1CE2A1E200C35659 /* Persistance */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -164,11 +176,13 @@
 			name = Timer;
 			sourceTree = "<group>";
 		};
-		37343BC11C6970CA0058CDDA /* Search */ = {
+		37343BC11C6970CA0058CDDA /* Coffee Wiki */ = {
 			isa = PBXGroup;
 			children = (
+				7267905F1CE43FAE00E5A10F /* ExploreViewController.swift */,
+				726790631CE4420A00E5A10F /* TrendingTableViewController.swift */,
 			);
-			name = Search;
+			name = "Coffee Wiki";
 			sourceTree = "<group>";
 		};
 		37343BC31C6972DF0058CDDA /* Home */ = {
@@ -180,15 +194,17 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
-		37ACAF961CCBBC5A0059CBB5 /* HTTP */ = {
+		37ACAF961CCBBC5A0059CBB5 /* Connect */ = {
 			isa = PBXGroup;
 			children = (
-				370960F71C9863C800416B57 /* Connect.swift */,
+				370960F71C9863C800416B57 /* ConnectionManager.swift */,
 				37CD2BCB1CCD650D00EE8382 /* PostRepository.swift */,
 				37CD2BCD1CCD653B00EE8382 /* UserRepository.swift */,
+				726790651CE4436500E5A10F /* WikiRepository.swift */,
+				726790671CE4444F00E5A10F /* StatRepository.swift */,
 				37ACAFA01CCBCF490059CBB5 /* HTTPUtility.swift */,
 			);
-			name = HTTP;
+			name = Connect;
 			sourceTree = "<group>";
 		};
 		37ACAF9B1CCBBD9E0059CBB5 /* Exchange */ = {
@@ -227,11 +243,8 @@
 				37EDFFD01C696EA7003D6BAA /* AppDelegate.swift */,
 				37EDFFD41C696EA7003D6BAA /* Main.storyboard */,
 				370961131C987FA100416B57 /* Common */,
-				37ACAF9B1CCBBD9E0059CBB5 /* Exchange */,
 				370960F91C9866E900416B57 /* Models */,
-				37343BC31C6972DF0058CDDA /* Home */,
-				37343BC11C6970CA0058CDDA /* Search */,
-				37343BC01C69704F0058CDDA /* Timer */,
+				726790571CE42DF900E5A10F /* Sections */,
 				72AE8D3D1CE2A36A00C35659 /* SWReveal */,
 				37EDFFDA1C696EA7003D6BAA /* Assets.xcassets */,
 				37EDFFDC1C696EA7003D6BAA /* LaunchScreen.storyboard */,
@@ -251,6 +264,26 @@
 			path = CoffeeHipsterTests;
 			sourceTree = "<group>";
 		};
+		726790571CE42DF900E5A10F /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				37343BC31C6972DF0058CDDA /* Home */,
+				37ACAF9B1CCBBD9E0059CBB5 /* Exchange */,
+				37343BC01C69704F0058CDDA /* Timer */,
+				37343BC11C6970CA0058CDDA /* Coffee Wiki */,
+			);
+			name = Sections;
+			sourceTree = "<group>";
+		};
+		7267905A1CE431B900E5A10F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				72AE8D361CE2A07300C35659 /* SegueHandlerType.swift */,
+				72AE8D441CE2AAB300C35659 /* Revealable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		72AE8D3A1CE2A1E200C35659 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,7 +299,6 @@
 				37343BBC1C696FF30058CDDA /* SWRevealViewController.h */,
 				37343BBD1C696FF30058CDDA /* SWRevealViewController.m */,
 				72AE8D3E1CE2A39000C35659 /* RevealViewController.swift */,
-				72AE8D441CE2AAB300C35659 /* Revealable.swift */,
 			);
 			name = SWReveal;
 			sourceTree = "<group>";
@@ -287,6 +319,8 @@
 				72AE8D421CE2A96A00C35659 /* Extension+UIViewController.swift */,
 				72BF88211CE3FFFE000FF5DB /* Extension+NSManagedObjectContext.swift */,
 				72BF88251CE415DD000FF5DB /* Extension+NSManagedObject.swift */,
+				7267905B1CE431D600E5A10F /* Extension+SegueHandlerType.swift */,
+				7267905D1CE43B8900E5A10F /* Extension+UITableViewCell.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -469,16 +503,19 @@
 				37343BCC1C697EA80058CDDA /* HomeTableViewController.swift in Sources */,
 				72AE8D561CE2E63C00C35659 /* Post1.swift in Sources */,
 				37343BCA1C69788E0058CDDA /* MenuTableViewController.swift in Sources */,
-				370960F81C9863C800416B57 /* Connect.swift in Sources */,
+				370960F81C9863C800416B57 /* ConnectionManager.swift in Sources */,
 				72AE8D581CE2E63C00C35659 /* UserObj.swift in Sources */,
 				37EDFFD11C696EA7003D6BAA /* AppDelegate.swift in Sources */,
 				72AE8D661CE2E86F00C35659 /* Post.swift in Sources */,
 				72AE8D411CE2A47200C35659 /* RootViewController.swift in Sources */,
 				37EDFFD91C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld in Sources */,
+				726790601CE43FAE00E5A10F /* ExploreViewController.swift in Sources */,
 				72AE8D371CE2A07300C35659 /* SegueHandlerType.swift in Sources */,
 				72AE8D431CE2A96A00C35659 /* Extension+UIViewController.swift in Sources */,
 				370961011C98749700416B57 /* Section.swift in Sources */,
+				726790681CE4444F00E5A10F /* StatRepository.swift in Sources */,
 				37ACAFA11CCBCF490059CBB5 /* HTTPUtility.swift in Sources */,
+				726790641CE4420A00E5A10F /* TrendingTableViewController.swift in Sources */,
 				37ACAF9F1CCBBFC10059CBB5 /* LoginViewController.swift in Sources */,
 				72AE8D571CE2E63C00C35659 /* Tag.swift in Sources */,
 				729A06B61CE17A64006FBB6E /* TimerPageViewController.swift in Sources */,
@@ -493,7 +530,10 @@
 				72AE8D391CE2A1CB00C35659 /* ManagedObject.swift in Sources */,
 				729A06A91CE16B9D006FBB6E /* TimerViewController.swift in Sources */,
 				72BF88261CE415DD000FF5DB /* Extension+NSManagedObject.swift in Sources */,
+				7267905C1CE431D600E5A10F /* Extension+SegueHandlerType.swift in Sources */,
+				726790661CE4436500E5A10F /* WikiRepository.swift in Sources */,
 				37343BBE1C696FF30058CDDA /* SWRevealViewController.m in Sources */,
+				7267905E1CE43B8900E5A10F /* Extension+UITableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

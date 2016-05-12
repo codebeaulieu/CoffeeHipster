@@ -61,7 +61,7 @@ public final class Post: ManagedObject {
         else { return Post() }
         
         
-        guard let owner = User.insertIntoContext(moc, json: user) else { fatalError("failed to associate user with post") }
+        let owner = User.insertIntoContext(moc, json: user)
         
         dispatch_async(BackgroundQueue, {
             owner.managedObjectContext?.performChanges {

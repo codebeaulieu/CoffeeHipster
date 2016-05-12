@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension UITableViewController {
-    func setupRevealMenu<T : UITableViewController where T : Revealable>(controller : T) {
+extension UIViewController {
+    func setupRevealMenu<T : UIViewController where T : Revealable>(controller : T) {
         if self.revealViewController() != nil {
             controller.menuButton.target = self.revealViewController()
             controller.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))

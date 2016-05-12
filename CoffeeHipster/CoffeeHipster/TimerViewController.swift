@@ -40,7 +40,7 @@ class TimerViewController: UIViewController {
         modalTimerArea.layer.cornerRadius = 5
         
         view.alpha = 0.0
-        self.topLayoutConstraint.constant = 150
+        //self.topLayoutConstraint.constant = 150
         self.performAnimations()
     
         
@@ -48,17 +48,11 @@ class TimerViewController: UIViewController {
     }
     
     func performAnimations() {
-    
-        
-       
         UIView.animateWithDuration(1.0) {
             self.view.alpha = 1.0
             self.view.layoutIfNeeded()
             
-        }
-        
-       
-    
+        } 
     }
     
     func iteration() {
