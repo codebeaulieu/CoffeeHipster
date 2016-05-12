@@ -15,7 +15,7 @@ struct Post1 {
     var isAnswered : Bool
     var lastActivityDate : Int
     var link : String
-    var owner : User1
+    var owner : UserObj
     var tags : Set<String>
     var questionId : Int
     var score : Int
@@ -38,7 +38,7 @@ struct Post1 {
             let count = json["view_count"] as? Int
         else { return nil }
         
-        guard let owner = User1(user!) else { return nil }
+        guard let owner = UserObj(user!) else { return nil }
         
         var tagSet = Set<String>()
         

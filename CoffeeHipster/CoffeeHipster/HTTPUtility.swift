@@ -18,7 +18,7 @@ enum Operation {
 
 enum Either {
     case Status(StatusCode)
-    case Object([Post1])
+    case Object([AnyObject])
 }
 
 enum Repo {

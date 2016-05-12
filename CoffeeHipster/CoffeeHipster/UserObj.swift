@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User1 {
+struct UserObj {
     let userId : Int
     let displayName : String
     let profile : String

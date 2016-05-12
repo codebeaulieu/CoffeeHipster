@@ -70,7 +70,7 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
             case .Status(let code):
                 self!.checkStatusCode(code)
             case .Object(let posts):
-                self!.dataSource.append(Section("Main", objects: posts))
+                Post.processBatch(self!.managedObjectContext, posts: posts)
             }
         }
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Tags1 {
+struct Tag {
     let tags :  [String]
     
     init?(_ glob: [String]) {
