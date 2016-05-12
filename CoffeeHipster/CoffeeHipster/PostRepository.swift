@@ -13,7 +13,6 @@ final class PostRepository {
     class func manager(post : Post? = nil, operation: Operation, completion: (status: Either) -> Void) {
       
         func get(id : Int = 0) {
-            print("runs")
             Alamofire.request(.GET, "https://api.stackexchange.com/2.2/questions?order=desc&min=10&sort=activity&site=coffee")
                 .responseJSON { response in
                     

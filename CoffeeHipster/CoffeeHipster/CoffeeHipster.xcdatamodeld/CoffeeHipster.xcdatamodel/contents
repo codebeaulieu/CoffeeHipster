@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F31a" minimumToolsVersion="Automatic">
-    <entity name="Post" representedClassName="PostModel.Post" syncable="YES">
+    <entity name="Post" representedClassName="CoffeeHipster.Post" syncable="YES">
         <attribute name="acceptedAnswerId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="answerCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="creationDate" attributeType="Date" indexed="YES" syncable="YES"/>
@@ -25,7 +25,7 @@
         <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Post" inverseName="owner" inverseEntity="Post" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Post" positionX="-281" positionY="-171" width="128" height="223"/>
+        <element name="Post" positionX="-281" positionY="-171" width="128" height="225"/>
         <element name="User" positionX="-488" positionY="-82" width="128" height="163"/>
     </elements>
 </model>

@@ -32,6 +32,7 @@
 		726790641CE4420A00E5A10F /* TrendingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726790631CE4420A00E5A10F /* TrendingTableViewController.swift */; };
 		726790661CE4436500E5A10F /* WikiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726790651CE4436500E5A10F /* WikiRepository.swift */; };
 		726790681CE4444F00E5A10F /* StatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726790671CE4444F00E5A10F /* StatRepository.swift */; };
+		7267906A1CE44E0900E5A10F /* Extension+NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726790691CE44E0900E5A10F /* Extension+NSDate.swift */; };
 		729A06A91CE16B9D006FBB6E /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06A71CE16B9D006FBB6E /* TimerViewController.swift */; };
 		729A06AD1CE16BD3006FBB6E /* TimerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06AB1CE16BD3006FBB6E /* TimerSettingsViewController.swift */; };
 		729A06B11CE16E08006FBB6E /* TimerPresetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06AF1CE16E08006FBB6E /* TimerPresetViewController.swift */; };
@@ -98,6 +99,7 @@
 		726790631CE4420A00E5A10F /* TrendingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingTableViewController.swift; sourceTree = "<group>"; };
 		726790651CE4436500E5A10F /* WikiRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiRepository.swift; sourceTree = "<group>"; };
 		726790671CE4444F00E5A10F /* StatRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatRepository.swift; sourceTree = "<group>"; };
+		726790691CE44E0900E5A10F /* Extension+NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+NSDate.swift"; sourceTree = "<group>"; };
 		729A06A71CE16B9D006FBB6E /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		729A06AB1CE16BD3006FBB6E /* TimerSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSettingsViewController.swift; sourceTree = "<group>"; };
 		729A06AF1CE16E08006FBB6E /* TimerPresetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPresetViewController.swift; sourceTree = "<group>"; };
@@ -249,7 +251,6 @@
 				37EDFFDA1C696EA7003D6BAA /* Assets.xcassets */,
 				37EDFFDC1C696EA7003D6BAA /* LaunchScreen.storyboard */,
 				37EDFFDF1C696EA7003D6BAA /* Info.plist */,
-				37EDFFD71C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld */,
 				37343BBB1C696FF20058CDDA /* CoffeeHipster-Bridging-Header.h */,
 			);
 			path = CoffeeHipster;
@@ -287,6 +288,7 @@
 		72AE8D3A1CE2A1E200C35659 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
+				37EDFFD71C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld */,
 				72AE8D381CE2A1CB00C35659 /* ManagedObject.swift */,
 				72AE8D3B1CE2A20500C35659 /* ManagedObjectContextSettable.swift */,
 			);
@@ -321,6 +323,7 @@
 				72BF88251CE415DD000FF5DB /* Extension+NSManagedObject.swift */,
 				7267905B1CE431D600E5A10F /* Extension+SegueHandlerType.swift */,
 				7267905D1CE43B8900E5A10F /* Extension+UITableViewCell.swift */,
+				726790691CE44E0900E5A10F /* Extension+NSDate.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				370961011C98749700416B57 /* Section.swift in Sources */,
 				726790681CE4444F00E5A10F /* StatRepository.swift in Sources */,
 				37ACAFA11CCBCF490059CBB5 /* HTTPUtility.swift in Sources */,
+				7267906A1CE44E0900E5A10F /* Extension+NSDate.swift in Sources */,
 				726790641CE4420A00E5A10F /* TrendingTableViewController.swift in Sources */,
 				37ACAF9F1CCBBFC10059CBB5 /* LoginViewController.swift in Sources */,
 				72AE8D571CE2E63C00C35659 /* Tag.swift in Sources */,

@@ -16,17 +16,6 @@ extension NSManagedObjectContext {
         return obj
     }
 }
-//TODO: re-evaluate
-//extension Array where Element : NSManagedObjectContext {
-//    public func performBatchChanges(update: Element -> Element) {
-//        for item in self {
-//            item.performChanges {
-//                
-//            }
-//        }
-//        
-//    }
-//}
 
 extension NSManagedObjectContext {
 
