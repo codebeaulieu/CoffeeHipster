@@ -12,6 +12,10 @@ import CoreData
 
 final class QuestionViewController: UIViewController, ManagedObjectContextSettable, SegueHandlerType {
     
+    var post : Post!
+   
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var questionTextView: UITextView!
     enum SegueIdentifier : String {
         case none = ""
     }
@@ -21,6 +25,8 @@ final class QuestionViewController: UIViewController, ManagedObjectContextSettab
     override func viewDidLoad() {
         super.viewDidLoad()
         checkManagedObjectContext("Question")
+        titleLabel.text = post.title
+        questionTextView.text = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         
         // Do any additional setup after loading the view.
     }

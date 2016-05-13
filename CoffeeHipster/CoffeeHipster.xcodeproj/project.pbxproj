@@ -52,6 +52,13 @@
 		72AE8D681CE2E86F00C35659 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D641CE2E86F00C35659 /* User.swift */; };
 		72BF88221CE3FFFE000FF5DB /* Extension+NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF88211CE3FFFE000FF5DB /* Extension+NSManagedObjectContext.swift */; };
 		72BF88261CE415DD000FF5DB /* Extension+NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF88251CE415DD000FF5DB /* Extension+NSManagedObject.swift */; };
+		72C749001CE5536D00A9A772 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C748FF1CE5536D00A9A772 /* TableViewDataSource.swift */; };
+		72C749021CE5541800A9A772 /* DataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C749011CE5541800A9A772 /* DataSourceDelegate.swift */; };
+		72C749041CE554CB00A9A772 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C749031CE554CB00A9A772 /* DataProvider.swift */; };
+		72C749061CE5550400A9A772 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C749051CE5550400A9A772 /* ConfigurableCell.swift */; };
+		72C749081CE5557200A9A772 /* FetchedResultsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C749071CE5557200A9A772 /* FetchedResultsDataProvider.swift */; };
+		72C7490A1CE556A000A9A772 /* MoodsPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C749091CE556A000A9A772 /* MoodsPresenterType.swift */; };
+		72C7490C1CE55C6D00A9A772 /* Extension+NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7490B1CE55C6D00A9A772 /* Extension+NSString.swift */; };
 		D6ADD715993818B624C8E8C6 /* Pods_CoffeeHipster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD5A9A705F7E48D6AEB3EF2 /* Pods_CoffeeHipster.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +126,13 @@
 		72AE8D641CE2E86F00C35659 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		72BF88211CE3FFFE000FF5DB /* Extension+NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+NSManagedObjectContext.swift"; sourceTree = "<group>"; };
 		72BF88251CE415DD000FF5DB /* Extension+NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+NSManagedObject.swift"; sourceTree = "<group>"; };
+		72C748FF1CE5536D00A9A772 /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		72C749011CE5541800A9A772 /* DataSourceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceDelegate.swift; sourceTree = "<group>"; };
+		72C749031CE554CB00A9A772 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		72C749051CE5550400A9A772 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
+		72C749071CE5557200A9A772 /* FetchedResultsDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsDataProvider.swift; sourceTree = "<group>"; };
+		72C749091CE556A000A9A772 /* MoodsPresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodsPresenterType.swift; sourceTree = "<group>"; };
+		72C7490B1CE55C6D00A9A772 /* Extension+NSString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+NSString.swift"; sourceTree = "<group>"; };
 		8D5EB6BEB010366BB1AF8BAE /* Pods-CoffeeHipster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeHipster.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeHipster/Pods-CoffeeHipster.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +176,8 @@
 				370961001C98749700416B57 /* Section.swift */,
 				72AE8D401CE2A47200C35659 /* RootViewController.swift */,
 				37343BC91C69788E0058CDDA /* MenuTableViewController.swift */,
+				72C749071CE5557200A9A772 /* FetchedResultsDataProvider.swift */,
+				72C748FF1CE5536D00A9A772 /* TableViewDataSource.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -281,6 +297,10 @@
 			children = (
 				72AE8D361CE2A07300C35659 /* SegueHandlerType.swift */,
 				72AE8D441CE2AAB300C35659 /* Revealable.swift */,
+				72C749011CE5541800A9A772 /* DataSourceDelegate.swift */,
+				72C749031CE554CB00A9A772 /* DataProvider.swift */,
+				72C749051CE5550400A9A772 /* ConfigurableCell.swift */,
+				72C749091CE556A000A9A772 /* MoodsPresenterType.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -324,6 +344,7 @@
 				7267905B1CE431D600E5A10F /* Extension+SegueHandlerType.swift */,
 				7267905D1CE43B8900E5A10F /* Extension+UITableViewCell.swift */,
 				726790691CE44E0900E5A10F /* Extension+NSDate.swift */,
+				72C7490B1CE55C6D00A9A772 /* Extension+NSString.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -503,18 +524,22 @@
 				370961121C987F9400416B57 /* GCD.swift in Sources */,
 				37ACAF9A1CCBBD940059CBB5 /* AskViewController.swift in Sources */,
 				72AE8D3C1CE2A20500C35659 /* ManagedObjectContextSettable.swift in Sources */,
+				72C7490A1CE556A000A9A772 /* MoodsPresenterType.swift in Sources */,
 				37343BCC1C697EA80058CDDA /* HomeTableViewController.swift in Sources */,
 				72AE8D561CE2E63C00C35659 /* Post1.swift in Sources */,
 				37343BCA1C69788E0058CDDA /* MenuTableViewController.swift in Sources */,
 				370960F81C9863C800416B57 /* ConnectionManager.swift in Sources */,
 				72AE8D581CE2E63C00C35659 /* UserObj.swift in Sources */,
 				37EDFFD11C696EA7003D6BAA /* AppDelegate.swift in Sources */,
+				72C749001CE5536D00A9A772 /* TableViewDataSource.swift in Sources */,
 				72AE8D661CE2E86F00C35659 /* Post.swift in Sources */,
 				72AE8D411CE2A47200C35659 /* RootViewController.swift in Sources */,
 				37EDFFD91C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld in Sources */,
 				726790601CE43FAE00E5A10F /* ExploreViewController.swift in Sources */,
 				72AE8D371CE2A07300C35659 /* SegueHandlerType.swift in Sources */,
+				72C749081CE5557200A9A772 /* FetchedResultsDataProvider.swift in Sources */,
 				72AE8D431CE2A96A00C35659 /* Extension+UIViewController.swift in Sources */,
+				72C749021CE5541800A9A772 /* DataSourceDelegate.swift in Sources */,
 				370961011C98749700416B57 /* Section.swift in Sources */,
 				726790681CE4444F00E5A10F /* StatRepository.swift in Sources */,
 				37ACAFA11CCBCF490059CBB5 /* HTTPUtility.swift in Sources */,
@@ -525,14 +550,17 @@
 				729A06B61CE17A64006FBB6E /* TimerPageViewController.swift in Sources */,
 				37ACAF9D1CCBBF800059CBB5 /* QuestionViewController.swift in Sources */,
 				729A06B41CE172C9006FBB6E /* TimerSettingsTableViewController.swift in Sources */,
+				72C749061CE5550400A9A772 /* ConfigurableCell.swift in Sources */,
 				37CD2BCC1CCD650D00EE8382 /* PostRepository.swift in Sources */,
 				72AE8D681CE2E86F00C35659 /* User.swift in Sources */,
+				72C7490C1CE55C6D00A9A772 /* Extension+NSString.swift in Sources */,
 				37CD2BCE1CCD653B00EE8382 /* UserRepository.swift in Sources */,
 				72AE8D3F1CE2A39000C35659 /* RevealViewController.swift in Sources */,
 				729A06B11CE16E08006FBB6E /* TimerPresetViewController.swift in Sources */,
 				72AE8D451CE2AAB300C35659 /* Revealable.swift in Sources */,
 				72AE8D391CE2A1CB00C35659 /* ManagedObject.swift in Sources */,
 				729A06A91CE16B9D006FBB6E /* TimerViewController.swift in Sources */,
+				72C749041CE554CB00A9A772 /* DataProvider.swift in Sources */,
 				72BF88261CE415DD000FF5DB /* Extension+NSManagedObject.swift in Sources */,
 				7267905C1CE431D600E5A10F /* Extension+SegueHandlerType.swift in Sources */,
 				726790661CE4436500E5A10F /* WikiRepository.swift in Sources */,

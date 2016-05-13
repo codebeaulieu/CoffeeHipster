@@ -29,3 +29,12 @@ extension NSDate {
         }
     }
 }
+
+extension NSDate {
+    func readable() -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.LongStyle
+        formatter.timeStyle = .MediumStyle
+        return formatter.stringFromDate(self)
+    }
+}

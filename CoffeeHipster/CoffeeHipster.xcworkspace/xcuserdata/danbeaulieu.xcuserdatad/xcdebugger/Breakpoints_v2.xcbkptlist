@@ -10,45 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CoffeeHipster/Post.swift"
-            timestampString = "484724509.17494"
+            timestampString = "484797190.981039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "insertIntoContext(_:json:)"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "protocol witness for static CoffeeHipster.ManagedObjectType.entityName.getter : Swift.String in conformance CoffeeHipster.Post : CoffeeHipster.ManagedObjectType in CoffeeHipster"
-                  moduleName = "CoffeeHipster"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/danbeaulieu/Documents/Git/CoffeeHipster/CoffeeHipster/CoffeeHipster/Post.swift"
-                  timestampString = "484724509.243517"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "dynamic static CoffeeHipster.Post.entityName.getter : Swift.String"
-                  moduleName = "CoffeeHipster"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/danbeaulieu/Documents/Git/CoffeeHipster/CoffeeHipster/CoffeeHipster/Post.swift"
-                  timestampString = "484724509.243634"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
-                  offsetFromSymbolStart = "4">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

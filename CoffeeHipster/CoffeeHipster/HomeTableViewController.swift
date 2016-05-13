@@ -25,48 +25,14 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         self.presentViewController(vc, animated: false, completion: nil)
     }
     
-    var dataSource = [Section<Post>]() {
-        didSet {
-            dispatch_async(dispatch_get_main_queue(), {
-                self.tableView.reloadData()
-            })
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         checkManagedObjectContext("Home")
         setupRevealMenu(self)
-        getPosts()
-    }
-
-    // MARK: - Table view data source
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return dataSource.count
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return dataSource[section].items.count
-    }
-
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return dataSource[section].header
-    }
-   
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as? PostTableViewCell
-        let postObject = dataSource[indexPath.section].items[indexPath.row]
-        
-        cell?.titleLabel.text = postObject.title
-        cell?.askedOnLabel.text = "asked on \(postObject.creationDate)"
-        cell?.votesLabel.text = "\(postObject.score)"
-        guard let output = cell else { return UITableViewCell() }
-        
-        return output
+        setupTableView()
+        delay(1) {
+            self.getPosts()
+        }
     }
   
     func getPosts() { 
@@ -83,64 +49,55 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
     func checkStatusCode(code : StatusCode) {
         print("status code : \(code)")
     }
-    
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let vc = segue.destinationViewController as? ManagedObjectContextSettable
+            else { fatalError("Wrong View Controller Type") }
+        vc.managedObjectContext = managedObjectContext
+        
         switch segueIdenfifierForSegue(segue) {
         case .Detail:
-            guard let vc = segue.destinationViewController as? ManagedObjectContextSettable
-                else { fatalError("Wrong View Controller Type") }
-            vc.managedObjectContext = managedObjectContext
+              print("adsf")
+            let view = vc as! QuestionViewController
+            view.post = dataSource.selectedObject
         }
     }
+    
+    // MARK: Private
+    
+    private typealias Data = FetchedResultsDataProvider<HomeTableViewController>
+    private var dataSource: TableViewDataSource<HomeTableViewController, Data, PostTableViewCell>!
+    //private var observer: ManagedObjectObserver?
+    
+    private func setupTableView() {
+      
+        tableView.estimatedRowHeight = 80
+        let request = NSFetchRequest(entityName: Post.entityName)
+        request.returnsObjectsAsFaults = false
+        request.fetchBatchSize = 20
+        request.sortDescriptors = Post.defaultSortDescriptors
+        let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        let dataProvider = FetchedResultsDataProvider(fetchedResultsController: frc, delegate: self)
+        dataSource = TableViewDataSource(tableView: tableView, dataProvider: dataProvider, delegate: self)
+    }
+    
 
 }
+
+
+extension HomeTableViewController: DataProviderDelegate {
+    func dataProviderDidUpdate(updates: [DataProviderUpdate<Post>]?) {
+        dataSource.processUpdates(updates)
+    }
+}
+
+extension HomeTableViewController: DataSourceDelegate {
+    func cellIdentifierForObject(object: Post) -> String {
+        return "postCell"
+    }
+}
+

@@ -12,8 +12,9 @@ class PostTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var askedOnLabel: UILabel!
+    @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var votesLabel: UILabel!
+    @IBOutlet weak var answersLabel: UILabel!
     
     
     override func awakeFromNib() {
@@ -29,3 +30,16 @@ class PostTableViewCell: UITableViewCell {
     }
 
 }
+
+extension PostTableViewCell: ConfigurableCell {
+    func configureForObject(post: Post) {
+
+        titleLabel.text = post.title
+        tagsLabel.text = post.tags.joinAndTake("  ", take: 2)
+        votesLabel.text = "\(post.score)"
+        answersLabel.text = (post.answerCount == 0) ? "" : "\(post.answerCount)"
+    }
+}
+
+
+
