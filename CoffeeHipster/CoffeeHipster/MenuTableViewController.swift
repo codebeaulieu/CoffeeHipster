@@ -7,16 +7,38 @@
 //
 
 import UIKit
+import CoreData
 
-class MenuTableViewController: UITableViewController {
+class MenuTableViewController: UITableViewController, ManagedObjectContextSettable, SegueHandlerType {
 
+    enum SegueIdentifier : String {
+        case Home = "homeSegue"
+        case Explore = "exploreSegue"
+    }
+    
+    var managedObjectContext: NSManagedObjectContext!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        checkManagedObjectContext("Menu")
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let nc = segue.destinationViewController as? RootViewController,
+            vc = nc.viewControllers.first as? ManagedObjectContextSettable
+            else { fatalError("wrong vc type") }
+        vc.managedObjectContext = managedObjectContext
+        
+        switch segueIdenfifierForSegue(segue) {
+        case .Home:
+            print("Home")
+        case .Explore:
+            print("Explore")
+        }
     }
     
 }

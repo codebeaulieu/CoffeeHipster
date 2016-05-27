@@ -27,7 +27,7 @@ var UtilityQueue: dispatch_queue_t {
 var BackgroundQueue: dispatch_queue_t {
     return dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
 }
-
+// Credit to Matt Neuburg
 func delay(delay: Double, closure: Void -> Void) {
     dispatch_after(
         dispatch_time(

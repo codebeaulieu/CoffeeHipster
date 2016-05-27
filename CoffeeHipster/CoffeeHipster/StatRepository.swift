@@ -1,14 +1,14 @@
 //
-//  UserRepository.swift
+//  StatRepository.swift
 //  CoffeeHipster
 //
-//  Created by Dan Beaulieu on 4/24/16.
+//  Created by Dan Beaulieu on 5/11/16.
 //  Copyright © 2016 Dan Beaulieu. All rights reserved.
 //
 
 import Foundation
 
-final class UserConnect {
+final class StatConnect {
     
     class func manager(user : User? = nil, operation: Operation, completion: (status: Either) -> ()) {
         
@@ -16,9 +16,11 @@ final class UserConnect {
             print("Getting user: \(user) \n")
             
         }
+        
         func getById(id : [Int]) {
-            
+        
         }
+        
         func post() {
             print("Creating user: \(user) \n")
             
@@ -31,7 +33,7 @@ final class UserConnect {
         
         func delete() {
             print("Deleting user: \(user) \n")
-           
+            
         }
         
         switch operation {
@@ -45,6 +47,6 @@ final class UserConnect {
             put()
         case .Delete:
             delete()
-    }
+        }
     }
 }

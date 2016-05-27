@@ -1,61 +1,113 @@
 //
 //  Post.swift
-//  CoffeeHipster
+//  
 //
-//  Created by Dan Beaulieu on 3/15/16.
-//  Copyright © 2016 Dan Beaulieu. All rights reserved.
+//  Created by Dan Beaulieu on 5/10/16.
+//
 //
 
 import Foundation
+import CoreData
 
-struct Post {
-    var acceptedAnswerId : Int
-    var answerCount : Int
-    var creationDate : Int
-    var isAnswered : Bool
-    var lastActivityDate : Int
-    var link : String
-    var owner : User
-    var tags : [Tag]
-    var questionId : Int
-    var score : Int
-    var title : String
-    var viewCount : Int 
 
-    init?(_ json : AnyObject) {
-
-        guard let accepted = json["accepted_answer_id"] as? Int,
-            let ansCount = json["answer_count"] as? Int,
-            let created = json["creation_date"] as? Int,
-            let answered = json["is_answered"] as? Bool,
-            let lastActive = json["last_activity_date"] as? Int,
-            let link = json["link"] as? String,
-            let user = json["owner"],
-            let questId = json["question_id"] as? Int,
-            let score = json["score"] as? Int,
-            let tagsGlob = json["tags"] as? [String],
-            let title = json["title"] as? String,
-            let count = json["view_count"] as? Int
-        else { return nil }
+public final class Post: ManagedObject, ManagedObjectOperations {
+    
+    @NSManaged public private(set) var acceptedAnswerId: NSNumber?
+    @NSManaged public private(set) var answerCount: NSNumber
+    @NSManaged public private(set) var creationDate: NSDate
+    @NSManaged public private(set) var isAnswered: NSNumber
+    @NSManaged public private(set) var lastActivityDate: NSDate
+    @NSManaged public private(set) var link: NSURL
+    @NSManaged public private(set) var score: NSNumber
+    @NSManaged public private(set) var title: String
+    @NSManaged public private(set) var viewCount: NSNumber
+    @NSManaged public private(set) var tags: [NSString]
+    @NSManaged public private(set) var owner: User
+    @NSManaged public private(set) var questionId: NSNumber?
+    
+    public static func processBatch(moc: NSManagedObjectContext, jsonArray: [AnyObject]) {
+        let queue = dispatch_queue_create("postQueue", DISPATCH_QUEUE_SERIAL)
         
-        guard let owner = User(user!) else { return nil }
+        var popped = jsonArray
+        popped.removeLast()
         
-        var ts = [Tag]()
-        tagsGlob.forEach { ts.append(Tag($0)!) }
-        
-        
-        self.acceptedAnswerId = accepted
-        self.answerCount = ansCount
-        self.creationDate = created
-        self.isAnswered = answered
-        self.lastActivityDate = lastActive
-        self.link = link
-        self.owner = owner
-        self.tags = ts
-        self.questionId = questId
-        self.score = score
-        self.title = title
-        self.viewCount = count
-         
+        for post in popped {
+            dispatch_sync(queue, { () in
+                moc.performChanges {
+                    print("\n==============\n Post: \n\(post) \n==============\n")
+                    //Post.insertIntoContext(moc, json: post)
+                }
+            })
+        }
     }
+    
+// Insert code here to add functionality to your managed object subclass
+    public static func insertIntoContext(moc: NSManagedObjectContext, json: AnyObject) {
+        print("\n==============\n Post: \n\(json) \n==============\n")
+        let post: Post = moc.insertObject()
+        
+        var tags = [NSString]()
+        
+        //guard let accepted = json["accepted_answer_id"] as? Int else { fatalError("post: accepted failed") }
+        guard let ansCount = json["answer_count"] as? Int else { fatalError("post: ansCount failed") }
+        guard let created = json["creation_date"] as? Int else { fatalError("post: created failed") }
+        guard let answered = json["is_answered"] as? Int else { fatalError("post: answered failed") }
+        guard let lastActive = json["last_activity_date"] as? Int else { fatalError("post: lastActive failed") }
+        guard let link = json["link"] as? String else { fatalError("post: link failed") }
+        guard let user = json["owner"]! else { fatalError("post: user failed") }
+        guard let questId = json["question_id"] as? Int else { fatalError("post: questId failed") }
+        guard let score = json["score"] as? Int else { fatalError("post: score failed") }
+        guard let tagsGlob = json["tags"] as? [String] else { fatalError("post: tagsGlob failed") }
+        guard let title = json["title"] as? String else { fatalError("post: title failed") }
+        guard let count = json["view_count"] as? Int else { fatalError("post: somcountething failed") }  
+        let owner = User.insertIntoContext(moc, json: user)
+        
+        if owner.displayName == "" { fatalError() }
+        
+        // Dates
+        let date : NSDate = NSDate(timeIntervalSince1970: NSTimeInterval(created))
+        let last : NSDate = NSDate(timeIntervalSince1970: NSTimeInterval(lastActive))
+ 
+        tagsGlob.forEach { tag in
+            tags.append(tag)
+        }
+        
+        //post.acceptedAnswerId = accepted
+        post.answerCount = ansCount
+        post.creationDate = date
+        post.isAnswered = answered
+        post.lastActivityDate = last
+        post.link =  NSURL(fileURLWithPath: link)
+        post.owner = owner
+        post.tags = tagsGlob
+        post.questionId = questId
+        post.score = score
+        post.title = title
+        post.viewCount = count
+        
+//        dispatch_async(BackgroundQueue, {
+//            owner.managedObjectContext?.performChanges {
+//                User.insertIntoContext(moc, json: post)
+//            }
+//        })
+        
+        moc.performChanges {
+            post
+        }
+    }
+    
+}
+
+
+
+extension Post: ManagedObjectType {
+    
+    public static var entityName: String {
+        return "Post"
+    }
+    
+    public static var defaultSortDescriptors: [NSSortDescriptor] {
+        return [NSSortDescriptor(key: "creationDate", ascending: false)]
+    }
+   
 }

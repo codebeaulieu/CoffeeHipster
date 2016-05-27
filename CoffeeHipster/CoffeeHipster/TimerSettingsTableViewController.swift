@@ -10,6 +10,27 @@ import UIKit
 
 class TimerSettingsTableViewController: UITableViewController {
 
+    enum Mode : Int {
+        case Aero = 0
+        case French = 1
+        case Pour = 2
+        
+        mutating func next() {
+            switch self {
+            case Aero: self  = French
+            case French: self  = Pour
+            case Pour: self  = Aero
+            }
+        }
+    }
+    
+    var mode : Mode! {
+        didSet {
+            displayOptions(mode)
+        }
+    }
+    
+    
     let userDefaults = NSUserDefaults.standardUserDefaults()
     var dataSource = [Section<String>]() {
         didSet {
@@ -21,7 +42,7 @@ class TimerSettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayAeroPressOptions()
+        mode = .Aero
         
 
     }
@@ -38,13 +59,13 @@ class TimerSettingsTableViewController: UITableViewController {
     }
     
     
-     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCellWithIdentifier("settingsCell", forIndexPath: indexPath)
-     cell.textLabel?.text = dataSource[indexPath.section].items[indexPath.row]
-     // Configure the cell...
-     
-     return cell
-     }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("settingsCell", forIndexPath: indexPath)
+        cell.textLabel?.text = dataSource[indexPath.section].items[indexPath.row]
+        // Configure the cell...
+        cell.removeMargins()
+        return cell
+    }
  
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return dataSource[section].header
@@ -56,37 +77,56 @@ class TimerSettingsTableViewController: UITableViewController {
         
         print("cell : \(cell.textLabel?.text)")
         
-        // give each cell a tag or identifier and switch on the identifier,
-        // tapping row one toggles between AeroPress, French Press & Pour Over
-        
-        
+        if (indexPath.row, indexPath.section) == (0,0) {
+            mode.next()
+        }
     }
     
+    func displayOptions(mode: Mode) {
+        switch mode {
+        case .Aero:
+            displayAeroPressOptions()
+        case .French:
+            displayFrenchPressOptions()
+        case .Pour:
+            displayPourOverOptions()
+        }
+    }
     
     func displayAeroPressOptions() {
+        dataSource.removeAll()
         // user selects mode
-        let modes = ["Aeropress", "French Press", "Pour Over"]
+        let modes = ["Aeropress"]
         let modesSection = Section("Mode", objects: modes)
-        
-        dataSource.append(modesSection)
-        // aeropress settings
-        
-        // frenchpress settigns
-        
-        // pourover settings
-        
-        // global settings
+ 
         let settings = ["Cool Down Timer", "Cool Down Time"]
-        let globalSection = Section("General", objects: settings)
+        let globalSection = Section("Options", objects: settings)
         
-        dataSource.append(globalSection)
+        dataSource.appendContentsOf([modesSection, globalSection])
     }
 
     func displayFrenchPressOptions() {
+        dataSource.removeAll()
+        // user selects mode
+        let modes = ["French Press"]
+        let modesSection = Section("Mode", objects: modes)
+        
+        let settings = ["Cool Down Timer", "Cool Down Time", "Grain Size", "Bloom"]
+        let globalSection = Section("Options", objects: settings)
+        
+        dataSource.appendContentsOf([modesSection, globalSection])
     }
     
     func displayPourOverOptions() {
+        dataSource.removeAll()
+        // user selects mode
+        let modes = ["Pour Over"]
+        let modesSection = Section("Mode", objects: modes)
         
+        let settings = ["Cool Down Timer", "Cool Down Time", "Filter Type"]
+        let globalSection = Section("Options", objects: settings)
+        
+        dataSource.appendContentsOf([modesSection, globalSection])
     }
 
     /*

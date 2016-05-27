@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class UserConnect {
+final class WikiConnect {
     
     class func manager(user : User? = nil, operation: Operation, completion: (status: Either) -> ()) {
         
@@ -31,7 +31,7 @@ final class UserConnect {
         
         func delete() {
             print("Deleting user: \(user) \n")
-           
+            
         }
         
         switch operation {
@@ -45,6 +45,6 @@ final class UserConnect {
             put()
         case .Delete:
             delete()
-    }
+        }
     }
 }
