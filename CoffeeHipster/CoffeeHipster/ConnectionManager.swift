@@ -14,24 +14,24 @@ final class Connect {
     private let wikiRepo = WikiRepository()
     private let statRepo = StatRepository()
     
-    class func handle(obj : AnyObject? = nil, repo repository: Repo, _ operation: Operation, completion: (result: Either) -> Void) {
+    class func handle(obj : AnyObject? = nil, repo repository: Repo, _ operation: Operation, completion: (Either -> Void)) {
         
         switch repository {
         case .Post:
             PostRepository.manager(obj as? Post, operation: operation) { either in
-                completion(result: either)
+                completion(either)
             }
         case .User:
             UserRepository.manager(obj as? User, operation: operation) { either in
-                completion(result: either)
+                completion(either)
             }
         case .Wiki:
             WikiRepository.manager(obj as? User, operation: operation) { either in
-                completion(result: either)
+                completion(either)
             }
         case .Stat:
             StatRepository.manager(obj as? User, operation: operation) { either in
-                completion(result: either)
+                completion(either)
             }
         } 
     }

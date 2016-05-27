@@ -10,21 +10,21 @@ import Foundation
 import Alamofire
 
 final class PostRepository {
-    class func manager(post : Post? = nil, operation: Operation, completion: (status: Either) -> Void) {
+    class func manager(post : Post? = nil, operation: Operation, completion: (Either -> Void)) {
         //https://api.stackexchange.com/2.2/questions?order=desc&min=10&sort=activity&site=coffee
         func get(id : Int = 0) {
             Alamofire.request(.GET, "https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&site=coffee&filter=!3yXvh9)gdfMXsQu4D")
                 .responseJSON { response in
                     
-                if response.result.isFailure { completion(status: Either.Status(StatusCode.Offline)); return }
+                if response.result.isFailure { completion(Either.Status(StatusCode.Offline)); return }
                 
                 if let JSON = response.result.value {
                     if let jsonArray = JSON["items"] as? [[String: AnyObject]] {
                         print("jsonArray: \(jsonArray[1])")
-                        completion(status: Either.Object(jsonArray))
+                        completion(Either.Object(jsonArray))
                     }
                 } else {
-                    completion(status: Either.Status(StatusCode.RequestTimeOut))
+                    completion(Either.Status(StatusCode.RequestTimeOut))
                 }
             }
         }

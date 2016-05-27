@@ -14,11 +14,11 @@
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Medium</string>
+            <string>AvenirNext-Regular</string>
             <string>AvenirNext-Medium</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Medium</string>
             <string>AvenirNext-Medium</string>
-            <string>AvenirNext-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -626,6 +626,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="F9d-Ui-IRF"/>
+        <segue reference="yHY-vE-6Ys"/>
     </inferredMetricsTieBreakers>
 </document>

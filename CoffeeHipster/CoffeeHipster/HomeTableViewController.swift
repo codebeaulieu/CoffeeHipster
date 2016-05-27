@@ -29,6 +29,8 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         super.viewDidLoad()
         checkManagedObjectContext("Home")
         setupRevealMenu(self)
+
+
         setupTableView()
         delay(1) {
             self.getPosts()
