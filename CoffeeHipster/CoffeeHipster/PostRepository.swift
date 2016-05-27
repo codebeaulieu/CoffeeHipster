@@ -13,7 +13,12 @@ final class PostRepository {
     class func manager(post : Post? = nil, operation: Operation, completion: (Either -> Void)) {
         //https://api.stackexchange.com/2.2/questions?order=desc&min=10&sort=activity&site=coffee
         func get(id : Int = 0) {
-            Alamofire.request(.GET, "https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&site=coffee&filter=!3yXvh9)gdfMXsQu4D")
+            
+            // source: https://api.stackexchange.com/docs/posts#order=desc&sort=creation&filter=!2sTIRt2e4yt2ZIdhKEKN*E5vOnLaUD-kK4zszF0XTr&site=coffee&run=true
+            // might -> : /2.2/questions?order=desc&sort=creation&site=coffee&filter=!53BrpFKIyYM9M4pIDMIoGd8FnO6*)u-Gx_w)6L
+            // /2.2/posts?order=desc&sort=creation&site=coffee&filter=!2sTIRt2e4yt2ZIdhKEKN*E5vOnLaUD-kK4zszF0XTr
+            
+            Alamofire.request(.GET, "/2.2/questions?order=desc&sort=creation&site=coffee&filter=!53BrpFKIyYM9M4pIDMIoGd8FnO6*)u-Gx_w)6L")
                 .responseJSON { response in
                     
                 if response.result.isFailure { completion(Either.Status(StatusCode.Offline)); return }
@@ -26,6 +31,27 @@ final class PostRepository {
                 } else {
                     completion(Either.Status(StatusCode.RequestTimeOut))
                 }
+            }
+        }
+        
+        func getById(id : [Int]) {
+            
+            // build a string from the contents of the incoming array
+            // semi-colon delimited list
+            
+            Alamofire.request(.GET, "https://api.stackexchange.com/2.2/posts/\(id)?order=desc&sort=activity&site=coffee&filter=!3yXvh7JDU)hU-ZHbm")
+                .responseJSON { response in
+                    
+                    if response.result.isFailure { completion(status: Either.Status(StatusCode.Offline)); return }
+                    
+                    if let JSON = response.result.value {
+                        if let jsonArray = JSON["items"] as? [[String: AnyObject]] {
+                            print("jsonArray: \(jsonArray[1])")
+                            completion(status: Either.Object(jsonArray)); return
+                        }
+                    } else {
+                        completion(status: Either.Status(StatusCode.RequestTimeOut)); return
+                    }
             }
         }
         
@@ -48,7 +74,7 @@ final class PostRepository {
         case .Get:
             get()
         case .GetById(let id):
-            get(id)
+            getById(id)
         case .Post:
             post()
         case .Put:

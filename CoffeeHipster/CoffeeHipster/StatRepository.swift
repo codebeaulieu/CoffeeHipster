@@ -8,13 +8,17 @@
 
 import Foundation
 
-final class StatRepository {
+final class StatConnect {
     
     class func manager(user : User? = nil, operation: Operation, completion: (status: Either) -> ()) {
         
         func get(id : Int = 0) {
             print("Getting user: \(user) \n")
             
+        }
+        
+        func getById(id : [Int]) {
+        
         }
         
         func post() {
@@ -36,7 +40,7 @@ final class StatRepository {
         case .Get:
             get()
         case .GetById(let id):
-            get(id)
+            getById(id)
         case .Post:
             post()
         case .Put:

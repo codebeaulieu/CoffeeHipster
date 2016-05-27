@@ -14,6 +14,7 @@
 		37343BBE1C696FF30058CDDA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37343BBD1C696FF30058CDDA /* SWRevealViewController.m */; };
 		37343BCA1C69788E0058CDDA /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37343BC91C69788E0058CDDA /* MenuTableViewController.swift */; };
 		37343BCC1C697EA80058CDDA /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37343BCB1C697EA80058CDDA /* HomeTableViewController.swift */; };
+		375E43591CF8E3EF0047CF8A /* ManagedObjectOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375E43581CF8E3EF0047CF8A /* ManagedObjectOperations.swift */; };
 		37ACAF9A1CCBBD940059CBB5 /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAF991CCBBD940059CBB5 /* AskViewController.swift */; };
 		37ACAF9D1CCBBF800059CBB5 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAF9C1CCBBF800059CBB5 /* QuestionViewController.swift */; };
 		37ACAF9F1CCBBFC10059CBB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAF9E1CCBBFC10059CBB5 /* LoginViewController.swift */; };
@@ -84,6 +85,7 @@
 		37343BBD1C696FF30058CDDA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		37343BC91C69788E0058CDDA /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		37343BCB1C697EA80058CDDA /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		375E43581CF8E3EF0047CF8A /* ManagedObjectOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectOperations.swift; sourceTree = "<group>"; };
 		37ACAF991CCBBD940059CBB5 /* AskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskViewController.swift; sourceTree = "<group>"; };
 		37ACAF9C1CCBBF800059CBB5 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		37ACAF9E1CCBBFC10059CBB5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				72AE8D431CE2A96A00C35659 /* Extension+UIViewController.swift in Sources */,
 				72C749021CE5541800A9A772 /* DataSourceDelegate.swift in Sources */,
 				370961011C98749700416B57 /* Section.swift in Sources */,
+				375E43591CF8E3EF0047CF8A /* ManagedObjectOperations.swift in Sources */,
 				726790681CE4444F00E5A10F /* StatRepository.swift in Sources */,
 				37ACAFA11CCBCF490059CBB5 /* HTTPUtility.swift in Sources */,
 				7267906A1CE44E0900E5A10F /* Extension+NSDate.swift in Sources */,

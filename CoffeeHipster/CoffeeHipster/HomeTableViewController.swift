@@ -38,14 +38,7 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
     }
   
     func getPosts() { 
-        Connect.handle(repo: .Post, .Get) { [weak self] result in
-            switch result {
-            case .Status(let code):
-                self!.checkStatusCode(code)
-            case .Object(let posts):
-                Post.processBatch(self!.managedObjectContext, posts: posts)
-            }
-        }
+        Connect.handle(api: .Post, request: .Get, moc: managedObjectContext)
     }
     
     func checkStatusCode(code : StatusCode) {

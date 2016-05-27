@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class UserRepository {
+final class UserConnect {
     
     class func manager(user : User? = nil, operation: Operation, completion: (status: Either) -> ()) {
         
@@ -16,7 +16,9 @@ final class UserRepository {
             print("Getting user: \(user) \n")
             
         }
-        
+        func getById(id : [Int]) {
+            
+        }
         func post() {
             print("Creating user: \(user) \n")
             
@@ -36,7 +38,7 @@ final class UserRepository {
         case .Get:
             get()
         case .GetById(let id):
-            get(id)
+            getById(id)
         case .Post:
             post()
         case .Put:

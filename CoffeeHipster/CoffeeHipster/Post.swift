@@ -10,38 +10,39 @@ import Foundation
 import CoreData
 
 
-public final class Post: ManagedObject {
+public final class Post: ManagedObject, ManagedObjectOperations {
     
-    @NSManaged var acceptedAnswerId: NSNumber?
-    @NSManaged var answerCount: NSNumber
-    @NSManaged var creationDate: NSDate
-    @NSManaged var isAnswered: NSNumber
-    @NSManaged var lastActivityDate: NSDate
-    @NSManaged var link: NSURL
-    @NSManaged var score: NSNumber
-    @NSManaged var title: String
-    @NSManaged var viewCount: NSNumber
-    @NSManaged var tags: [NSString]
-    @NSManaged var owner: User
-    @NSManaged var questionId: NSNumber?
+    @NSManaged public private(set) var acceptedAnswerId: NSNumber?
+    @NSManaged public private(set) var answerCount: NSNumber
+    @NSManaged public private(set) var creationDate: NSDate
+    @NSManaged public private(set) var isAnswered: NSNumber
+    @NSManaged public private(set) var lastActivityDate: NSDate
+    @NSManaged public private(set) var link: NSURL
+    @NSManaged public private(set) var score: NSNumber
+    @NSManaged public private(set) var title: String
+    @NSManaged public private(set) var viewCount: NSNumber
+    @NSManaged public private(set) var tags: [NSString]
+    @NSManaged public private(set) var owner: User
+    @NSManaged public private(set) var questionId: NSNumber?
     
-    public static func processBatch(moc: NSManagedObjectContext, posts: [AnyObject]) {
-        let queue = dispatch_queue_create("mocQueue", DISPATCH_QUEUE_SERIAL)
+    public static func processBatch(moc: NSManagedObjectContext, jsonArray: [AnyObject]) {
+        let queue = dispatch_queue_create("postQueue", DISPATCH_QUEUE_SERIAL)
         
-        var popped = posts
+        var popped = jsonArray
         popped.removeLast()
         
         for post in popped {
             dispatch_sync(queue, { () in
                 moc.performChanges {
-                    Post.insertIntoContext(moc, json: post)
+                    print("\n==============\n Post: \n\(post) \n==============\n")
+                    //Post.insertIntoContext(moc, json: post)
                 }
             })
         }
     }
     
 // Insert code here to add functionality to your managed object subclass
-    public static func insertIntoContext(moc: NSManagedObjectContext, json: AnyObject) -> Post {
+    public static func insertIntoContext(moc: NSManagedObjectContext, json: AnyObject) {
         print("\n==============\n Post: \n\(json) \n==============\n")
         let post: Post = moc.insertObject()
         
@@ -84,13 +85,15 @@ public final class Post: ManagedObject {
         post.title = title
         post.viewCount = count
         
-        dispatch_async(BackgroundQueue, {
-            owner.managedObjectContext?.performChanges {
-                User.insertIntoContext(moc, json: post)
-            }
-        })
+//        dispatch_async(BackgroundQueue, {
+//            owner.managedObjectContext?.performChanges {
+//                User.insertIntoContext(moc, json: post)
+//            }
+//        })
         
-        return post
+        moc.performChanges {
+            post
+        }
     }
     
 }

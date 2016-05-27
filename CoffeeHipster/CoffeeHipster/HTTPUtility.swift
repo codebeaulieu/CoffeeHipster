@@ -13,15 +13,15 @@ enum Operation {
     case Put
     case Delete
     case Get
-    case GetById(Int)
+    case GetById([Int])
 }
 
 enum Either {
     case Status(StatusCode)
-    case Object([AnyObject])
+    case Object(AnyObject)
 }
 
-enum Repo {
+enum Remote {
     case User
     case Post
     case Wiki

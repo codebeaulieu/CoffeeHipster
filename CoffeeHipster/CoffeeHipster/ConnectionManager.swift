@@ -7,12 +7,9 @@
 //
 
 import Foundation
+import CoreData
 
 final class Connect {
-    private let userRepo = UserRepository()
-    private let postRepo = PostRepository()
-    private let wikiRepo = WikiRepository()
-    private let statRepo = StatRepository()
     
     class func handle(obj : AnyObject? = nil, repo repository: Repo, _ operation: Operation, completion: (Either -> Void)) {
         
