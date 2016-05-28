@@ -31,20 +31,16 @@ final class QuestionViewController: UIViewController, ManagedObjectContextSettab
         titleLabel.text = post.title
         print(post.body!)
         /* load a web-view */
-        questionWebView.loadHTMLString(post.body!, baseURL: nil)
-        //questionWebView.
+        
+        
+        let fixImage = post.body!.imageFix()
+        questionWebView.loadHTMLString(fixImage, baseURL: nil)
+       
         //questionTextView.attributedText = post.body?.attrStr()
         temporaryAnswerView.attributedText = post.answer?.first?.body.attrStr()
         voteCount.text = "\(post.currentVoteCount)"
         print("answerrr : \(post.answer?.first?.body)")
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation
