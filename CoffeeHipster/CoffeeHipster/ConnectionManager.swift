@@ -11,24 +11,39 @@ import CoreData
 
 final class Connect {
     
-    class func handle(obj : AnyObject? = nil, repo repository: Repo, _ operation: Operation, completion: (Either -> Void)) {
+    class func handle(obj : AnyObject? = nil, api repository: Remote, request operation: Operation, moc: NSManagedObjectContext) {
+        
+        func process<T: ManagedObject where T: ManagedObjectOperations>(object : T? = nil, result: Either) {
+            
+            switch result {
+            case .Status(let code):
+                print("status code: \(code)") // TODO: depending on the status code, possibly trigger a modal
+            case .Object(let obj):
+                if case .Get = operation {
+                    guard let objects = obj as? [AnyObject] else { return }
+                    T.processBatch(moc, jsonArray: objects)
+                } else if case .GetById(_) = operation {
+                    T.insertIntoContext(moc, json: obj)
+                }
+            }
+        }
         
         switch repository {
         case .Post:
-            PostRepository.manager(obj as? Post, operation: operation) { either in
-                completion(either)
+            PostConnect.manager(obj as? Post, operation: operation) { either in
+                process(obj as? Post, result: either)
             }
         case .User:
-            UserRepository.manager(obj as? User, operation: operation) { either in
-                completion(either)
+            UserConnect.manager(obj as? User, operation: operation) { either in
+                process(obj as? Post, result: either)
             }
         case .Wiki:
-            WikiRepository.manager(obj as? User, operation: operation) { either in
-                completion(either)
+            WikiConnect.manager(obj as? User, operation: operation) { either in
+                process(obj as? Post, result: either)
             }
         case .Stat:
-            StatRepository.manager(obj as? User, operation: operation) { either in
-                completion(either)
+            StatConnect.manager(obj as? User, operation: operation) { either in
+                process(obj as? Post, result: either)
             }
         } 
     }
