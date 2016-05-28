@@ -39,6 +39,7 @@
 		729A06B11CE16E08006FBB6E /* TimerPresetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06AF1CE16E08006FBB6E /* TimerPresetViewController.swift */; };
 		729A06B41CE172C9006FBB6E /* TimerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06B31CE172C9006FBB6E /* TimerSettingsTableViewController.swift */; };
 		729A06B61CE17A64006FBB6E /* TimerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06B51CE17A64006FBB6E /* TimerPageViewController.swift */; };
+		72A590441CF931BA00416DEF /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A590431CF931BA00416DEF /* Extension+String.swift */; };
 		72AE8D371CE2A07300C35659 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D361CE2A07300C35659 /* SegueHandlerType.swift */; };
 		72AE8D391CE2A1CB00C35659 /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D381CE2A1CB00C35659 /* ManagedObject.swift */; };
 		72AE8D3C1CE2A20500C35659 /* ManagedObjectContextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D3B1CE2A20500C35659 /* ManagedObjectContextSettable.swift */; };
@@ -58,8 +59,9 @@
 		72C749041CE554CB00A9A772 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C749031CE554CB00A9A772 /* DataProvider.swift */; };
 		72C749061CE5550400A9A772 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C749051CE5550400A9A772 /* ConfigurableCell.swift */; };
 		72C749081CE5557200A9A772 /* FetchedResultsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C749071CE5557200A9A772 /* FetchedResultsDataProvider.swift */; };
-		72C7490A1CE556A000A9A772 /* MoodsPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C749091CE556A000A9A772 /* MoodsPresenterType.swift */; };
+		72C7490A1CE556A000A9A772 /* ManagedPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C749091CE556A000A9A772 /* ManagedPresenterType.swift */; };
 		72C7490C1CE55C6D00A9A772 /* Extension+NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7490B1CE55C6D00A9A772 /* Extension+NSString.swift */; };
+		72CA5C601CF92384005529FB /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA5C5E1CF92384005529FB /* Answer.swift */; };
 		D6ADD715993818B624C8E8C6 /* Pods_CoffeeHipster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD5A9A705F7E48D6AEB3EF2 /* Pods_CoffeeHipster.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +116,7 @@
 		729A06AF1CE16E08006FBB6E /* TimerPresetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPresetViewController.swift; sourceTree = "<group>"; };
 		729A06B31CE172C9006FBB6E /* TimerSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSettingsTableViewController.swift; sourceTree = "<group>"; };
 		729A06B51CE17A64006FBB6E /* TimerPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPageViewController.swift; sourceTree = "<group>"; };
+		72A590431CF931BA00416DEF /* Extension+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		72AE8D361CE2A07300C35659 /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		72AE8D381CE2A1CB00C35659 /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
 		72AE8D3B1CE2A20500C35659 /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
@@ -133,8 +136,9 @@
 		72C749031CE554CB00A9A772 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		72C749051CE5550400A9A772 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		72C749071CE5557200A9A772 /* FetchedResultsDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsDataProvider.swift; sourceTree = "<group>"; };
-		72C749091CE556A000A9A772 /* MoodsPresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodsPresenterType.swift; sourceTree = "<group>"; };
+		72C749091CE556A000A9A772 /* ManagedPresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedPresenterType.swift; sourceTree = "<group>"; };
 		72C7490B1CE55C6D00A9A772 /* Extension+NSString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+NSString.swift"; sourceTree = "<group>"; };
+		72CA5C5E1CF92384005529FB /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		8D5EB6BEB010366BB1AF8BAE /* Pods-CoffeeHipster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeHipster.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeHipster/Pods-CoffeeHipster.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +164,7 @@
 		370960F91C9866E900416B57 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				72CA5C5E1CF92384005529FB /* Answer.swift */,
 				72AE8D621CE2E86F00C35659 /* Post.swift */,
 				72AE8D641CE2E86F00C35659 /* User.swift */,
 				72AE8D461CE2BB6C00C35659 /* ViewModels */,
@@ -269,7 +274,6 @@
 				37EDFFDA1C696EA7003D6BAA /* Assets.xcassets */,
 				37EDFFDC1C696EA7003D6BAA /* LaunchScreen.storyboard */,
 				37EDFFDF1C696EA7003D6BAA /* Info.plist */,
-				37343BBB1C696FF20058CDDA /* CoffeeHipster-Bridging-Header.h */,
 			);
 			path = CoffeeHipster;
 			sourceTree = "<group>";
@@ -302,8 +306,8 @@
 				72C749011CE5541800A9A772 /* DataSourceDelegate.swift */,
 				72C749031CE554CB00A9A772 /* DataProvider.swift */,
 				72C749051CE5550400A9A772 /* ConfigurableCell.swift */,
-				72C749091CE556A000A9A772 /* MoodsPresenterType.swift */,
 				375E43581CF8E3EF0047CF8A /* ManagedObjectOperations.swift */,
+				72C749091CE556A000A9A772 /* ManagedPresenterType.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -321,6 +325,7 @@
 		72AE8D3D1CE2A36A00C35659 /* SWReveal */ = {
 			isa = PBXGroup;
 			children = (
+				37343BBB1C696FF20058CDDA /* CoffeeHipster-Bridging-Header.h */,
 				37343BBC1C696FF30058CDDA /* SWRevealViewController.h */,
 				37343BBD1C696FF30058CDDA /* SWRevealViewController.m */,
 				72AE8D3E1CE2A39000C35659 /* RevealViewController.swift */,
@@ -348,6 +353,7 @@
 				7267905D1CE43B8900E5A10F /* Extension+UITableViewCell.swift */,
 				726790691CE44E0900E5A10F /* Extension+NSDate.swift */,
 				72C7490B1CE55C6D00A9A772 /* Extension+NSString.swift */,
+				72A590431CF931BA00416DEF /* Extension+String.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -527,7 +533,7 @@
 				370961121C987F9400416B57 /* GCD.swift in Sources */,
 				37ACAF9A1CCBBD940059CBB5 /* AskViewController.swift in Sources */,
 				72AE8D3C1CE2A20500C35659 /* ManagedObjectContextSettable.swift in Sources */,
-				72C7490A1CE556A000A9A772 /* MoodsPresenterType.swift in Sources */,
+				72C7490A1CE556A000A9A772 /* ManagedPresenterType.swift in Sources */,
 				37343BCC1C697EA80058CDDA /* HomeTableViewController.swift in Sources */,
 				72AE8D561CE2E63C00C35659 /* Post1.swift in Sources */,
 				37343BCA1C69788E0058CDDA /* MenuTableViewController.swift in Sources */,
@@ -541,9 +547,11 @@
 				726790601CE43FAE00E5A10F /* ExploreViewController.swift in Sources */,
 				72AE8D371CE2A07300C35659 /* SegueHandlerType.swift in Sources */,
 				72C749081CE5557200A9A772 /* FetchedResultsDataProvider.swift in Sources */,
+				72A590441CF931BA00416DEF /* Extension+String.swift in Sources */,
 				72AE8D431CE2A96A00C35659 /* Extension+UIViewController.swift in Sources */,
 				72C749021CE5541800A9A772 /* DataSourceDelegate.swift in Sources */,
 				370961011C98749700416B57 /* Section.swift in Sources */,
+				72CA5C601CF92384005529FB /* Answer.swift in Sources */,
 				375E43591CF8E3EF0047CF8A /* ManagedObjectOperations.swift in Sources */,
 				726790681CE4444F00E5A10F /* StatRepository.swift in Sources */,
 				37ACAFA11CCBCF490059CBB5 /* HTTPUtility.swift in Sources */,

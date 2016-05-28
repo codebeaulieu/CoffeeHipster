@@ -24,6 +24,10 @@ public final class Post: ManagedObject, ManagedObjectOperations {
     @NSManaged public private(set) var tags: [NSString]
     @NSManaged public private(set) var owner: User
     @NSManaged public private(set) var questionId: NSNumber?
+    @NSManaged public private(set) var body: String?
+    @NSManaged public private(set) var downVoteCount: NSNumber
+    @NSManaged public private(set) var upVoteCount: NSNumber
+    @NSManaged public private(set) var answer: Set<Answer>?
     
     public static func processBatch(moc: NSManagedObjectContext, jsonArray: [AnyObject]) {
         let queue = dispatch_queue_create("postQueue", DISPATCH_QUEUE_SERIAL)
@@ -34,8 +38,8 @@ public final class Post: ManagedObject, ManagedObjectOperations {
         for post in popped {
             dispatch_sync(queue, { () in
                 moc.performChanges {
-                    print("\n==============\n Post: \n\(post) \n==============\n")
-                    //Post.insertIntoContext(moc, json: post)
+                    //print("\n==============\n Post: \n\(post) \n==============\n")
+                    Post.insertIntoContext(moc, json: post)
                 }
             })
         }
@@ -43,7 +47,7 @@ public final class Post: ManagedObject, ManagedObjectOperations {
     
 // Insert code here to add functionality to your managed object subclass
     public static func insertIntoContext(moc: NSManagedObjectContext, json: AnyObject) {
-        print("\n==============\n Post: \n\(json) \n==============\n")
+        //print("\n==============\n Post: \n\(json) \n==============\n")
         let post: Post = moc.insertObject()
         
         var tags = [NSString]()
@@ -59,12 +63,21 @@ public final class Post: ManagedObject, ManagedObjectOperations {
         guard let score = json["score"] as? Int else { fatalError("post: score failed") }
         guard let tagsGlob = json["tags"] as? [String] else { fatalError("post: tagsGlob failed") }
         guard let title = json["title"] as? String else { fatalError("post: title failed") }
-        guard let count = json["view_count"] as? Int else { fatalError("post: somcountething failed") }  
+        guard let count = json["view_count"] as? Int else { fatalError("post: somcountething failed") }
+        guard let jsonQuestionId = json["question_id"] as? Int else { fatalError("post: created failed") }
+        guard let jsonBody = json["body"] as? String else { fatalError("post: created failed") }
+        guard let jsonDownVoteCount = json["down_vote_count"] as? Int else { fatalError("post: created failed") }
+        guard let jsonUpVoteCount = json["up_vote_count"] as? Int else { fatalError("post: created failed") }
+        
+        
         let owner = User.insertIntoContext(moc, json: user)
         
-        if owner.displayName == "" { fatalError() }
+        var answerSet : Set<Answer>?
         
-        // Dates
+        if let jsonAnswers = json["answers"] as? [AnyObject] {
+            answerSet = Answer.returnSet(moc, jsonArray: jsonAnswers)
+        }
+    
         let date : NSDate = NSDate(timeIntervalSince1970: NSTimeInterval(created))
         let last : NSDate = NSDate(timeIntervalSince1970: NSTimeInterval(lastActive))
  
@@ -84,12 +97,13 @@ public final class Post: ManagedObject, ManagedObjectOperations {
         post.score = score
         post.title = title
         post.viewCount = count
-        
-//        dispatch_async(BackgroundQueue, {
-//            owner.managedObjectContext?.performChanges {
-//                User.insertIntoContext(moc, json: post)
-//            }
-//        })
+        post.questionId = jsonQuestionId
+        post.body = jsonBody
+        post.downVoteCount = jsonDownVoteCount
+        post.upVoteCount = jsonUpVoteCount
+        post.answer = answerSet
+        post.owner = owner
+
         
         moc.performChanges {
             post

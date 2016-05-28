@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F31a" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G7a" minimumToolsVersion="Automatic">
+    <entity name="Answer" representedClassName=".Answer" syncable="YES">
+        <attribute name="answer_id" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creation_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="is_accepted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="last_activity_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="question_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="answer" inverseEntity="Post" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="answer_id"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
     <entity name="Comments" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="comment_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -13,6 +29,7 @@
         <attribute name="answerCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="creationDate" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="downVoteCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="isAnswered" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lastActivityDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -20,8 +37,9 @@
         <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="tags" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="viewCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="comments" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Comments" syncable="YES"/>
+        <attribute name="upVoteCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="viewCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="answer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Answer" inverseName="question" inverseEntity="Answer" syncable="YES"/>
         <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -45,8 +63,9 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Post" positionX="-281" positionY="-171" width="128" height="255"/>
-        <element name="User" positionX="-488" positionY="-82" width="128" height="165"/>
-        <element name="Comments" positionX="-387" positionY="-54" width="128" height="135"/>
+        <element name="Comments" positionX="18" positionY="-36" width="128" height="135"/>
+        <element name="Post" positionX="241" positionY="-378" width="128" height="283"/>
+        <element name="User" positionX="-558" positionY="-264" width="128" height="165"/>
+        <element name="Answer" positionX="-135" positionY="-468" width="128" height="178"/>
     </elements>
 </model>

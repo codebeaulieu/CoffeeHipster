@@ -21,6 +21,14 @@ public final class User: ManagedObject {
     @NSManaged var hipsterRep: NSNumber?
     @NSManaged var posts: NSOrderedSet?
     
+    public static func saveToCoreData(moc: NSManagedObjectContext, json: AnyObject) {
+        // TODO : this function should fetch or create
+        let user = User.insertIntoContext(moc, json: json)
+        
+        moc.performChanges {
+            user
+        }
+    }
     
     public static func insertIntoContext(moc: NSManagedObjectContext, json: AnyObject) -> User {
         

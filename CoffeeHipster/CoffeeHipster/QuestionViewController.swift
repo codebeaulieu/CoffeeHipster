@@ -16,6 +16,7 @@ final class QuestionViewController: UIViewController, ManagedObjectContextSettab
    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var questionTextView: UITextView!
+    @IBOutlet weak var temporaryAnswerView: UITextView!
     enum SegueIdentifier : String {
         case none = ""
     }
@@ -26,8 +27,9 @@ final class QuestionViewController: UIViewController, ManagedObjectContextSettab
         super.viewDidLoad()
         checkManagedObjectContext("Question")
         titleLabel.text = post.title
-        questionTextView.text = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        
+        questionTextView.attributedText = post.body?.attrStr()
+        temporaryAnswerView.attributedText = post.answer?.first?.body.attrStr()
+        print("answerrr : \(post.answer?.first?.body)")
         // Do any additional setup after loading the view.
     }
 
