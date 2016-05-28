@@ -13,10 +13,12 @@ final class PostConnect {
     class func manager(post : Post? = nil, operation: Operation, completion: (Either -> Void)) {
 
         func get(id : Int = 0) {
+ 
             // 
             // docs: https://api.stackexchange.com/docs/posts#order=desc&sort=creation&filter=!2sTIRt2e4yt2ZIdhKEKN*E5vOnLaUD-kK4zszF0XTr&site=coffee&run=true
   
             Alamofire.request(.GET, "https://api.stackexchange.com/2.2/questions?order=desc&sort=creation&site=coffee&filter=!3yXvh452l.xgxAx7H")
+ 
                 .responseJSON { response in
    
                 if response.result.isFailure { completion(Either.Status(StatusCode.Offline)); return }
