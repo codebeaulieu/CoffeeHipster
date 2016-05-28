@@ -10,13 +10,14 @@ import UIKit
 import CoreData
 // this will serve as a question view; users may answer question from here
 
-final class QuestionViewController: UIViewController, ManagedObjectContextSettable, SegueHandlerType {
+final class QuestionViewController: UIViewController, ManagedObjectContextSettable, SegueHandlerType, UIWebViewDelegate {
     
     var post : Post!
    
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var questionTextView: UITextView!
+    @IBOutlet weak var questionWebView: UIWebView!
     @IBOutlet weak var temporaryAnswerView: UITextView!
+    @IBOutlet weak var voteCount: UILabel!
     enum SegueIdentifier : String {
         case none = ""
     }
@@ -25,10 +26,16 @@ final class QuestionViewController: UIViewController, ManagedObjectContextSettab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        questionWebView.delegate = self
         checkManagedObjectContext("Question")
         titleLabel.text = post.title
-        questionTextView.attributedText = post.body?.attrStr()
+        print(post.body!)
+        /* load a web-view */
+        questionWebView.loadHTMLString(post.body!, baseURL: nil)
+        //questionWebView.
+        //questionTextView.attributedText = post.body?.attrStr()
         temporaryAnswerView.attributedText = post.answer?.first?.body.attrStr()
+        voteCount.text = "\(post.currentVoteCount)"
         print("answerrr : \(post.answer?.first?.body)")
         // Do any additional setup after loading the view.
     }
