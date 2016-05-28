@@ -12,7 +12,7 @@ import CoreData
 final class Connect {
     
     class func handle(obj : AnyObject? = nil, api repository: Remote, request operation: Operation, moc: NSManagedObjectContext) {
-        
+        // process
         func process<T: ManagedObject where T: ManagedObjectOperations>(object : T? = nil, result: Either) {
             
             switch result {
