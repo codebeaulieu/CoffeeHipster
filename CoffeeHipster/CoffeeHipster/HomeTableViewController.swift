@@ -25,6 +25,10 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         self.presentViewController(vc, animated: false, completion: nil)
     }
     
+    @IBAction func unwindPostDetail(segue: UIStoryboardSegue) {
+        token = 0
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         checkManagedObjectContext("Home")
@@ -37,8 +41,8 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         }
     }
   
-    func getPosts() { 
-        Connect.handle(api: .Post, request: .Get, moc: managedObjectContext)
+    func getPosts() {
+       
     }
     
     func checkStatusCode(code : StatusCode) {
@@ -56,8 +60,9 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         
         switch segueIdenfifierForSegue(segue) {
         case .Detail:
-              print("adsf")
-            let view = vc as! QuestionViewController
+            guard let view = segue.destinationViewController as? PostDetailTableViewController
+                else { fatalError("wrong vc type") }
+            view.managedObjectContext = managedObjectContext
             view.post = dataSource.selectedObject
         }
     }
@@ -69,7 +74,6 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
     //private var observer: ManagedObjectObserver?
     
     private func setupTableView() {
-      
         tableView.estimatedRowHeight = 80
         let request = NSFetchRequest(entityName: Post.entityName)
         request.returnsObjectsAsFaults = false
@@ -78,9 +82,7 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         let dataProvider = FetchedResultsDataProvider(fetchedResultsController: frc, delegate: self)
         dataSource = TableViewDataSource(tableView: tableView, dataProvider: dataProvider, delegate: self)
-    }
-    
-
+    } 
 }
 
 
@@ -96,3 +98,9 @@ extension HomeTableViewController: DataSourceDelegate {
     }
 }
 
+extension HomeTableViewController {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("questionDetailSegue", sender: self)
+        
+    }
+}

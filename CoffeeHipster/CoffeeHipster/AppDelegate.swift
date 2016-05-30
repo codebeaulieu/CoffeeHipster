@@ -23,12 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("\n directory: \n \(applicationDocumentsDirectory) \n")
         
+        delay(0.5) {
+            Connect.handle(api: .Post, request: .Get, moc: self.managedObjectContext)
+        }
         guard let vc = window?.rootViewController as? ManagedObjectContextSettable
             else { fatalError("Wrong View Controller Type") }
         vc.managedObjectContext = managedObjectContext
-        
-        let request = NSFetchRequest(entityName: "Post")
-        
+         
         return true
     }
 
