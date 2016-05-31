@@ -12,6 +12,7 @@ struct Section<T> {
     let header : String
     let items : [T]
     
+ 
     init(_ title: String, objects: [T]) {
         header = title
         items = objects

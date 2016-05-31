@@ -21,8 +21,9 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
     }
     
     var managedObjectContext: NSManagedObjectContext!
-    var postData = [PostCellViewModel]()
-    var contentHeights : [CGFloat] = [0.0, 0.0, 0.0]
+    
+    var sectionData = [Section<PostCellViewModel>]()
+    var contentHeights = [Double : CGFloat]()
     override func viewDidLoad() {
         super.viewDidLoad()
         checkManagedObjectContext("PostDetail")
@@ -33,7 +34,7 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
     
     func createRowsFromObject() {
         // TODO: re-evaluate all of this crap
-        
+        var postData = [PostCellViewModel]()
         // title
         let titleCell = PostCellViewModel(cellType: .Title,
                                           content: [
@@ -50,9 +51,21 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
                                             "image":post.owner.image!,
                                             "name":post.owner.displayName,
                                             "rep":"\(post.owner.rep!)"])
+        
         postData.append(titleCell)
         postData.append(bodyCell)
         postData.append(userCell)
+        
+        sectionData.append(Section("question", objects: postData))
+        // answers
+        var answerArray = [PostCellViewModel]()
+        for answer in post.answer! {
+            let answerBody = PostCellViewModel(cellType: .Body, content: ["body": answer.body])
+            answerArray.append(answerBody)
+            
+        }
+        sectionData.append(Section("Answers", objects: answerArray))
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,39 +77,45 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return sectionData.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return postData.count
+        return sectionData[section].items.count
     } 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+ 
+        let current = sectionData[indexPath.section].items[indexPath.row]
+        let position = indexPath.section.createDecimal(indexPath.row)
         
-        switch postData[indexPath.row].cellType {
-        case .Title :
+        print("tuple : \(position)")
+        switch position {
+        case 0.0 :
             let cell = tableView.dequeueReusableCellWithIdentifier("titleCell", forIndexPath: indexPath) as! TitleTableViewCell
-            cell.titleLabel.text = postData[indexPath.row].content["title"]
-            cell.voteCount.text = postData[indexPath.row].content["count"]
+            cell.titleLabel.text = current.content["title"]
+            cell.voteCount.text = current.content["count"]
             cell.removeMargins()
             return cell
-        case .Body:
-            print(indexPath.row)
-            let htmlHeight = contentHeights[indexPath.row]
-            guard let body = postData[indexPath.row].content["body"] else { return UITableViewCell() }
+        case 0.1:
+           
+            let htmlHeight = contentHeights[position] ?? 0.0
+            guard let body = current.content["body"] else { return UITableViewCell() }
             let cell = tableView.dequeueReusableCellWithIdentifier("bodyCell", forIndexPath: indexPath) as! BodyTableViewCell
-            cell.questionWebView.tag = indexPath.row
+            cell.postWebView.position = position
             cell.loadBody(body)
-            cell.questionWebView.frame = CGRectMake(0, 0, cell.frame.size.width, htmlHeight)
+            cell.position = position
+            cell.postWebView.frame = CGRectMake(0, 0, cell.frame.size.width, htmlHeight)
             cell.removeMargins()
             return cell
-        case .User:
+        case 0.2:
             let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as! UserTableViewCell
-            guard let image = postData[indexPath.row].content["image"],
-                name = postData[indexPath.row].content["name"],
-                rep = postData[indexPath.row].content["rep"] else { return UITableViewCell() }
+            
+            guard let image = current.content["image"],
+                name = current.content["name"],
+                rep = current.content["rep"] else { return UITableViewCell() }
             print("image : \(image)")
             print("name: \(name)")
             cell.userImageView.imageFromUrl(image)
@@ -104,9 +123,21 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
             cell.userRepLabel.text = rep
             cell.removeMargins()
             return cell
+        case 1.0...1.createDecimal(sectionData[1].items.count):
+          
+            let htmlHeight = contentHeights[position] ?? 0.0
+            guard let body = current.content["body"] else { return UITableViewCell() }
+            let cell = tableView.dequeueReusableCellWithIdentifier("bodyCell", forIndexPath: indexPath) as! BodyTableViewCell
+            cell.postWebView.position = position
+            cell.position = position
+            cell.loadBody(body)
+            cell.postWebView.frame = CGRectMake(0, 0, cell.frame.size.width, htmlHeight)
+            cell.removeMargins()
+            return cell
+
+
         default:
-           // cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-            print("fuck off")
+            assertionFailure("cell for row at index patch should never hit default switch")
         }
         
 
@@ -117,11 +148,15 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
  
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
+        let position = indexPath.section.createDecimal(indexPath.row)
+        
+        
         switch indexPath.row {
         case 0 :
             return 70
         case 1 :
-            return contentHeights[indexPath.row]
+            guard let height = contentHeights[position] else { return 0 }
+            return height
         case 2 :
             return 50
         default:
@@ -132,30 +167,27 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
     }
     
     func questionLoaded(sender: NSNotification) {
-        let userInfo : [String:CGFloat!] = sender.userInfo as! [String:CGFloat!]
-        guard let height = userInfo["Height"] else { return }
-        print("height : \(height)")
+        
+        let userInfo : [String:AnyObject!] = sender.userInfo as! [String:AnyObject!]
+        guard let height = userInfo["Height"] as? CGFloat else { return }
+        guard let position = userInfo["Position"] as? Double else { return }
+        print("height: \(height)")
+        print("position: \(position)")
+        
         // enum w raw value
-        contentHeights[1] = height + 50
+        contentHeights[position] = height + 50
+        tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: position.getRow(), inSection: 0)], withRowAnimation: .Automatic)
         tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 0)], withRowAnimation: .Automatic)
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-//        print(webView.request?.URL)
-//        questionWebViewHeightConstraint.constant = questionWebView.scrollView.contentSize.height
-//        
-//        if (!observing) {
-//            startObservingHeight()
-//        }
         
-        if (contentHeights[webView.tag] != 0.0)
-        {
-            // we already know height, no need to reload cell
+        if (contentHeights[webView.position] != 0.0) {
             return
         }
         
-        contentHeights[webView.tag] = webView.scrollView.contentSize.height
-        tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: webView.tag, inSection: 0)], withRowAnimation: .Automatic)
+        contentHeights[webView.position] = webView.scrollView.contentSize.height
+        tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: webView.position.getRow(), inSection: webView.position.getSection())], withRowAnimation: .Automatic)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -166,3 +198,5 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
     }
 
 }
+
+
