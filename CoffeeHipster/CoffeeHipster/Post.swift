@@ -29,6 +29,8 @@ public final class Post: ManagedObject, ManagedObjectOperations {
     @NSManaged public private(set) var upVoteCount: NSNumber
     @NSManaged public private(set) var answer: Set<Answer>?
     
+    lazy public private(set) var currentVoteCount : Int = self.getCurrentVoteTotal()
+    
     public static func processBatch(moc: NSManagedObjectContext, jsonArray: [AnyObject]) {
         let queue = dispatch_queue_create("postQueue", DISPATCH_QUEUE_SERIAL)
         
@@ -45,7 +47,11 @@ public final class Post: ManagedObject, ManagedObjectOperations {
         }
     }
     
-// Insert code here to add functionality to your managed object subclass
+    func getCurrentVoteTotal() -> Int {
+        return (upVoteCount as Int) - (downVoteCount as Int)
+    }
+    
+    // Insert code here to add functionality to your managed object subclass
     public static func insertIntoContext(moc: NSManagedObjectContext, json: AnyObject) {
         //print("\n==============\n Post: \n\(json) \n==============\n")
         let post: Post = moc.insertObject()

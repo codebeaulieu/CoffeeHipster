@@ -15,4 +15,8 @@ extension String {
             options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
             documentAttributes: nil) 
     }
+    
+    func imageFix() -> String {
+        return self.stringByReplacingOccurrencesOfString("<img", withString: "<img style=\"max-height:100%;max-width:100%;\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+    }
 }

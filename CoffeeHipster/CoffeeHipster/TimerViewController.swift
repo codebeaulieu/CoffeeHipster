@@ -43,10 +43,21 @@ class TimerViewController: UIViewController {
         //self.topLayoutConstraint.constant = 150
         self.performAnimations()
     
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(_:)))
+        view.addGestureRecognizer(tapGesture)
         
     }
     
+    
+    func tap(gesture: UITapGestureRecognizer) {
+        let presentingViewController: UIViewController! = self.presentingViewController
+        
+        self.dismissViewControllerAnimated(false) {
+            // go back to MainMenuView as the eyes of the user
+            presentingViewController.dismissViewControllerAnimated(false, completion: nil)
+        }
+    }
+
     func performAnimations() {
         UIView.animateWithDuration(1.0) {
             self.view.alpha = 1.0

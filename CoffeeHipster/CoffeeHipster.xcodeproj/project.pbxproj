@@ -16,7 +16,6 @@
 		37343BCC1C697EA80058CDDA /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37343BCB1C697EA80058CDDA /* HomeTableViewController.swift */; };
 		375E43591CF8E3EF0047CF8A /* ManagedObjectOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375E43581CF8E3EF0047CF8A /* ManagedObjectOperations.swift */; };
 		37ACAF9A1CCBBD940059CBB5 /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAF991CCBBD940059CBB5 /* AskViewController.swift */; };
-		37ACAF9D1CCBBF800059CBB5 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAF9C1CCBBF800059CBB5 /* QuestionViewController.swift */; };
 		37ACAF9F1CCBBFC10059CBB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAF9E1CCBBFC10059CBB5 /* LoginViewController.swift */; };
 		37ACAFA11CCBCF490059CBB5 /* HTTPUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ACAFA01CCBCF490059CBB5 /* HTTPUtility.swift */; };
 		37CD2BCC1CCD650D00EE8382 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD2BCB1CCD650D00EE8382 /* PostRepository.swift */; };
@@ -40,6 +39,16 @@
 		729A06B41CE172C9006FBB6E /* TimerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06B31CE172C9006FBB6E /* TimerSettingsTableViewController.swift */; };
 		729A06B61CE17A64006FBB6E /* TimerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A06B51CE17A64006FBB6E /* TimerPageViewController.swift */; };
 		72A590441CF931BA00416DEF /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A590431CF931BA00416DEF /* Extension+String.swift */; };
+		72A590461CF9DEE500416DEF /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 72A590451CF9DEE500416DEF /* styles.css */; };
+		72A5904A1CFCBD3400416DEF /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A590491CFCBD3400416DEF /* TitleTableViewCell.swift */; };
+		72A5904D1CFCBE4600416DEF /* BodyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5904C1CFCBE4600416DEF /* BodyTableViewCell.swift */; };
+		72A5904F1CFCC0F800416DEF /* CellTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5904E1CFCC0F800416DEF /* CellTypes.swift */; };
+		72A590511CFCC2B300416DEF /* PostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A590501CFCC2B300416DEF /* PostDetailTableViewController.swift */; };
+		72A590531CFCC82200416DEF /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A590521CFCC82200416DEF /* PostCellViewModel.swift */; };
+		72A590551CFCEC1A00416DEF /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A590541CFCEC1A00416DEF /* UserTableViewCell.swift */; };
+		72A590591CFCEE9700416DEF /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A590581CFCEE9700416DEF /* Extension+UIImageView.swift */; };
+		72A5905B1CFD04FA00416DEF /* Extension+UIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5905A1CFD04FA00416DEF /* Extension+UIWebView.swift */; };
+		72A5905D1CFD103C00416DEF /* Extension+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5905C1CFD103C00416DEF /* Extension+Double.swift */; };
 		72AE8D371CE2A07300C35659 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D361CE2A07300C35659 /* SegueHandlerType.swift */; };
 		72AE8D391CE2A1CB00C35659 /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D381CE2A1CB00C35659 /* ManagedObject.swift */; };
 		72AE8D3C1CE2A20500C35659 /* ManagedObjectContextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D3B1CE2A20500C35659 /* ManagedObjectContextSettable.swift */; };
@@ -89,7 +98,6 @@
 		37343BCB1C697EA80058CDDA /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		375E43581CF8E3EF0047CF8A /* ManagedObjectOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectOperations.swift; sourceTree = "<group>"; };
 		37ACAF991CCBBD940059CBB5 /* AskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskViewController.swift; sourceTree = "<group>"; };
-		37ACAF9C1CCBBF800059CBB5 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		37ACAF9E1CCBBFC10059CBB5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		37ACAFA01CCBCF490059CBB5 /* HTTPUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPUtility.swift; sourceTree = "<group>"; };
 		37CD2BCB1CCD650D00EE8382 /* PostRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
@@ -117,6 +125,16 @@
 		729A06B31CE172C9006FBB6E /* TimerSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSettingsTableViewController.swift; sourceTree = "<group>"; };
 		729A06B51CE17A64006FBB6E /* TimerPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPageViewController.swift; sourceTree = "<group>"; };
 		72A590431CF931BA00416DEF /* Extension+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		72A590451CF9DEE500416DEF /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
+		72A590491CFCBD3400416DEF /* TitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		72A5904C1CFCBE4600416DEF /* BodyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyTableViewCell.swift; sourceTree = "<group>"; };
+		72A5904E1CFCC0F800416DEF /* CellTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTypes.swift; sourceTree = "<group>"; };
+		72A590501CFCC2B300416DEF /* PostDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewController.swift; sourceTree = "<group>"; };
+		72A590521CFCC82200416DEF /* PostCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellViewModel.swift; sourceTree = "<group>"; };
+		72A590541CFCEC1A00416DEF /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		72A590581CFCEE9700416DEF /* Extension+UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
+		72A5905A1CFD04FA00416DEF /* Extension+UIWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIWebView.swift"; sourceTree = "<group>"; };
+		72A5905C1CFD103C00416DEF /* Extension+Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Double.swift"; sourceTree = "<group>"; };
 		72AE8D361CE2A07300C35659 /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		72AE8D381CE2A1CB00C35659 /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
 		72AE8D3B1CE2A20500C35659 /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
@@ -235,9 +253,10 @@
 		37ACAF9B1CCBBD9E0059CBB5 /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
+				72A5904B1CFCBD8400416DEF /* CustomCells */,
 				37ACAF9E1CCBBFC10059CBB5 /* LoginViewController.swift */,
 				37ACAF991CCBBD940059CBB5 /* AskViewController.swift */,
-				37ACAF9C1CCBBF800059CBB5 /* QuestionViewController.swift */,
+				72A590501CFCC2B300416DEF /* PostDetailTableViewController.swift */,
 			);
 			name = Exchange;
 			sourceTree = "<group>";
@@ -274,6 +293,7 @@
 				37EDFFDA1C696EA7003D6BAA /* Assets.xcassets */,
 				37EDFFDC1C696EA7003D6BAA /* LaunchScreen.storyboard */,
 				37EDFFDF1C696EA7003D6BAA /* Info.plist */,
+				72A590451CF9DEE500416DEF /* styles.css */,
 			);
 			path = CoffeeHipster;
 			sourceTree = "<group>";
@@ -310,6 +330,18 @@
 				72C749091CE556A000A9A772 /* ManagedPresenterType.swift */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		72A5904B1CFCBD8400416DEF /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				72A5904E1CFCC0F800416DEF /* CellTypes.swift */,
+				72A590491CFCBD3400416DEF /* TitleTableViewCell.swift */,
+				72A5904C1CFCBE4600416DEF /* BodyTableViewCell.swift */,
+				72A590521CFCC82200416DEF /* PostCellViewModel.swift */,
+				72A590541CFCEC1A00416DEF /* UserTableViewCell.swift */,
+			);
+			name = CustomCells;
 			sourceTree = "<group>";
 		};
 		72AE8D3A1CE2A1E200C35659 /* Persistance */ = {
@@ -354,6 +386,9 @@
 				726790691CE44E0900E5A10F /* Extension+NSDate.swift */,
 				72C7490B1CE55C6D00A9A772 /* Extension+NSString.swift */,
 				72A590431CF931BA00416DEF /* Extension+String.swift */,
+				72A590581CFCEE9700416DEF /* Extension+UIImageView.swift */,
+				72A5905A1CFD04FA00416DEF /* Extension+UIWebView.swift */,
+				72A5905C1CFD103C00416DEF /* Extension+Double.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -461,6 +496,7 @@
 			files = (
 				37EDFFDE1C696EA7003D6BAA /* LaunchScreen.storyboard in Resources */,
 				37EDFFDB1C696EA7003D6BAA /* Assets.xcassets in Resources */,
+				72A590461CF9DEE500416DEF /* styles.css in Resources */,
 				37EDFFD61C696EA7003D6BAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,8 +575,10 @@
 				37343BCA1C69788E0058CDDA /* MenuTableViewController.swift in Sources */,
 				370960F81C9863C800416B57 /* ConnectionManager.swift in Sources */,
 				72AE8D581CE2E63C00C35659 /* UserObj.swift in Sources */,
+				72A590531CFCC82200416DEF /* PostCellViewModel.swift in Sources */,
 				37EDFFD11C696EA7003D6BAA /* AppDelegate.swift in Sources */,
 				72C749001CE5536D00A9A772 /* TableViewDataSource.swift in Sources */,
+				72A5905D1CFD103C00416DEF /* Extension+Double.swift in Sources */,
 				72AE8D661CE2E86F00C35659 /* Post.swift in Sources */,
 				72AE8D411CE2A47200C35659 /* RootViewController.swift in Sources */,
 				37EDFFD91C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld in Sources */,
@@ -551,16 +589,18 @@
 				72AE8D431CE2A96A00C35659 /* Extension+UIViewController.swift in Sources */,
 				72C749021CE5541800A9A772 /* DataSourceDelegate.swift in Sources */,
 				370961011C98749700416B57 /* Section.swift in Sources */,
+				72A590591CFCEE9700416DEF /* Extension+UIImageView.swift in Sources */,
 				72CA5C601CF92384005529FB /* Answer.swift in Sources */,
 				375E43591CF8E3EF0047CF8A /* ManagedObjectOperations.swift in Sources */,
 				726790681CE4444F00E5A10F /* StatRepository.swift in Sources */,
 				37ACAFA11CCBCF490059CBB5 /* HTTPUtility.swift in Sources */,
+				72A5904A1CFCBD3400416DEF /* TitleTableViewCell.swift in Sources */,
 				7267906A1CE44E0900E5A10F /* Extension+NSDate.swift in Sources */,
 				726790641CE4420A00E5A10F /* TrendingTableViewController.swift in Sources */,
 				37ACAF9F1CCBBFC10059CBB5 /* LoginViewController.swift in Sources */,
 				72AE8D571CE2E63C00C35659 /* Tag.swift in Sources */,
 				729A06B61CE17A64006FBB6E /* TimerPageViewController.swift in Sources */,
-				37ACAF9D1CCBBF800059CBB5 /* QuestionViewController.swift in Sources */,
+				72A590511CFCC2B300416DEF /* PostDetailTableViewController.swift in Sources */,
 				729A06B41CE172C9006FBB6E /* TimerSettingsTableViewController.swift in Sources */,
 				72C749061CE5550400A9A772 /* ConfigurableCell.swift in Sources */,
 				37CD2BCC1CCD650D00EE8382 /* PostRepository.swift in Sources */,
@@ -569,15 +609,19 @@
 				37CD2BCE1CCD653B00EE8382 /* UserRepository.swift in Sources */,
 				72AE8D3F1CE2A39000C35659 /* RevealViewController.swift in Sources */,
 				729A06B11CE16E08006FBB6E /* TimerPresetViewController.swift in Sources */,
+				72A590551CFCEC1A00416DEF /* UserTableViewCell.swift in Sources */,
 				72AE8D451CE2AAB300C35659 /* Revealable.swift in Sources */,
 				72AE8D391CE2A1CB00C35659 /* ManagedObject.swift in Sources */,
+				72A5904F1CFCC0F800416DEF /* CellTypes.swift in Sources */,
 				729A06A91CE16B9D006FBB6E /* TimerViewController.swift in Sources */,
 				72C749041CE554CB00A9A772 /* DataProvider.swift in Sources */,
 				72BF88261CE415DD000FF5DB /* Extension+NSManagedObject.swift in Sources */,
 				7267905C1CE431D600E5A10F /* Extension+SegueHandlerType.swift in Sources */,
 				726790661CE4436500E5A10F /* WikiRepository.swift in Sources */,
 				37343BBE1C696FF30058CDDA /* SWRevealViewController.m in Sources */,
+				72A5905B1CFD04FA00416DEF /* Extension+UIWebView.swift in Sources */,
 				7267905E1CE43B8900E5A10F /* Extension+UITableViewCell.swift in Sources */,
+				72A5904D1CFCBE4600416DEF /* BodyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

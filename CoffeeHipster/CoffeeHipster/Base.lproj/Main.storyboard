@@ -15,10 +15,13 @@
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Medium</string>
             <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Medium</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Medium</string>
             <string>AvenirNext-Medium</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -237,7 +240,6 @@
                                     <outlet property="tagsLabel" destination="QUL-Ax-KA5" id="5lC-uW-OiE"/>
                                     <outlet property="titleLabel" destination="j7k-7O-anc" id="qmS-Ol-6z2"/>
                                     <outlet property="votesLabel" destination="4CK-se-TLr" id="AiN-L5-mrg"/>
-                                    <segue destination="tgd-L5-n91" kind="show" identifier="questionDetailSegue" id="av8-Bl-TpD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -261,6 +263,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="menuButton" destination="vti-pE-qHi" id="bY1-hO-7UI"/>
+                        <segue destination="QJ5-Iu-Ioq" kind="show" identifier="questionDetailSegue" id="K3m-x0-r13"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3X4-eH-C0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -369,53 +372,134 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRd-qp-iFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1238.5" y="1153"/>
+            <point key="canvasLocation" x="1210.5" y="1153"/>
         </scene>
-        <!--Question View Controller-->
-        <scene sceneID="tbs-PA-csD">
+        <!--Post Detail Table View Controller-->
+        <scene sceneID="eyd-AS-fpo">
             <objects>
-                <viewController id="tgd-L5-n91" customClass="QuestionViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UnN-O3-DQf"/>
-                        <viewControllerLayoutGuide type="bottom" id="UKk-Lx-gp7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="lHf-5N-voN">
+                <tableViewController id="QJ5-Iu-Ioq" customClass="PostDetailTableViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="18" sectionFooterHeight="18" id="IaL-7p-PVK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gxv-QR-q8a">
-                                <rect key="frame" x="54" y="82" width="301" height="52"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
-                                <color key="textColor" red="0.25920784920000001" green="0.17437900849999999" blue="0.027869794329999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yby-Im-PlL">
-                                <rect key="frame" x="20" y="168" width="335" height="213"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p2G-5F-LcL">
-                                <rect key="frame" x="20" y="397" width="335" height="213"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="70" id="3Ik-qR-Wqz" customClass="TitleTableViewCell" customModule="CoffeeHipster" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="114" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Ik-qR-Wqz" id="Xxa-4f-yvL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="cvw-a5-iTu">
+                                            <rect key="frame" x="46" y="11" width="321" height="48"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRR-oM-gAR">
+                                            <rect key="frame" x="8" y="11" width="39" height="48"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLabel" destination="cvw-a5-iTu" id="P8u-8T-wDy"/>
+                                    <outlet property="voteCount" destination="oRR-oM-gAR" id="hdw-df-3qH"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bodyCell" rowHeight="200" id="K5k-bl-JAj" customClass="BodyTableViewCell" customModule="CoffeeHipster" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="184" width="375" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K5k-bl-JAj" id="jU0-Ku-fUf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4b-gL-Pks">
+                                            <rect key="frame" x="8" y="8" width="359" height="283"/>
+                                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="283" id="4FJ-7w-xbj"/>
+                                            </constraints>
+                                        </webView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="postWebView" destination="U4b-gL-Pks" id="Jfz-4U-iS8"/>
+                                    <outlet property="postWebViewHeightConstraint" destination="4FJ-7w-xbj" id="zo9-ND-Gbn"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="50" id="Akz-JV-og4" customClass="UserTableViewCell" customModule="CoffeeHipster" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="384" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Akz-JV-og4" id="d6h-mF-luD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3HD-77-glE">
+                                            <rect key="frame" x="18" y="6" width="43" height="38"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="43" id="BQl-CA-Q2u"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="1Il-gX-jXs">
+                                            <rect key="frame" x="69" y="6" width="142" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="142" id="1Zk-h7-BYB"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reputation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tuj-d4-XvH">
+                                            <rect key="frame" x="69" y="25" width="79" height="19"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="79" id="0nm-9M-seK"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                            <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="3HD-77-glE" firstAttribute="centerY" secondItem="d6h-mF-luD" secondAttribute="centerY" id="FqL-HF-1bJ"/>
+                                        <constraint firstItem="1Il-gX-jXs" firstAttribute="leading" secondItem="Tuj-d4-XvH" secondAttribute="leading" id="H3p-Os-2hH"/>
+                                        <constraint firstItem="3HD-77-glE" firstAttribute="top" secondItem="d6h-mF-luD" secondAttribute="topMargin" constant="-2" id="U7a-Ck-bBD"/>
+                                        <constraint firstItem="3HD-77-glE" firstAttribute="bottom" secondItem="Tuj-d4-XvH" secondAttribute="bottom" id="db5-Lp-Dh7"/>
+                                        <constraint firstItem="1Il-gX-jXs" firstAttribute="leading" secondItem="3HD-77-glE" secondAttribute="trailing" constant="8" id="nB8-Mj-F1N"/>
+                                        <constraint firstItem="Tuj-d4-XvH" firstAttribute="top" secondItem="d6h-mF-luD" secondAttribute="topMargin" constant="17" id="oW5-6n-eEF"/>
+                                        <constraint firstItem="3HD-77-glE" firstAttribute="leading" secondItem="d6h-mF-luD" secondAttribute="leadingMargin" constant="10" id="qDy-L0-ktd"/>
+                                        <constraint firstItem="3HD-77-glE" firstAttribute="top" secondItem="1Il-gX-jXs" secondAttribute="top" id="yQN-vu-PzT"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="userImageView" destination="3HD-77-glE" id="4Sr-O6-DtS"/>
+                                    <outlet property="userNameLabel" destination="1Il-gX-jXs" id="EpE-RO-Wt2"/>
+                                    <outlet property="userRepLabel" destination="Tuj-d4-XvH" id="QqM-1R-SCG"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QJ5-Iu-Ioq" id="hzt-5u-PbC"/>
+                            <outlet property="delegate" destination="QJ5-Iu-Ioq" id="iBB-jx-18a"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Gvw-RQ-suJ">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="lLL-bl-BRg">
+                            <color key="tintColor" red="0.87058823529999996" green="0.67843137249999996" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="handleBackButtonTapped:" destination="QJ5-Iu-Ioq" id="YMk-SP-czH"/>
+                                <segue destination="iwo-TS-xg1" kind="unwind" unwindAction="unwindPostDetail:" id="mQb-uY-XdW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="questionTextView" destination="Yby-Im-PlL" id="Et6-ew-4QS"/>
-                        <outlet property="temporaryAnswerView" destination="p2G-5F-LcL" id="PDU-r3-pC3"/>
-                        <outlet property="titleLabel" destination="gxv-QR-q8a" id="k8a-tk-E5m"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KyV-4o-ERo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TmV-ec-ad3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iwo-TS-xg1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1191.5" y="343.5"/>
+            <point key="canvasLocation" x="1087.5" y="343.5"/>
         </scene>
         <!--Timer Page View Controller-->
         <scene sceneID="W2Q-Ra-lSk">
@@ -634,6 +718,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yHY-vE-6Ys"/>
+        <segue reference="F9d-Ui-IRF"/>
     </inferredMetricsTieBreakers>
 </document>

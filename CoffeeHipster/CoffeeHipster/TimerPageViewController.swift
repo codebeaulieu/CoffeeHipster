@@ -24,12 +24,10 @@ class TimerPageViewController: UIPageViewController {
                                completion: nil)
             
         }
+       
         
-
     }
- 
-    
-    
+        
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [self.addViewController("Timer"),
                 self.addViewController("Settings"),
