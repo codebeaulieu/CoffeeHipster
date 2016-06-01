@@ -167,17 +167,18 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
     }
     
     func questionLoaded(sender: NSNotification) {
-        
+        print("loads")
         let userInfo : [String:AnyObject!] = sender.userInfo as! [String:AnyObject!]
         guard let height = userInfo["Height"] as? CGFloat else { return }
         guard let position = userInfo["Position"] as? Double else { return }
         print("height: \(height)")
         print("position: \(position)")
         
-        // enum w raw value
-        contentHeights[position] = height + 50
-        tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: position.getRow(), inSection: 0)], withRowAnimation: .Automatic)
-        tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 0)], withRowAnimation: .Automatic)
+        if contentHeights[position] != height {
+            contentHeights[position] = height
+            tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: position.getRow(), inSection: 0)], withRowAnimation: .Automatic)
+            tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 0)], withRowAnimation: .Automatic)
+        }
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {

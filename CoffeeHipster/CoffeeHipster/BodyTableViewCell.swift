@@ -26,10 +26,39 @@ class BodyTableViewCell: UITableViewCell, UIWebViewDelegate {
 
     @IBOutlet weak var postWebViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var postWebView: UIWebView!
-    private var MyObservationContext = 0
+    private var ObservationContext = 0
     private var observing = false
     var postBody : String!
-    var position : Double!
+    var position : Double! {
+        didSet {
+            ObservationContext = Int(position * 10)
+            print("MyObservationContext \(ObservationContext)")
+        }
+    }
+    private var _height : CGFloat = 0
+    var height: CGFloat! {
+        get {
+         
+            return _height
+        }
+        set {
+            print("old height: \(_height)")
+            print("new height: \(newValue)")
+            if _height != newValue {
+                _height = newValue
+                    print("not equal")
+                    var userInfo = [String:AnyObject]()
+                    userInfo["Height"] = self.height
+                    userInfo["Position"] = self.position!
+                    
+                    NSNotificationCenter.defaultCenter().postNotificationName("questionLoadedId", object: nil, userInfo: userInfo)
+            } else {
+                stopObservingHeight()
+            }
+        }
+    }
+    
+    
     private var _setOnce : String?
     
     override func awakeFromNib() {
@@ -50,48 +79,43 @@ class BodyTableViewCell: UITableViewCell, UIWebViewDelegate {
         
     }
 
-//    func startObservingHeight() {
-//        let options = NSKeyValueObservingOptions([.New])
-//        questionWebView.scrollView.addObserver(self, forKeyPath: "contentSize", options: options, context: &MyObservationContext)
-//        observing = true;
-//    }
-//    
-//    func stopObservingHeight() {
-//        questionWebView.scrollView.removeObserver(self, forKeyPath: "contentSize", context: &MyObservationContext)
-//        observing = false
-//    }
-//    
-//    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-//        guard let keyPath = keyPath else {
-//            super.observeValueForKeyPath(nil, ofObject: object, change: change, context: context)
-//            return
-//        }
-//        switch (keyPath, context) {
-//        case("contentSize", &MyObservationContext):
-//            questionWebViewHeightConstraint.constant = questionWebView.scrollView.contentSize.height
-//        default:
-//            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
-//        }
-//    }
+    func startObservingHeight() {
+        let options = NSKeyValueObservingOptions([.New])
+        postWebView.scrollView.addObserver(self, forKeyPath: "contentSize", options: options, context: &ObservationContext)
+        observing = true
+    }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
-      
-        postWebViewHeightConstraint.constant = postWebView.scrollView.contentSize.height
-        
-        
-        var userInfo = [String:AnyObject]()
-        userInfo["Height"] = postWebView.scrollView.contentSize.height
-        userInfo["Position"] = self.position!
-       
-        dispatch_once(&token) {
-            NSNotificationCenter.defaultCenter().postNotificationName("questionLoadedId", object: nil, userInfo: userInfo)
+    func stopObservingHeight() {
+        postWebView.scrollView.removeObserver(self, forKeyPath: "contentSize", context: &ObservationContext)
+        observing = false
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        guard let keyPath = keyPath else {
+            super.observeValueForKeyPath(nil, ofObject: object, change: change, context: context)
+            return
+        }
+        switch (keyPath, context) {
+        case("contentSize", &ObservationContext):
+            postWebViewHeightConstraint.constant = postWebView.scrollView.contentSize.height
+        default:
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
         }
     }
     
-//    deinit {
-//        stopObservingHeight()
-//    }
-
+    func webViewDidFinishLoad(webView: UIWebView) {
+        
+        postWebViewHeightConstraint.constant = postWebView.scrollView.contentSize.height
+        if (!observing) { startObservingHeight() }
+        delay (0.1) {
+            self.height = self.postWebView.scrollView.contentSize.height
+        }
+        
+    }
+    
+    deinit {
+        stopObservingHeight()
+    } 
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
