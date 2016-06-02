@@ -16,12 +16,13 @@
             <string>AvenirNext-Medium</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Medium</string>
+            <string>AvenirNext-Regular</string>
             <string>AvenirNext-Medium</string>
             <string>AvenirNext-Medium</string>
-            <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -479,6 +480,49 @@
                                     <outlet property="userRepLabel" destination="Tuj-d4-XvH" id="QqM-1R-SCG"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="answerCell" rowHeight="200" id="9av-6d-p04" customClass="BodyTableViewCell" customModule="CoffeeHipster" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="434" width="375" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9av-6d-p04" id="KDP-VQ-AzJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bk9-4w-GdW">
+                                            <rect key="frame" x="54" y="8" width="313" height="283"/>
+                                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="283" id="Vsx-gT-vEH"/>
+                                            </constraints>
+                                        </webView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHY-cq-Edo">
+                                            <rect key="frame" x="8" y="23" width="42" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="IfZ-VC-ZeB"/>
+                                                <constraint firstAttribute="width" constant="42" id="S8O-ST-cKY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkmark-xxl" translatesAutoresizingMaskIntoConstraints="NO" id="FH3-Qf-SeU">
+                                            <rect key="frame" x="8" y="59" width="42" height="38"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="fHY-cq-Edo" firstAttribute="top" secondItem="KDP-VQ-AzJ" secondAttribute="topMargin" constant="15" id="1Ym-Em-CGW"/>
+                                        <constraint firstItem="fHY-cq-Edo" firstAttribute="top" secondItem="Bk9-4w-GdW" secondAttribute="top" constant="15" id="5Ig-KK-dB1"/>
+                                        <constraint firstItem="fHY-cq-Edo" firstAttribute="leading" secondItem="KDP-VQ-AzJ" secondAttribute="leadingMargin" id="Ey0-l5-p3k"/>
+                                        <constraint firstItem="Bk9-4w-GdW" firstAttribute="trailing" secondItem="KDP-VQ-AzJ" secondAttribute="trailingMargin" id="SBE-GX-aYc"/>
+                                        <constraint firstItem="Bk9-4w-GdW" firstAttribute="leading" secondItem="fHY-cq-Edo" secondAttribute="trailing" constant="4" id="TU0-aX-KmQ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkMarkImageView" destination="FH3-Qf-SeU" id="Sj8-Qp-Ln6"/>
+                                    <outlet property="postWebView" destination="Bk9-4w-GdW" id="Vz9-En-Luc"/>
+                                    <outlet property="postWebViewHeightConstraint" destination="Vsx-gT-vEH" id="Fzi-tG-gKe"/>
+                                    <outlet property="votesLabel" destination="fHY-cq-Edo" id="MpN-yh-ezn"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="QJ5-Iu-Ioq" id="hzt-5u-PbC"/>
@@ -717,6 +761,9 @@
             <point key="canvasLocation" x="1422.5" y="-1024"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checkmark-xxl" width="256" height="256"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="F9d-Ui-IRF"/>
     </inferredMetricsTieBreakers>

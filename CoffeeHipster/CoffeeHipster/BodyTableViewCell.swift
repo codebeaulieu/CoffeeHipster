@@ -26,15 +26,20 @@ class BodyTableViewCell: UITableViewCell, UIWebViewDelegate {
 
     @IBOutlet weak var postWebViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var postWebView: UIWebView!
+    @IBOutlet weak var votesLabel: UILabel!
+    @IBOutlet weak var checkMarkImageView: UIImageView!
     private var ObservationContext = 0
     private var observing = false
     var postBody : String!
+    var score : String!
+    
     var position : Double! {
         didSet {
             ObservationContext = Int(position * 10)
             print("MyObservationContext \(ObservationContext)")
         }
     }
+    // TODO : This is all hacky
     private var _height : CGFloat = 0
     var height: CGFloat! {
         get {
@@ -42,17 +47,18 @@ class BodyTableViewCell: UITableViewCell, UIWebViewDelegate {
             return _height
         }
         set {
-            print("old height: \(_height)")
-            print("new height: \(newValue)")
-            if _height != newValue {
-                _height = newValue
-                    print("not equal")
+
+            if _height != newValue && newValue > _height {
+                _height = newValue + 50
+                
                     var userInfo = [String:AnyObject]()
                     userInfo["Height"] = self.height
                     userInfo["Position"] = self.position!
-                    
+               
                     NSNotificationCenter.defaultCenter().postNotificationName("questionLoadedId", object: nil, userInfo: userInfo)
+              
             } else {
+                
                 stopObservingHeight()
             }
         }
@@ -61,21 +67,20 @@ class BodyTableViewCell: UITableViewCell, UIWebViewDelegate {
     
     private var _setOnce : String?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func loadBody(body: String) {
         postBody = body
-        print("body : \(postBody)")
+        
+        //print("body : \(postBody)")
         guard let body = postBody else { return }
         let fixImage = body.imageFix()
+        postWebView.alpha = 0
         postWebView.loadHTMLString(fixImage, baseURL: nil)
         postWebView.scrollView.scrollEnabled = false
         postWebView.userInteractionEnabled = false
         postWebView.delegate = self
-        // Update cell UI as you wish
+        if score != nil {
+            self.votesLabel.text = score
+        }
         
     }
 
@@ -107,15 +112,18 @@ class BodyTableViewCell: UITableViewCell, UIWebViewDelegate {
         
         postWebViewHeightConstraint.constant = postWebView.scrollView.contentSize.height
         if (!observing) { startObservingHeight() }
-        delay (0.1) {
+        delay (0.3) {
             self.height = self.postWebView.scrollView.contentSize.height
+            UIView.animateWithDuration(0.5) {
+                self.postWebView.alpha = 1
+            }
         }
         
     }
     
     deinit {
-        stopObservingHeight()
-    } 
+        if observing { stopObservingHeight() }
+    }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

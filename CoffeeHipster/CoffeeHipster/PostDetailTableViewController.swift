@@ -59,8 +59,15 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
         sectionData.append(Section("question", objects: postData))
         // answers
         var answerArray = [PostCellViewModel]()
-        for answer in post.answer! {
-            let answerBody = PostCellViewModel(cellType: .Body, content: ["body": answer.body])
+        let answers  = post.answer!.sort {  $0.0.is_accepted == true }
+        
+        
+        for answer in answers {
+            let answerBody = PostCellViewModel(cellType: .Body,
+                                               content: [
+                                                "body": answer.body,
+                                                "score": "\(answer.score)",
+                                                "accepted": answer.is_accepted])
             answerArray.append(answerBody)
             
         }
@@ -95,14 +102,13 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
         switch position {
         case 0.0 :
             let cell = tableView.dequeueReusableCellWithIdentifier("titleCell", forIndexPath: indexPath) as! TitleTableViewCell
-            cell.titleLabel.text = current.content["title"]
-            cell.voteCount.text = current.content["count"]
+            cell.titleLabel.text = current.content["title"] as? String
+            cell.voteCount.text = current.content["count"] as? String
             cell.removeMargins()
             return cell
         case 0.1:
-           
             let htmlHeight = contentHeights[position] ?? 0.0
-            guard let body = current.content["body"] else { return UITableViewCell() }
+            guard let body = current.content["body"] as? String else { return UITableViewCell() }
             let cell = tableView.dequeueReusableCellWithIdentifier("bodyCell", forIndexPath: indexPath) as! BodyTableViewCell
             cell.postWebView.position = position
             cell.loadBody(body)
@@ -113,24 +119,29 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
         case 0.2:
             let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as! UserTableViewCell
             
-            guard let image = current.content["image"],
-                name = current.content["name"],
-                rep = current.content["rep"] else { return UITableViewCell() }
+            guard let image = current.content["image"] as? String,
+                name = current.content["name"] as? String,
+                rep = current.content["rep"] as? String else { return UITableViewCell() }
             print("image : \(image)")
             print("name: \(name)")
             cell.userImageView.imageFromUrl(image)
             cell.userNameLabel.text = name
             cell.userRepLabel.text = rep
+            
             cell.removeMargins()
             return cell
         case 1.0...1.createDecimal(sectionData[1].items.count):
-          
-            let htmlHeight = contentHeights[position] ?? 0.0
-            guard let body = current.content["body"] else { return UITableViewCell() }
-            let cell = tableView.dequeueReusableCellWithIdentifier("bodyCell", forIndexPath: indexPath) as! BodyTableViewCell
+     
+            let htmlHeight = contentHeights[position] ?? 200.0
+            guard let body = current.content["body"] as? String,
+                score = current.content["score"] as? String,
+                accepted = current.content["accepted"] as? Bool else { return UITableViewCell() }
+            let cell = tableView.dequeueReusableCellWithIdentifier("answerCell", forIndexPath: indexPath) as! BodyTableViewCell
             cell.postWebView.position = position
             cell.position = position
             cell.loadBody(body)
+            cell.score = score
+            cell.checkMarkImageView.hidden = !accepted ?? true
             cell.postWebView.frame = CGRectMake(0, 0, cell.frame.size.width, htmlHeight)
             cell.removeMargins()
             return cell
@@ -150,15 +161,16 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
         
         let position = indexPath.section.createDecimal(indexPath.row)
         
-        
-        switch indexPath.row {
+        print("poz : \(position)")
+        switch position {
         case 0 :
             return 70
-        case 1 :
+        case 0.1 :
             guard let height = contentHeights[position] else { return 0 }
             return height
-        case 2 :
-            return 50
+        case 1.0...1.createDecimal(sectionData[1].items.count) :
+            guard let height = contentHeights[position] else { return 0 }
+            return height
         default:
             return 50
             
@@ -175,10 +187,14 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
         print("position: \(position)")
         
         if contentHeights[position] != height {
+            print("contentHeights[position] : \(contentHeights[position])")
             contentHeights[position] = height
-            tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: position.getRow(), inSection: 0)], withRowAnimation: .Automatic)
-            tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 0)], withRowAnimation: .Automatic)
+            tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: position.getRow(), inSection: position.getSection())], withRowAnimation: .Automatic)
+          
         }
+    }
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "questionLoadedId", object: nil)
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {

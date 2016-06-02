@@ -11,9 +11,9 @@ import Foundation
 class PostCellViewModel {
     
     let cellType : CellType
-    let content : [String: String]
+    let content : [String: AnyObject]
     
-    init(cellType: CellType, content : [String:String]) {
+    init(cellType: CellType, content : [String:AnyObject]) {
         self.cellType = cellType
         self.content = content
     }

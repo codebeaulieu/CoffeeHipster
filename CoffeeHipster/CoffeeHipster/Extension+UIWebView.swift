@@ -10,19 +10,16 @@ import Foundation
 
 extension UIWebView {
     struct PositionValue {
-        static var height = 0.0
+        static var pos = 0.0
     }
     
     var position : Double {
-        get {
-            print("get : \(PositionValue.height)")
-            return PositionValue.height
+        get { 
+            return PositionValue.pos
         }
         
         set(newValue) {
-            
-            PositionValue.height = newValue
-            print("set : \(PositionValue.height)")
+            PositionValue.pos = newValue
         }
     }
-    }
+}
