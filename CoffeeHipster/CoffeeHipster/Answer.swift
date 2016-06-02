@@ -12,24 +12,22 @@ import CoreData
 
 public final class Answer: ManagedObject {
  
-    @NSManaged var answer_id: NSNumber
-    @NSManaged var last_activity_date: NSDate
-    @NSManaged var creation_date: NSDate
-    @NSManaged var is_accepted: NSNumber
-    @NSManaged var body: String
-    @NSManaged var question_id: NSNumber
-    @NSManaged var score: NSNumber
-    @NSManaged var owner: User
-    @NSManaged var question: Post
+    @NSManaged public private(set) var answer_id: NSNumber
+    @NSManaged public private(set) var last_activity_date: NSDate
+    @NSManaged public private(set) var creation_date: NSDate
+    @NSManaged public private(set) var is_accepted: NSNumber
+    @NSManaged public private(set) var body: String
+    @NSManaged public private(set) var question_id: NSNumber
+    @NSManaged public private(set) var score: NSNumber
+    @NSManaged public private(set) var owner: User
+    @NSManaged public private(set) var question: Post
+    @NSManaged public private(set) var comments: Set<Comment>?
     
     public static func returnSet(moc: NSManagedObjectContext, jsonArray: [AnyObject]) -> Set<Answer> {
         var answers = Set<Answer>()
-        let queue = dispatch_queue_create("answerQueue", DISPATCH_QUEUE_SERIAL)
-        
+
         for answer in jsonArray {
-            dispatch_sync(queue, { () in
-                answers.insert(Answer.insertIntoContext(moc, json: answer))
-            })
+            answers.insert(Answer.insertIntoContext(moc, json: answer))
         }
         
         return answers
@@ -44,6 +42,8 @@ public final class Answer: ManagedObject {
         guard let jsonQuestionId = json["question_id"] as? Int else { fatalError("post: user failed") }
         guard let jsonScore = json["score"] as? Int else { fatalError("post: link failed") }
         guard let jsonOwner = json["owner"]! else { fatalError("post: failed to unwrap user") }
+        guard let jsonCommentCount = json["comment_count"] as? Int else { fatalError("derp") }
+        
         let user = User.insertIntoContext(moc, json: jsonOwner)
         
         let created : NSDate = NSDate(timeIntervalSince1970: NSTimeInterval(jsonCreationDate))
@@ -58,7 +58,15 @@ public final class Answer: ManagedObject {
         answer.score = jsonScore
         answer.question_id = jsonQuestionId
         answer.owner = user
-    
+        
+        if jsonCommentCount > 0 {
+            guard let jsonComments = json["comments"] as? [AnyObject] else { fatalError("post: failed to unwrap user") }
+            let comments = Comment.returnSet(moc, jsonArray: jsonComments)
+            answer.comments = comments
+        }
+        print("======")
+        print(answer)
+        print("======")
         return answer
     }
     

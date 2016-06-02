@@ -351,11 +351,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iEk-Dp-Bjh" id="2Ak-LR-LiR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EY3-Qr-6Ry">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.25920784920000001" green="0.17437900849999999" blue="0.027869794329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -380,15 +380,15 @@
             <objects>
                 <tableViewController id="QJ5-Iu-Ioq" customClass="PostDetailTableViewController" customModule="CoffeeHipster" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="18" sectionFooterHeight="18" id="IaL-7p-PVK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="767"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="70" id="3Ik-qR-Wqz" customClass="TitleTableViewCell" customModule="CoffeeHipster" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="113.5" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Ik-qR-Wqz" id="Xxa-4f-yvL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="cvw-a5-iTu">
@@ -410,11 +410,11 @@
                                     <outlet property="voteCount" destination="oRR-oM-gAR" id="hdw-df-3qH"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bodyCell" rowHeight="200" id="K5k-bl-JAj" customClass="BodyTableViewCell" customModule="CoffeeHipster" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="184" width="375" height="200"/>
+                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bodyCell" rowHeight="100" id="K5k-bl-JAj" customClass="BodyTableViewCell" customModule="CoffeeHipster" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="183.5" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K5k-bl-JAj" id="jU0-Ku-fUf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4b-gL-Pks">
@@ -432,10 +432,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="50" id="Akz-JV-og4" customClass="UserTableViewCell" customModule="CoffeeHipster" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="384" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="283.5" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Akz-JV-og4" id="d6h-mF-luD">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3HD-77-glE">
@@ -480,11 +480,11 @@
                                     <outlet property="userRepLabel" destination="Tuj-d4-XvH" id="QqM-1R-SCG"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="answerCell" rowHeight="200" id="9av-6d-p04" customClass="BodyTableViewCell" customModule="CoffeeHipster" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="434" width="375" height="200"/>
+                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="answerCell" rowHeight="100" id="9av-6d-p04" customClass="BodyTableViewCell" customModule="CoffeeHipster" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="333.5" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9av-6d-p04" id="KDP-VQ-AzJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bk9-4w-GdW">
@@ -523,6 +523,57 @@
                                     <outlet property="votesLabel" destination="fHY-cq-Edo" id="MpN-yh-ezn"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="70" id="bes-FG-IRI" customClass="CommentTableViewCell" customModule="CoffeeHipster" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="433.5" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bes-FG-IRI" id="9x3-gr-aG2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMb-BA-8dk">
+                                            <rect key="frame" x="31" y="44" width="61" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="61" id="Rsh-s0-u3V"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtS-BR-ZAr">
+                                            <rect key="frame" x="100" y="44" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qjp-1d-yLP">
+                                            <rect key="frame" x="31" y="4" width="336" height="38"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="38" id="ePk-0N-O4f"/>
+                                            </constraints>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="XMb-BA-8dk" firstAttribute="top" secondItem="qjp-1d-yLP" secondAttribute="bottom" constant="2" id="Q7f-IG-7SE"/>
+                                        <constraint firstItem="qjp-1d-yLP" firstAttribute="leading" secondItem="XMb-BA-8dk" secondAttribute="leading" id="WCi-Gi-Hhm"/>
+                                        <constraint firstItem="qjp-1d-yLP" firstAttribute="top" secondItem="9x3-gr-aG2" secondAttribute="topMargin" constant="-4" id="XAD-9q-3wr"/>
+                                        <constraint firstItem="qtS-BR-ZAr" firstAttribute="leading" secondItem="XMb-BA-8dk" secondAttribute="trailing" constant="8" id="fZZ-Kv-brD"/>
+                                        <constraint firstItem="qjp-1d-yLP" firstAttribute="trailing" secondItem="9x3-gr-aG2" secondAttribute="trailingMargin" id="n1J-zw-5qg"/>
+                                        <constraint firstItem="qtS-BR-ZAr" firstAttribute="top" secondItem="qjp-1d-yLP" secondAttribute="bottom" constant="2" id="nPG-kD-aC7"/>
+                                        <constraint firstItem="XMb-BA-8dk" firstAttribute="leading" secondItem="9x3-gr-aG2" secondAttribute="leadingMargin" constant="23" id="vaf-VI-7rE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="commentHeightConstraint" destination="ePk-0N-O4f" id="5iT-fk-geb"/>
+                                    <outlet property="commentTextView" destination="qjp-1d-yLP" id="aM2-7E-jKa"/>
+                                    <outlet property="createdOnLabel" destination="qtS-BR-ZAr" id="WCw-Lg-V8T"/>
+                                    <outlet property="userNameLabel" destination="XMb-BA-8dk" id="tvu-3Z-JG7"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="QJ5-Iu-Ioq" id="hzt-5u-PbC"/>
@@ -538,7 +589,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="767"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TmV-ec-ad3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="iwo-TS-xg1" userLabel="Exit" sceneMemberID="exit"/>
@@ -731,7 +783,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="settingsCell" textLabel="iTM-Wc-uSR" rowHeight="50" style="IBUITableViewCellStyleDefault" id="K89-Jk-ljY">
-                                <rect key="frame" x="0.0" y="50" width="335" height="50"/>
+                                <rect key="frame" x="0.0" y="49.5" width="335" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uDB-9w-aai">
                                     <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
@@ -765,6 +817,6 @@
         <image name="checkmark-xxl" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F9d-Ui-IRF"/>
+        <segue reference="yHY-vE-6Ys"/>
     </inferredMetricsTieBreakers>
 </document>

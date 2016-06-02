@@ -26,14 +26,13 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
     }
     
     @IBAction func unwindPostDetail(segue: UIStoryboardSegue) {
-        token = 0
+       
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkManagedObjectContext("Home")
         setupRevealMenu(self)
-
 
         setupTableView()
         delay(1) {
@@ -44,11 +43,7 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
     func getPosts() {
        
     }
-    
-    func checkStatusCode(code : StatusCode) {
-        print("status code : \(code)")
-    }
-
+     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
@@ -77,7 +72,7 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         tableView.estimatedRowHeight = 80
         let request = NSFetchRequest(entityName: Post.entityName)
         request.returnsObjectsAsFaults = false
-        request.fetchBatchSize = 20
+        request.fetchBatchSize = 100
         request.sortDescriptors = Post.defaultSortDescriptors
         let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         let dataProvider = FetchedResultsDataProvider(fetchedResultsController: frc, delegate: self)

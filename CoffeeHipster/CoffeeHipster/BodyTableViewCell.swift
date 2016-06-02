@@ -5,6 +5,8 @@
 //  Created by Dan Beaulieu on 5/30/16.
 //  Copyright © 2016 Dan Beaulieu. All rights reserved.
 //
+
+// TODO: again, hacky.
 extension Int {
     func createDecimal(number: Int) -> Double {
         return Double("\(self).\(number)")! ?? 0
@@ -19,9 +21,8 @@ extension Double {
 }
 
 
-
 import UIKit
-var token: dispatch_once_t = 0
+
 class BodyTableViewCell: UITableViewCell, UIWebViewDelegate {
 
     @IBOutlet weak var postWebViewHeightConstraint: NSLayoutConstraint!
@@ -35,8 +36,7 @@ class BodyTableViewCell: UITableViewCell, UIWebViewDelegate {
     
     var position : Double! {
         didSet {
-            ObservationContext = Int(position * 10)
-            print("MyObservationContext \(ObservationContext)")
+            ObservationContext = Int(position * 10) 
         }
     }
     // TODO : This is all hacky
@@ -47,14 +47,14 @@ class BodyTableViewCell: UITableViewCell, UIWebViewDelegate {
         }
         set {
 
-            if _height != newValue && newValue > _height {
-                _height = newValue + 50
+            if _height != newValue && newValue > (_height - 50) {
                 
-                    var userInfo = [String:AnyObject]()
-                    userInfo["Height"] = self.height
-                    userInfo["Position"] = self.position! //TODO: guard
-               
-                    NSNotificationCenter.defaultCenter().postNotificationName("questionLoadedId", object: nil, userInfo: userInfo)
+                _height = newValue
+                var userInfo = [String:AnyObject]()
+                userInfo["Height"] = self.height
+                userInfo["Position"] = self.position! //TODO: guard
+           
+                NSNotificationCenter.defaultCenter().postNotificationName("questionLoadedId", object: nil, userInfo: userInfo)
               
             } else {
                 

@@ -13,6 +13,7 @@ enum CellType : Double {
     case Title = 0.0
     case Body = 0.1
     case User = 0.2
+    case Comment = 0.3
     case Answer = 1.0
 }
 

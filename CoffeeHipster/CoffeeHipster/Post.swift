@@ -28,22 +28,20 @@ public final class Post: ManagedObject, ManagedObjectOperations {
     @NSManaged public private(set) var downVoteCount: NSNumber
     @NSManaged public private(set) var upVoteCount: NSNumber
     @NSManaged public private(set) var answer: Set<Answer>?
+    @NSManaged public private(set) var comments: Set<Comment>?
     
     lazy public private(set) var currentVoteCount : Int = self.getCurrentVoteTotal()
     
     public static func processBatch(moc: NSManagedObjectContext, jsonArray: [AnyObject]) {
-        let queue = dispatch_queue_create("postQueue", DISPATCH_QUEUE_SERIAL)
-        
+  
         var popped = jsonArray
         popped.removeLast()
         
-        for post in popped {
-            dispatch_sync(queue, { () in
-                moc.performChanges {
-                    //print("\n==============\n Post: \n\(post) \n==============\n")
-                    Post.insertIntoContext(moc, json: post)
-                }
-            })
+        for post in popped { 
+            moc.performChanges {
+                //print("\n==============\n Post: \n\(post) \n==============\n")
+                Post.insertIntoContext(moc, json: post)
+            } 
         }
     }
     
@@ -74,9 +72,11 @@ public final class Post: ManagedObject, ManagedObjectOperations {
         guard let jsonBody = json["body"] as? String else { fatalError("post: created failed") }
         guard let jsonDownVoteCount = json["down_vote_count"] as? Int else { fatalError("post: created failed") }
         guard let jsonUpVoteCount = json["up_vote_count"] as? Int else { fatalError("post: created failed") }
+        guard let jsonCommentCount = json["comment_count"] as? Int else { fatalError("derp")}
         
         
         let owner = User.insertIntoContext(moc, json: user)
+        
         
         var answerSet : Set<Answer>?
         
@@ -91,7 +91,7 @@ public final class Post: ManagedObject, ManagedObjectOperations {
             tags.append(tag)
         }
         
-        //post.acceptedAnswerId = accepted
+       
         post.answerCount = ansCount
         post.creationDate = date
         post.isAnswered = answered
@@ -109,7 +109,16 @@ public final class Post: ManagedObject, ManagedObjectOperations {
         post.upVoteCount = jsonUpVoteCount
         post.answer = answerSet
         post.owner = owner
-
+        
+        if jsonCommentCount > 0 {
+            guard let jsonComments = json["comments"] as? [AnyObject] else { fatalError("post: failed to unwrap user") }
+            let comments = Comment.returnSet(moc, jsonArray: jsonComments)
+            post.comments = comments
+        }
+        
+        print("======")
+        print(post)
+        print("======")
         
         moc.performChanges {
             post

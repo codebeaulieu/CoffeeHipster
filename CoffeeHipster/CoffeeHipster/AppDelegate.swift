@@ -13,7 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-  
+    var userDefaults = NSUserDefaults.standardUserDefaults()
  
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         print("\n directory: \n \(applicationDocumentsDirectory) \n")
+  
+        
+        checkIfFirstLaunch()
         
         delay(0.5) {
             Connect.handle(api: .Post, request: .Get, moc: self.managedObjectContext)
@@ -31,6 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vc.managedObjectContext = managedObjectContext
          
         return true
+    }
+    
+    func checkIfFirstLaunch() {
+        if userDefaults.valueForKey("first-run") == nil {
+            userDefaults.setValue(true, forKey: "first-run")
+        } else {
+            userDefaults.setValue(false, forKey: "first-run")
+        }
     }
 
     func applicationWillResignActive(application: UIApplication)    { }

@@ -11,6 +11,8 @@
 		370961011C98749700416B57 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961001C98749700416B57 /* Section.swift */; };
 		370961031C987E4900416B57 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961021C987E4900416B57 /* PostTableViewCell.swift */; };
 		370961121C987F9400416B57 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370961111C987F9400416B57 /* GCD.swift */; };
+		370F1F881D00B009006C8754 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F1F861D00B009006C8754 /* Comment.swift */; };
+		370F1F8A1D00B9A7006C8754 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F1F891D00B9A7006C8754 /* CommentTableViewCell.swift */; };
 		37343BBE1C696FF30058CDDA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37343BBD1C696FF30058CDDA /* SWRevealViewController.m */; };
 		37343BCA1C69788E0058CDDA /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37343BC91C69788E0058CDDA /* MenuTableViewController.swift */; };
 		37343BCC1C697EA80058CDDA /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37343BCB1C697EA80058CDDA /* HomeTableViewController.swift */; };
@@ -91,6 +93,8 @@
 		370961001C98749700416B57 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		370961021C987E4900416B57 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		370961111C987F9400416B57 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		370F1F861D00B009006C8754 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		370F1F891D00B9A7006C8754 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		37343BBB1C696FF20058CDDA /* CoffeeHipster-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoffeeHipster-Bridging-Header.h"; sourceTree = "<group>"; };
 		37343BBC1C696FF30058CDDA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		37343BBD1C696FF30058CDDA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 		370960F91C9866E900416B57 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				370F1F861D00B009006C8754 /* Comment.swift */,
 				72CA5C5E1CF92384005529FB /* Answer.swift */,
 				72AE8D621CE2E86F00C35659 /* Post.swift */,
 				72AE8D641CE2E86F00C35659 /* User.swift */,
@@ -338,6 +343,7 @@
 				72A5904E1CFCC0F800416DEF /* CellTypes.swift */,
 				72A590491CFCBD3400416DEF /* TitleTableViewCell.swift */,
 				72A5904C1CFCBE4600416DEF /* BodyTableViewCell.swift */,
+				370F1F891D00B9A7006C8754 /* CommentTableViewCell.swift */,
 				72A590521CFCC82200416DEF /* PostCellViewModel.swift */,
 				72A590541CFCEC1A00416DEF /* UserTableViewCell.swift */,
 			);
@@ -584,6 +590,7 @@
 				37EDFFD91C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld in Sources */,
 				726790601CE43FAE00E5A10F /* ExploreViewController.swift in Sources */,
 				72AE8D371CE2A07300C35659 /* SegueHandlerType.swift in Sources */,
+				370F1F881D00B009006C8754 /* Comment.swift in Sources */,
 				72C749081CE5557200A9A772 /* FetchedResultsDataProvider.swift in Sources */,
 				72A590441CF931BA00416DEF /* Extension+String.swift in Sources */,
 				72AE8D431CE2A96A00C35659 /* Extension+UIViewController.swift in Sources */,
@@ -602,6 +609,7 @@
 				729A06B61CE17A64006FBB6E /* TimerPageViewController.swift in Sources */,
 				72A590511CFCC2B300416DEF /* PostDetailTableViewController.swift in Sources */,
 				729A06B41CE172C9006FBB6E /* TimerSettingsTableViewController.swift in Sources */,
+				370F1F8A1D00B9A7006C8754 /* CommentTableViewCell.swift in Sources */,
 				72C749061CE5550400A9A772 /* ConfigurableCell.swift in Sources */,
 				37CD2BCC1CCD650D00EE8382 /* PostRepository.swift in Sources */,
 				72AE8D681CE2E86F00C35659 /* User.swift in Sources */,

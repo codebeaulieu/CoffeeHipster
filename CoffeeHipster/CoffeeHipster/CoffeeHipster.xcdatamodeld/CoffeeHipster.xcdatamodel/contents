@@ -8,6 +8,7 @@
         <attribute name="last_activity_date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="question_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" syncable="YES"/>
         <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="answer" inverseEntity="Post" syncable="YES"/>
         <compoundIndexes>
@@ -16,13 +17,19 @@
             </compoundIndex>
         </compoundIndexes>
     </entity>
-    <entity name="Comments" syncable="YES">
-        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="comment_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="creation_date" optional="YES" attributeType="Date" syncable="YES"/>
+    <entity name="Comment" representedClassName="CoffeeHipster.Comment" syncable="YES">
+        <attribute name="body" attributeType="String" syncable="YES"/>
+        <attribute name="comment_id" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="creation_date" attributeType="Date" syncable="YES"/>
         <attribute name="edited" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="post_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="post_id" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="comment_id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="Post" representedClassName="CoffeeHipster.Post" syncable="YES">
         <attribute name="acceptedAnswerId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -40,6 +47,7 @@
         <attribute name="upVoteCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="viewCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="answer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Answer" inverseName="question" inverseEntity="Answer" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" syncable="YES"/>
         <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -55,17 +63,13 @@
         <attribute name="rep" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="userId" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="userType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" syncable="YES"/>
         <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Post" syncable="YES"/>
-        <uniquenessConstraints>
-            <uniquenessConstraint>
-                <constraint value="userId"/>
-            </uniquenessConstraint>
-        </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Comments" positionX="18" positionY="-36" width="128" height="135"/>
-        <element name="Post" positionX="241" positionY="-378" width="128" height="283"/>
-        <element name="User" positionX="-558" positionY="-264" width="128" height="165"/>
-        <element name="Answer" positionX="-135" positionY="-468" width="128" height="178"/>
+        <element name="Answer" positionX="-38" positionY="-513" width="128" height="195"/>
+        <element name="Comment" positionX="-351" positionY="-510" width="128" height="148"/>
+        <element name="Post" positionX="225" positionY="-342" width="128" height="298"/>
+        <element name="User" positionX="-558" positionY="-264" width="128" height="178"/>
     </elements>
 </model>

@@ -34,12 +34,12 @@ public final class User: ManagedObject {
         
         let user: User = moc.insertObject()
         
-        let name = json["display_name"] as? String
-        let type = json["user_type"] as? String
-        let userId = json["user_id"] as? Int
-        let url = json["link"] as? String
-        let image = json["profile_image"] as? String
-        let rep = json["reputation"] as? Int
+        guard let name = json["display_name"] as? String else { fatalError() }
+        guard let type = json["user_type"] as? String else { fatalError() }
+        guard let userId = json["user_id"] as? Int else { fatalError() }
+        guard let url = json["link"] as? String else { fatalError() }
+        guard let image = json["profile_image"] as? String else { fatalError() }
+        guard let rep = json["reputation"] as? Int else { fatalError() }
         
         user.userId = userId ?? 0
         user.displayName = name ?? ""
@@ -49,7 +49,9 @@ public final class User: ManagedObject {
         user.userType = type ?? ""
         user.hipsterRep = 0
         // TODO: user posts stores all of the users postId's
-        
+        print("======")
+        print(user)
+        print("======")
         return user
     }
 }
