@@ -43,7 +43,6 @@ class BodyTableViewCell: UITableViewCell, UIWebViewDelegate {
     private var _height : CGFloat = 0
     var height: CGFloat! {
         get {
-         
             return _height
         }
         set {
@@ -53,7 +52,7 @@ class BodyTableViewCell: UITableViewCell, UIWebViewDelegate {
                 
                     var userInfo = [String:AnyObject]()
                     userInfo["Height"] = self.height
-                    userInfo["Position"] = self.position!
+                    userInfo["Position"] = self.position! //TODO: guard
                
                     NSNotificationCenter.defaultCenter().postNotificationName("questionLoadedId", object: nil, userInfo: userInfo)
               

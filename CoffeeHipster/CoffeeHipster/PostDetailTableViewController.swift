@@ -33,46 +33,33 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
     }
     
     func createRowsFromObject() {
-        // TODO: re-evaluate all of this crap
+        // TODO: re-evaluate, this is icky
         var postData = [PostCellViewModel]()
         // title
-        let titleCell = PostCellViewModel(cellType: .Title,
-                                          content: [
-                                            "title":post.title,
-                                            "count":"\(post.currentVoteCount)"])
-        
+        let titleCell = PostCellViewModel(cellType: .Title, content: [ "title":post.title, "count":"\(post.currentVoteCount)"])
         // body
-        let bodyCell = PostCellViewModel(cellType: .Body,
-                                         content: ["body":post.body!])
-        
-        // user
-        let userCell = PostCellViewModel(cellType: .User,
-                                         content: [
-                                            "image":post.owner.image!,
-                                            "name":post.owner.displayName,
-                                            "rep":"\(post.owner.rep!)"])
+        let bodyCell = PostCellViewModel(cellType: .Body, content: ["body":post.body!])
+        let userCell = PostCellViewModel(cellType: .User, content: [ "image":post.owner.image!, "name":post.owner.displayName, "rep":"\(post.owner.rep!)"])
         
         postData.append(titleCell)
         postData.append(bodyCell)
         postData.append(userCell)
-        
+        // selected
         sectionData.append(Section("question", objects: postData))
-        // answers
-        var answerArray = [PostCellViewModel]()
-        let answers  = post.answer!.sort {  $0.0.is_accepted == true }
+        // other answers
+        let isAccepted = post.answer!.filter { $0.is_accepted == true}.first
         
-        
-        for answer in answers {
-            let answerBody = PostCellViewModel(cellType: .Body,
-                                               content: [
-                                                "body": answer.body,
-                                                "score": "\(answer.score)",
-                                                "accepted": answer.is_accepted])
-            answerArray.append(answerBody)
-            
+        if let accepted = isAccepted {
+            let selected = PostCellViewModel(cellType: .Answer, content: [ "body": accepted.body, "score": "\(accepted.score)", "accepted": accepted.is_accepted])
+            sectionData.append(Section("Answers", objects: [selected]))
         }
-        sectionData.append(Section("Answers", objects: answerArray))
         
+        
+        for answer in post.answer! where answer.is_accepted == false {
+            let answer = PostCellViewModel(cellType: .Body, content: [ "body": answer.body, "score": "\(answer.score)", "accepted": answer.is_accepted])
+       
+            sectionData.append(Section("Answers", objects: [answer]))
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -130,8 +117,7 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
             
             cell.removeMargins()
             return cell
-        case 1.0...1.createDecimal(sectionData[1].items.count):
-     
+        case let x where x >= 1.0:
             let htmlHeight = contentHeights[position] ?? 200.0
             guard let body = current.content["body"] as? String,
                 score = current.content["score"] as? String,
@@ -140,15 +126,15 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
             cell.postWebView.position = position
             cell.position = position
             cell.loadBody(body)
-            cell.score = score
+            cell.votesLabel.text = score
             cell.checkMarkImageView.hidden = !accepted ?? true
             cell.postWebView.frame = CGRectMake(0, 0, cell.frame.size.width, htmlHeight)
             cell.removeMargins()
             return cell
-
-
+            
         default:
-            assertionFailure("cell for row at index patch should never hit default switch")
+            
+            assertionFailure("cell for row at index patch should never hit default switch: \(position)")
         }
         
 
@@ -168,7 +154,7 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
         case 0.1 :
             guard let height = contentHeights[position] else { return 0 }
             return height
-        case 1.0...1.createDecimal(sectionData[1].items.count) :
+        case let x where x >= 1.0:
             guard let height = contentHeights[position] else { return 0 }
             return height
         default:
