@@ -116,10 +116,6 @@ public final class Post: ManagedObject, ManagedObjectOperations {
             post.comments = comments
         }
         
-        print("======")
-        print(post)
-        print("======")
-        
         moc.performChanges {
             post
         }

@@ -64,9 +64,7 @@ public final class Answer: ManagedObject {
             let comments = Comment.returnSet(moc, jsonArray: jsonComments)
             answer.comments = comments
         }
-        print("======")
-        print(answer)
-        print("======")
+
         return answer
     }
     

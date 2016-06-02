@@ -14,39 +14,36 @@ final class PostConnect {
 
         let userDefaults = NSUserDefaults.standardUserDefaults()
         
-        func checkLatestPostId(result:(postId: Int)->Void){
-            ///
-            Alamofire.request(.GET, "2.2/posts?pagesize=1&order=desc&sort=creation&site=coffee&filter=!3tz1Wb9MFZsqZaa0.").responseJSON { response in
+        func getLatestPostId(result: Int -> Void) {
+            Alamofire.request(.GET, "https://api.stackexchange.com/2.2/posts?pagesize=1&order=desc&sort=creation&site=coffee&filter=!3tz1Wb9MFZsqZaa0.").responseJSON { response in
                     
                 if response.result.isFailure { completion(Either.Status(StatusCode.Offline)); return }
+                
                 if let JSON = response.result.value {
-                    print("result: \(JSON)")
-                    
                     if let jsonArray = JSON["items"] as? [[String: AnyObject]] {
-                        print("object count: \(jsonArray)")
-                        
+                        let postId = jsonArray[0]["post_id"] as! Int
+                        result(postId); return
                     }
                 }
             } 
         }
         
         func get(id : Int = 0) {
-
-            let qty = userDefaults.valueForKey("first-run") as! Bool ? 40 : 10
-            checkLatestPostId() { postId in
-                print("post id: \(postId)")
-            
+            getLatestPostId() { postId in 
+                let storedId = userDefaults.integerForKey("post-id") ?? 0
+                let qty = (storedId != 0) ? (postId - storedId) : 40
+                userDefaults.setInteger(postId, forKey: "post-id")
+                if qty == 0 { completion(Either.Status(StatusCode.NoNewPosts)); return }
+                
                 Alamofire.request(.GET, "https://api.stackexchange.com/2.2/questions?pagesize=\(qty)&order=desc&sort=activity&site=coffee&filter=!-MQ9xTmbG8fYGhjq4Rg1(IM7N1R.Zajm9")
                     .responseJSON { response in
        
                     if response.result.isFailure { completion(Either.Status(StatusCode.Offline)); return }
+                        
                     if let JSON = response.result.value {
-                      
                         if let jsonArray = JSON["items"] as? [[String: AnyObject]] {
-                            print("object count: \(jsonArray.count)")
                             completion(Either.Object(jsonArray)); return
                         }
-                        
                     } else {
                         completion(Either.Status(StatusCode.RequestTimeOut)); return
                     }
@@ -55,23 +52,18 @@ final class PostConnect {
         }
         
         func getById(id : [Int]) {
-            
-            // build a string from the contents of the incoming array
-            // semi-colon delimited list
-            
             Alamofire.request(.GET, "https://api.stackexchange.com/2.2/posts/\(id)?order=desc&sort=activity&site=coffee&filter=!3yXvh7JDU)hU-ZHbm")
                 .responseJSON { response in
                     
-                    if response.result.isFailure { completion(Either.Status(StatusCode.Offline)); return }
-                    
-                    if let JSON = response.result.value {
-                        if let jsonArray = JSON["items"] as? [[String: AnyObject]] {
-                            //print("jsonArray: \(jsonArray[1])")
-                            completion(Either.Object(jsonArray)); return
-                        }
-                    } else {
-                        completion(Either.Status(StatusCode.RequestTimeOut)); return
+                if response.result.isFailure { completion(Either.Status(StatusCode.Offline)); return }
+                
+                if let JSON = response.result.value {
+                    if let jsonArray = JSON["items"] as? [[String: AnyObject]] {
+                        completion(Either.Object(jsonArray)); return
                     }
+                } else {
+                    completion(Either.Status(StatusCode.RequestTimeOut)); return
+                }
             }
         }
         

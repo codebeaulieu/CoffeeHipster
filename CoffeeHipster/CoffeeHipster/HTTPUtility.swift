@@ -70,6 +70,6 @@ enum StatusCode : Int {
     case ServiceUnavailable           = 503
     case GatewayTimeOut               = 504
     case HTTPVersionNotSupported      = 505
-    
+    case NoNewPosts                   = 999
     
 }

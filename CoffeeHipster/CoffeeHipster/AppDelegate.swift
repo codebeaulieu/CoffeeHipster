@@ -23,12 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("\n directory: \n \(applicationDocumentsDirectory) \n")
   
-        
         checkIfFirstLaunch()
         
-        delay(0.5) {
-            Connect.handle(api: .Post, request: .Get, moc: self.managedObjectContext)
-        }
         guard let vc = window?.rootViewController as? ManagedObjectContextSettable
             else { fatalError("Wrong View Controller Type") }
         vc.managedObjectContext = managedObjectContext
@@ -39,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func checkIfFirstLaunch() {
         if userDefaults.valueForKey("first-run") == nil {
             userDefaults.setValue(true, forKey: "first-run")
+            Connect.handle(api: .Post, request: .Get, moc: self.managedObjectContext)
         } else {
             userDefaults.setValue(false, forKey: "first-run")
         }

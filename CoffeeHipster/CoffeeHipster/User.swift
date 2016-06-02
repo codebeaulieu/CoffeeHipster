@@ -48,10 +48,7 @@ public final class User: ManagedObject {
         user.rep = rep ?? 0
         user.userType = type ?? ""
         user.hipsterRep = 0
-        // TODO: user posts stores all of the users postId's
-        print("======")
-        print(user)
-        print("======")
+
         return user
     }
 }

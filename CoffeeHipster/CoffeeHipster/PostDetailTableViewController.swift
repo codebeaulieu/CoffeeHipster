@@ -150,7 +150,7 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
             cell.position = position
             cell.loadBody(body)
             cell.userNameLabel.text = name ?? "broke"
-            cell.createdOnLabel.text = "\(NSDate())"
+            cell.createdOnLabel.text = "\(NSDate())" // TODO: fix
             cell.removeMargins()
             
             return cell
@@ -158,7 +158,9 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
             let htmlHeight = contentHeights[position] ?? 100.0
             guard let body = current.content["body"] as? String,
                 score = current.content["score"] as? String,
-                accepted = current.content["accepted"] as? Bool else { return UITableViewCell() }
+                accepted = current.content["accepted"] as? Bool
+            else { return UITableViewCell() }
+            
             let cell = tableView.dequeueReusableCellWithIdentifier("answerCell", forIndexPath: indexPath) as! BodyTableViewCell
             cell.postWebView.position = position
             cell.position = position

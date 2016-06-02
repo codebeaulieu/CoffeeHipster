@@ -52,13 +52,9 @@ public final class Comment: ManagedObject {
         comment.post_id = jsonPostId
         comment.comment_id = jsonCommentId
         comment.owner = user
-        print("======")
-        print(comment)
-        print("======")
-        return comment
-    }
 
-    
+        return comment
+    }    
 }
 
 extension Comment: ManagedObjectType {
