@@ -42,18 +42,19 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
         // title
         let titleCell = PostCellViewModel(cellType: .Title, content: [ "title":post.title, "count":"\(post.currentVoteCount)"])
         // body
-        let bodyCell = PostCellViewModel(cellType: .Body, content: ["body":post.body!])
-        let userCell = PostCellViewModel(cellType: .User, content: [ "image":post.owner.image!, "name":post.owner.displayName, "rep":"\(post.owner.rep!)"])
+        let bodyCell = PostCellViewModel(cellType: .Question(.Body), content: ["body":post.body!])
+        let userCell = PostCellViewModel(cellType: .Question(.Author), content: [ "image":post.owner.image!, "name":post.owner.displayName, "rep":"\(post.owner.rep!)"])
         
         postData.append(titleCell)
         postData.append(bodyCell)
         postData.append(userCell)
         
-        for comment in post.comments! {
-            print(comment)
-            let commentCell = PostCellViewModel(cellType: .Comment, content: [ "image":post.owner.image!, "body":comment.body, "name":"\(comment.owner.displayName)"])
+        let postComments = post.comments!.sort { $0.0.creation_date.isLessThanDate($0.1.creation_date) }
+        for comment in postComments {
+            let commentCell = PostCellViewModel(cellType: .Question(.Comment), content: [ "date":comment.creation_date, "body":comment.body, "name":"\(comment.owner.displayName)"])
             postData.append(commentCell)
         }
+        /*******************************************************************/
         // selected
         sectionData.append(Section("question", objects: postData))
         // other answers
@@ -63,23 +64,34 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
         
         if let accepted = isAccepted {
             var selectedSection = [PostCellViewModel]()
-            let selected = PostCellViewModel(cellType: .Answer, content: [ "body": accepted.body, "score": "\(accepted.score)", "accepted": accepted.is_accepted])
+            let selected = PostCellViewModel(cellType: .Answer(.Body), content: [ "body": accepted.body, "score": "\(accepted.score)", "accepted": accepted.is_accepted])
             selectedSection.append(selected)
-            for comment in accepted.comments! {
-                let commentCell = PostCellViewModel(cellType: .Comment, content: [ "date":comment.creation_date, "body":comment.body, "name":"\(comment.owner.displayName)"])
+            
+            let acceptedAuthor = PostCellViewModel(cellType: .Answer(.Author), content: [ "image":post.owner.image!, "name":accepted.owner.displayName, "rep":"\(accepted.owner.rep!)"])
+            selectedSection.append(acceptedAuthor)
+            
+            let acceptedComments = accepted.comments!.sort { $0.0.creation_date.isLessThanDate($0.1.creation_date) }
+            for comment in acceptedComments {
+                let commentCell = PostCellViewModel(cellType: .Answer(.Comment), content: [ "date":comment.creation_date, "body":comment.body, "name":"\(comment.owner.displayName)"])
                 selectedSection.append(commentCell)
             }
             
             sectionData.append(Section("Answers", objects: selectedSection))
         }
-        
+        /*******************************************************************/
+        // other answers
+
         for answer in allAnswers where answer.is_accepted == false {
-            let ans = PostCellViewModel(cellType: .Body, content: [ "body": answer.body, "score": "\(answer.score)", "accepted": answer.is_accepted])
+            let ans = PostCellViewModel(cellType: .Answer(.Body), content: [ "body": answer.body, "score": "\(answer.score)", "accepted": answer.is_accepted])
             var answerSection = [PostCellViewModel]()
             answerSection.append(ans)
             
-            for comment in answer.comments! {
-                let commentCell = PostCellViewModel(cellType: .Comment, content: [ "date":comment.creation_date, "body":comment.body, "name":"\(comment.owner.displayName)"])
+            let answerAuthor = PostCellViewModel(cellType: .Answer(.Author), content: [ "image":answer.owner.image!, "name":answer.owner.displayName, "rep":"\(answer.owner.rep!)"])
+            answerSection.append(answerAuthor)
+            
+            let answerComments = answer.comments!.sort { $0.0.creation_date.isLessThanDate($0.1.creation_date) }
+            for comment in answerComments {
+                let commentCell = PostCellViewModel(cellType: .Answer(.Comment), content: [ "date":comment.creation_date, "body":comment.body, "name":"\(comment.owner.displayName)"])
                 answerSection.append(commentCell)
             }
             
@@ -106,85 +118,135 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+  
         let current = sectionData[indexPath.section].items[indexPath.row]
+       
+        print(current.content)
+ 
+        print("items :  \(sectionData[indexPath.section].items.count)")
+        print("indexPath :  \(indexPath.row)")
         
-        // TODO: I'd rather switch on an enum
-        let position = indexPath.section.createDecimal(indexPath.row)
-
-        switch position {
-        case 0.0 :
-            let cell = tableView.dequeueReusableCellWithIdentifier("titleCell", forIndexPath: indexPath) as! TitleTableViewCell
-            cell.titleLabel.text = current.content["title"] as? String
-            cell.voteCount.text = current.content["count"] as? String
-            cell.removeMargins()
-            return cell
-        case 0.1:
-            let htmlHeight = contentHeights[position] ?? 100.0
-            guard let body = current.content["body"] as? String else { return UITableViewCell() }
-            let cell = tableView.dequeueReusableCellWithIdentifier("bodyCell", forIndexPath: indexPath) as! BodyTableViewCell
-            cell.postWebView.position = position
-            cell.loadBody(body)
-            cell.position = position
-            cell.postWebView.frame = CGRectMake(0, 0, cell.frame.size.width, htmlHeight)
-            cell.removeMargins()
-            return cell
-        case 0.2:
-            let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as! UserTableViewCell
-            
-            guard let image = current.content["image"] as? String,
-                name = current.content["name"] as? String,
-                rep = current.content["rep"] as? String else { return UITableViewCell() }
-
-            cell.userImageView.imageFromUrl(image)
-            cell.userNameLabel.text = name
-            cell.userRepLabel.text = rep
-            cell.removeMargins()
-            return cell
-        case let x where x >= 0.3 && x < 1.0:
-            guard let body = current.content["body"] as? String else {fatalError()}
-            //guard let date = current.content["date"] as? String else {fatalError()}
-            guard let name = current.content["name"] as? String else { fatalError() }
-            
-            let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as! CommentTableViewCell
-      
-            cell.position = position
-            cell.loadBody(body)
-            cell.userNameLabel.text = name ?? "broke"
-            cell.createdOnLabel.text = "\(NSDate())" // TODO: fix
-            cell.removeMargins()
-            
-            return cell
-        case let x where x >= 1.0:
-            let htmlHeight = contentHeights[position] ?? 100.0
-            guard let body = current.content["body"] as? String,
-                score = current.content["score"] as? String,
-                accepted = current.content["accepted"] as? Bool
-            else { return UITableViewCell() }
-            
-            let cell = tableView.dequeueReusableCellWithIdentifier("answerCell", forIndexPath: indexPath) as! BodyTableViewCell
-            cell.postWebView.position = position
-            cell.position = position
-            cell.loadBody(body)
-            cell.votesLabel.text = score
-            cell.checkMarkImageView.hidden = !accepted ?? true
-            cell.postWebView.frame = CGRectMake(0, 0, cell.frame.size.width, htmlHeight)
-            cell.removeMargins()
-            return cell
-            
-        default:
-            print("probably a comment")
-            //assertionFailure("cell for row at index patch should never hit default switch: \(position)")
-        }
         
+            let position = indexPath.section.createDecimal(indexPath.row)
 
-        // Configure the cell...
+            switch current.cellType {
+            case .Title:
+                guard let cell = tableView.dequeueReusableCellWithIdentifier("titleCell", forIndexPath: indexPath) as? TitleTableViewCell
+                else { fatalError("failed to dequeue cell") }
+                cell.titleLabel.text = current.content["title"] as? String
+                cell.voteCount.text = current.content["count"] as? String
+                cell.removeMargins()
+                return cell
+            case .Question(let sort):
+                if case .Body = sort {
+                    let htmlHeight = contentHeights[position] ?? 100.0
+                    guard let body = current.content["body"] as? String else { return UITableViewCell() }
+                    
+                    guard let cell = tableView.dequeueReusableCellWithIdentifier("bodyCell", forIndexPath: indexPath) as? BodyTableViewCell
+                    else { fatalError("failed to dequeue cell") }
+                    
+                    cell.postWebView.position = position
+                    cell.loadBody(body)
+                    cell.position = position
+                    cell.postWebView.frame = CGRectMake(0, 0, cell.frame.size.width, htmlHeight)
+                    cell.removeMargins()
+                    return cell ?? UITableViewCell()
+                } else if case .Comment = sort {
+                    // comment
+                    guard let body = current.content["body"] as? String,
+                        date = current.content["date"] as? NSDate,
+                        name = current.content["name"] as? String
+                    else { fatalError("failed to unwrap body") }
+                    
+                    guard let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as? CommentTableViewCell
+                    else { fatalError("failed to dequeue cell") }
+                    
+                    cell.position = position
+                    cell.loadBody(body)
+                    cell.userNameLabel.text = name ?? "broke"
+                    cell.createdOnLabel.text = "\(date.readable())"
+                    cell.removeMargins()
+                    
+                    return cell
+                } else if case .Author = sort {
+                    
+                    guard let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as? UserTableViewCell
+                    else { fatalError("failed to dequeue cell") }
+                    
+                    guard let image = current.content["image"] as? String,
+                        name = current.content["name"] as? String,
+                        rep = current.content["rep"] as? String else { return UITableViewCell() }
+                    
+                    cell.userImageView.imageFromUrl(image)
+                    cell.userNameLabel.text = name
+                    cell.userRepLabel.text = rep
+                    cell.removeMargins()
+                    return cell
+                }
+            case .Answer(let sort): 
+                if case .Body = sort {
+                    let htmlHeight = contentHeights[position] ?? 100.0
+                    guard let body = current.content["body"] as? String,
+                        score = current.content["score"] as? String,
+                        accepted = current.content["accepted"] as? Bool
+                        else { return UITableViewCell() }
+                    
+                    guard let cell = tableView.dequeueReusableCellWithIdentifier("answerCell", forIndexPath: indexPath) as? BodyTableViewCell
+                    else { fatalError("failed to dequeue cell") }
+                    
+                    cell.postWebView.position = position
+                    cell.position = position
+                    cell.loadBody(body)
+                    cell.votesLabel.text = score
+                    cell.checkMarkImageView.hidden = !accepted ?? true
+                    cell.postWebView.frame = CGRectMake(0, 0, cell.frame.size.width, htmlHeight)
+                    cell.removeMargins()
+                    return cell
 
+                } else if case .Comment = sort {
+
+                    guard let body = current.content["body"] as? String,
+                        date = current.content["date"] as? NSDate,
+                        name = current.content["name"] as? String
+                    else { fatalError("failed to unwrap body") }
+                    
+                    guard let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as? CommentTableViewCell
+                    else { fatalError("failed to dequeue cell") }
+                
+                    cell.position = position
+                    cell.loadBody(body)
+                    cell.userNameLabel.text = name ?? "broke"
+                    cell.createdOnLabel.text = "\(date.readable())"
+                    cell.removeMargins()
+                    
+                    return cell
+
+                } else if case .Author = sort {
+                    print("author position: \(position)")
+                    
+                    guard let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as? UserTableViewCell
+                    else { fatalError("failed to dequeue cell") }
+                    
+                    guard let image = current.content["image"] as? String,
+                        name = current.content["name"] as? String,
+                        rep = current.content["rep"] as? String
+                    else { return UITableViewCell() }
+                    
+                    cell.userImageView.imageFromUrl(image)
+                    cell.userNameLabel.text = name
+                    cell.userRepLabel.text = rep
+                    cell.removeMargins()
+                    
+                    return cell
+                }
+            }
+          //assertionFailure("Should never reach this point")
         return UITableViewCell()
     }
  
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        //TODO: again, would prefer to switch on an enum
+        //TODO: this is causing display issues
         let position = indexPath.section.createDecimal(indexPath.row)
  
         switch position {
@@ -197,7 +259,7 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
             guard let height = contentHeights[position] else { return 50 }
             return height
         case let x where x >= 1.0:
-            guard let height = contentHeights[position] else { return 0 }
+            guard let height = contentHeights[position] else { return 50 }
             return height
         default:
             return 50

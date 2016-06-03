@@ -47,7 +47,6 @@ class CommentTableViewCell: UITableViewCell {
     var position : Double! {
         didSet {
             ObservationContext = Int(position * 10)
-            print("MyObservationContext \(ObservationContext)")
         }
     }
  
@@ -59,7 +58,7 @@ class CommentTableViewCell: UITableViewCell {
         set {
             
             if _height != newValue {
-                _height = newValue + 10
+                _height = newValue + 30
                 var userInfo = [String:AnyObject]()
                 userInfo["Height"] = self.height
                 userInfo["Position"] = self.position! //TODO: guard

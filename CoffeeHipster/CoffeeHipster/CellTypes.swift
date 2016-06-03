@@ -9,11 +9,14 @@
 import Foundation
 
 // the associated type represents the cells tag
-enum CellType : Double {
-    case Title = 0.0
-    case Body = 0.1
-    case User = 0.2
-    case Comment = 0.3
-    case Answer = 1.0
+enum CellType {
+    case Title
+    case Question(PostSort) 
+    case Answer(PostSort)
 }
 
+enum PostSort {
+    case Body
+    case Comment
+    case Author
+}
