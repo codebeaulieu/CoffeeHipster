@@ -77,19 +77,20 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
             }
             
             sectionData.append(Section("Answers", objects: selectedSection))
-        }
+        } 
         /*******************************************************************/
         // other answers
 
         for answer in allAnswers where answer.is_accepted == false {
-            let ans = PostCellViewModel(cellType: .Answer(.Body), content: [ "body": answer.body, "score": "\(answer.score)", "accepted": answer.is_accepted])
             var answerSection = [PostCellViewModel]()
+            let ans = PostCellViewModel(cellType: .Answer(.Body), content: [ "body": answer.body, "score": "\(answer.score)", "accepted": answer.is_accepted])
             answerSection.append(ans)
             
             let answerAuthor = PostCellViewModel(cellType: .Answer(.Author), content: [ "image":answer.owner.image!, "name":answer.owner.displayName, "rep":"\(answer.owner.rep!)"])
             answerSection.append(answerAuthor)
             
             let answerComments = answer.comments!.sort { $0.0.creation_date.isLessThanDate($0.1.creation_date) }
+            
             for comment in answerComments {
                 let commentCell = PostCellViewModel(cellType: .Answer(.Comment), content: [ "date":comment.creation_date, "body":comment.body, "name":"\(comment.owner.displayName)"])
                 answerSection.append(commentCell)
