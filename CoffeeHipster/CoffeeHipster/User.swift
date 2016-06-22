@@ -33,21 +33,24 @@ public final class User: ManagedObject {
     public static func insertIntoContext(moc: NSManagedObjectContext, json: AnyObject) -> User {
         
         let user: User = moc.insertObject()
+
+        guard let name = json["display_name"] as? String,
+            type = json["user_type"] as? String else { fatalError() }
         
-        guard let name = json["display_name"] as? String else { fatalError() }
-        guard let type = json["user_type"] as? String else { fatalError() }
-        guard let userId = json["user_id"] as? Int else { fatalError() }
-        guard let url = json["link"] as? String else { fatalError() }
-        guard let image = json["profile_image"] as? String else { fatalError() }
-        guard let rep = json["reputation"] as? Int else { fatalError() }
+        if type != "does_not_exist" {
+            guard let userId = json["user_id"] as? Int,
+                url = json["link"] as? String,
+                image = json["profile_image"] as? String,
+                rep = json["reputation"] as? Int
+            else { fatalError("failed to extract user") }
+            user.userId = userId ?? 0
+            user.image = image ?? "TODO:// add no image pic"
+            user.profile = NSURL(fileURLWithPath: url ?? "")
+            user.rep = rep ?? 0
+        }
         
-        user.userId = userId ?? 0
         user.displayName = name ?? ""
-        user.profile = NSURL(fileURLWithPath: url ?? "")
-        user.image = image ?? "TODO:// add no image pic"
-        user.rep = rep ?? 0
         user.userType = type ?? ""
-        user.hipsterRep = 0
 
         return user
     }

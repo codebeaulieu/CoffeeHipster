@@ -23,7 +23,7 @@ class ExploreViewController: UIViewController, ManagedObjectContextSettable, Seg
         self.presentViewController(vc, animated: false, completion: nil)
     }
     
-    var managedObjectContext: NSManagedObjectContext!
+    var moc: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()

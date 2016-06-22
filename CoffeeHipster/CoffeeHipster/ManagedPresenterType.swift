@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ManagedPresenterType: ManagedObjectContextSettable {
-    //var moodSource: MoodSource! { get set }
+
 }

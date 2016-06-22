@@ -29,7 +29,8 @@ final class PostConnect {
         }
         
         func get(id : Int = 0) {
-            getLatestPostId() { postId in 
+            getLatestPostId() { postId in
+                
                 let storedId = userDefaults.integerForKey("post-id") ?? 0
                 let qty = (storedId != 0) ? (postId - storedId) : 40
                 
@@ -37,7 +38,7 @@ final class PostConnect {
                 
                 userDefaults.setInteger(postId, forKey: "post-id")
                 if qty == 0 { completion(Either.Status(StatusCode.NoNewPosts)); return }
-                
+                print("\(qty) new posts")
                 Alamofire.request(.GET, "https://api.stackexchange.com/2.2/questions?pagesize=\(qty)&order=desc&sort=activity&site=coffee&filter=!-MQ9xTmbG8fYGhjq4Rg1(IM7N1R.Zajm9")
                     .responseJSON { response in
        

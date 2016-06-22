@@ -16,7 +16,7 @@ class RevealViewController: SWRevealViewController, ManagedObjectContextSettable
         case SW_Front = "sw_front"
     }
     
-    var managedObjectContext: NSManagedObjectContext!
+    var moc: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +30,13 @@ class RevealViewController: SWRevealViewController, ManagedObjectContextSettable
         case .SW_Rear:
             guard let vc = segue.destinationViewController as? ManagedObjectContextSettable
             else { fatalError("wrong vc type") }
-            vc.managedObjectContext = managedObjectContext
+            vc.moc = moc
         case .SW_Front:
 
             guard let nc = segue.destinationViewController as? RootViewController,
             vc = nc.viewControllers.first as? ManagedObjectContextSettable
                 else { fatalError("wrong vc type") }
-            vc.managedObjectContext = managedObjectContext
+            vc.moc = moc
         }
     }
     

@@ -16,7 +16,7 @@ class MenuTableViewController: UITableViewController, ManagedObjectContextSettab
         case Explore = "exploreSegue"
     }
     
-    var managedObjectContext: NSManagedObjectContext!
+    var moc: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class MenuTableViewController: UITableViewController, ManagedObjectContextSettab
         guard let nc = segue.destinationViewController as? RootViewController,
             vc = nc.viewControllers.first as? ManagedObjectContextSettable
             else { fatalError("wrong vc type") }
-        vc.managedObjectContext = managedObjectContext
+        vc.moc = moc
         
         switch segueIdenfifierForSegue(segue) {
         case .Home:

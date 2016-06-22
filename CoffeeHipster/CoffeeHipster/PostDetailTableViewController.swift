@@ -20,7 +20,7 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
         
     }
     
-    var managedObjectContext: NSManagedObjectContext!
+    var moc: NSManagedObjectContext!
     
     var sectionData = [Section<PostCellViewModel>]()
     var contentHeights = [Double : CGFloat]()
@@ -296,7 +296,7 @@ class PostDetailTableViewController: UITableViewController, ManagedObjectContext
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard let vc = segue.destinationViewController as? ManagedObjectContextSettable
             else { fatalError("Wrong View Controller Type") }
-        vc.managedObjectContext = managedObjectContext
+        vc.moc = moc
  
     }
 
