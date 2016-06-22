@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         guard let vc = window?.rootViewController as? ManagedObjectContextSettable
             else { fatalError("Wrong View Controller Type") }
-        vc.managedObjectContext = managedObjectContext
+        vc.moc = managedObjectContext
          
         return true
     }

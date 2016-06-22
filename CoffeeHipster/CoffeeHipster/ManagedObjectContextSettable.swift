@@ -10,12 +10,12 @@ import Foundation
 import CoreData
 
 protocol ManagedObjectContextSettable: class {
-    var managedObjectContext: NSManagedObjectContext! { get set }
+    var moc: NSManagedObjectContext! { get set }
 }
 
 extension ManagedObjectContextSettable {
     func checkManagedObjectContext(name : String) {
-        if managedObjectContext == nil {
+        if moc == nil {
             assertionFailure("\(name) is missing the managed object context.")
         }
     }

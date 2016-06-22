@@ -16,7 +16,7 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         case Detail = "questionDetailSegue"
     }
     
-    var managedObjectContext: NSManagedObjectContext!
+    var moc: NSManagedObjectContext!
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBAction func handleTimerButtonTapped(sender: UIBarButtonItem) {
@@ -33,16 +33,19 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         super.viewDidLoad()
         checkManagedObjectContext("Home")
         setupRevealMenu(self)
-
+        self.refreshControl?.addTarget(self, action: #selector(HomeTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         setupTableView()
-        delay(1) {
-            self.getPosts()
+        
+    }
+    
+    func refresh(sender:AnyObject) {
+        Connect.handle(api: .Post, request: .Get, moc: self.moc)
+        delay (1) {
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
         }
     }
-  
-    func getPosts() {
-       
-    }
+    
      
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
@@ -51,13 +54,13 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard let vc = segue.destinationViewController as? ManagedObjectContextSettable
             else { fatalError("Wrong View Controller Type") }
-        vc.managedObjectContext = managedObjectContext
+        vc.moc = moc
         
         switch segueIdenfifierForSegue(segue) {
         case .Detail:
             guard let view = segue.destinationViewController as? PostDetailTableViewController
                 else { fatalError("wrong vc type") }
-            view.managedObjectContext = managedObjectContext
+            view.moc = moc
             view.post = dataSource.selectedObject
         }
     }
@@ -74,7 +77,7 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
         request.returnsObjectsAsFaults = false
         request.fetchBatchSize = 100
         request.sortDescriptors = Post.defaultSortDescriptors
-        let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         let dataProvider = FetchedResultsDataProvider(fetchedResultsController: frc, delegate: self)
         dataSource = TableViewDataSource(tableView: tableView, dataProvider: dataProvider, delegate: self)
     } 

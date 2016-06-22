@@ -11,7 +11,7 @@ import CoreData
 
 class RootViewController: UINavigationController, ManagedObjectContextSettable {
 
-    var managedObjectContext: NSManagedObjectContext!
+    var moc: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
