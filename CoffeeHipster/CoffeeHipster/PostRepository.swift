@@ -32,6 +32,9 @@ final class PostConnect {
             getLatestPostId() { postId in 
                 let storedId = userDefaults.integerForKey("post-id") ?? 0
                 let qty = (storedId != 0) ? (postId - storedId) : 40
+                
+                print("number of posts: \(qty)")
+                
                 userDefaults.setInteger(postId, forKey: "post-id")
                 if qty == 0 { completion(Either.Status(StatusCode.NoNewPosts)); return }
                 
