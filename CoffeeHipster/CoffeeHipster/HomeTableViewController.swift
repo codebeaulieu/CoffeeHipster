@@ -32,11 +32,21 @@ class HomeTableViewController: UITableViewController, ManagedObjectContextSettab
     override func viewDidLoad() {
         super.viewDidLoad()
         checkManagedObjectContext("Home")
-        Connect.handle(api: .Post, request: .Get, moc: managedObjectContext)
+        Connect.handle(api: .Post, request: .Get, moc: moc)
         setupRevealMenu(self)
+        self.refreshControl?.addTarget(self, action: #selector(HomeTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         setupTableView()
         
-    } 
+    }
+    
+    func refresh(sender:AnyObject) {
+        Connect.handle(api: .Post, request: .Get, moc: self.moc)
+        delay (1) {
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+        }
+    }
+    
      
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent

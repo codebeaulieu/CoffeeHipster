@@ -63,6 +63,7 @@
 		72AE8D581CE2E63C00C35659 /* UserObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D551CE2E63C00C35659 /* UserObj.swift */; };
 		72AE8D661CE2E86F00C35659 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D621CE2E86F00C35659 /* Post.swift */; };
 		72AE8D681CE2E86F00C35659 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE8D641CE2E86F00C35659 /* User.swift */; };
+		72B859051D1B67A7001E3A0F /* AddCoffeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B859041D1B67A7001E3A0F /* AddCoffeeViewController.swift */; };
 		72BF88221CE3FFFE000FF5DB /* Extension+NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF88211CE3FFFE000FF5DB /* Extension+NSManagedObjectContext.swift */; };
 		72BF88261CE415DD000FF5DB /* Extension+NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF88251CE415DD000FF5DB /* Extension+NSManagedObject.swift */; };
 		72C749001CE5536D00A9A772 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C748FF1CE5536D00A9A772 /* TableViewDataSource.swift */; };
@@ -151,6 +152,7 @@
 		72AE8D551CE2E63C00C35659 /* UserObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserObj.swift; sourceTree = "<group>"; };
 		72AE8D621CE2E86F00C35659 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		72AE8D641CE2E86F00C35659 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		72B859041D1B67A7001E3A0F /* AddCoffeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCoffeeViewController.swift; sourceTree = "<group>"; };
 		72BF88211CE3FFFE000FF5DB /* Extension+NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+NSManagedObjectContext.swift"; sourceTree = "<group>"; };
 		72BF88251CE415DD000FF5DB /* Extension+NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+NSManagedObject.swift"; sourceTree = "<group>"; };
 		72C748FF1CE5536D00A9A772 /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			children = (
 				7267905F1CE43FAE00E5A10F /* ExploreViewController.swift */,
 				726790631CE4420A00E5A10F /* TrendingTableViewController.swift */,
+				72B859041D1B67A7001E3A0F /* AddCoffeeViewController.swift */,
 			);
 			name = "Coffee Wiki";
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				72AE8D411CE2A47200C35659 /* RootViewController.swift in Sources */,
 				37EDFFD91C696EA7003D6BAA /* CoffeeHipster.xcdatamodeld in Sources */,
 				726790601CE43FAE00E5A10F /* ExploreViewController.swift in Sources */,
+				72B859051D1B67A7001E3A0F /* AddCoffeeViewController.swift in Sources */,
 				72AE8D371CE2A07300C35659 /* SegueHandlerType.swift in Sources */,
 				370F1F881D00B009006C8754 /* Comment.swift in Sources */,
 				72C749081CE5557200A9A772 /* FetchedResultsDataProvider.swift in Sources */,

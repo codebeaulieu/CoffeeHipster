@@ -17,6 +17,10 @@ class ExploreViewController: UIViewController, ManagedObjectContextSettable, Seg
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    @IBAction func handleAddButtonTapped(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("addNewCoffee", sender: self)
+    }
+    
     @IBAction func handleTimerButtonTapped(sender: UIBarButtonItem) {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ParentVC") as! TimerPageViewController
         vc.modalPresentationStyle = .OverCurrentContext
